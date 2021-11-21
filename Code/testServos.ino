@@ -29,3 +29,50 @@ void loop(){
 void moveFinger(int fingerNum, int degrees){
   servos[fingerNum].write(degrees);
 }
+void stretchFingers(int note){
+	//do calculation to get degree servo needs to move to
+	//for now just setting degree to note
+	int degree = note
+	moveFinger(5,degree)
+	pushWhiteKeys(note)
+	pushBlackKeys(note)
+}
+#1-5
+void pushBlackKeys(int note){
+	if(note <=2)
+	{
+		moveFinger(0,90)
+		delay(500)
+		moveFinger(0,0)
+	}
+	else if(note <= 4){
+		moveFinger(1,90)
+		delay(500)
+		moveFinger(1,0)
+	}
+	else if(note <= 5){
+		moveFinger(3,90)
+		delay(500)
+		moveFinger(3,0)
+	}
+}
+#A-G corresponds to 1-8
+void pushWhiteKeys(int note){
+	//not final numbers
+	if(note <=3)
+	{
+		moveFinger(0,90)
+		delay(500)
+		moveFinger(0,0)
+	}
+	else if(note <= 6){
+		moveFinger(1,90)
+		delay(500)
+		moveFinger(1,0)
+	}
+	else if(note <= 8){
+		moveFinger(3,90)
+		delay(500)
+		moveFinger(3,0)
+	}
+}
