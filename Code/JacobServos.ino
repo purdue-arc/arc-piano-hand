@@ -7,10 +7,15 @@ Servo pointerServo;
 Servo thumbServo;
 Servo wristServo;
 
+int thumbAngle = 0;
+int pointerAngle = 0;
+int middleAngle = 0;
+int ringAngle = 0;
+int pinkyAngle = 0;
+
 int wristAngleOffset = 0;
 const int defaultWristAngle = 90;
 const int pressKeyAngle = 30;
-
 
 void setup() {
   pinkyServo.attach(3);
@@ -44,80 +49,99 @@ void loop() {
   playKey("A");
   playKey("A#");
   playKey("B");
-  playKey("C4");
-  	
+  playKey("C4");  	
 }
 
+// Plays the given key and goes back to default pos
+void playKey(String key) {
+  setAngles(key);
+  moveJoints();
+  resetJoints();
+}
+
+// Sets finger/wrist angle based on key pressed
 // Note: must distinguish between C3 and C4
 // Note: accidentals must be sharp
-void playKey(String key) {
-  
-  // Run through the keys and set finger/wrist pos
+void setAngles(String key) {
   if (key.equals("C3")) {
     wristAngleOffset = 0;
-    thumbServo.write(pressKeyAngle);
+    thumbAngle = pressKeyAngle;
     
   } else if (key.equals("C#")) {
     wristAngleOffset = 15;
-    pointerServo.write(pressKeyAngle);
+    pointerAngle = pressKeyAngle;
     
   } else if (key.equals("D")) {
     wristAngleOffset = 7;
-    pointerServo.write(pressKeyAngle);
+    pointerAngle = pressKeyAngle;
     
   } else if (key.equals("D#")) {
     wristAngleOffset = 0;
-    pointerServo.write(pressKeyAngle);
+    pointerAngle = pressKeyAngle;
     
   } else if (key.equals("E")) {
     wristAngleOffset = -3;
-    middleServo.write(pressKeyAngle);
+    middleAngle = pressKeyAngle;
     
   } else if (key.equals("F")) {
     wristAngleOffset = 0;
-    middleServo.write(pressKeyAngle);
+    middleAngle = pressKeyAngle;
     
   } else if (key.equals("F#")) {
     wristAngleOffset = -5;
-    middleServo.write(pressKeyAngle);
+    middleAngle = pressKeyAngle;
     
   } else if (key.equals("G")) {
     wristAngleOffset = 0;
-    ringServo.write(pressKeyAngle);
+    ringAngle = pressKeyAngle;
     
   } else if (key.equals("G#")) {
-    wristAngleOffset = -5;
-    ringServo.write(pressKeyAngle);
+    wristAngleOffset = 3;
+    ringAngle = pressKeyAngle;
     
   } else if (key.equals("A")) {
     wristAngleOffset = 0;
-    pinkyServo.write(pressKeyAngle);
+    pinkyAngle = pressKeyAngle;
     
   } else if (key.equals("A#")) {
     wristAngleOffset = -5;
-    pinkyServo.write(pressKeyAngle);
+    pinkyAngle = pressKeyAngle;
     
   } else if (key.equals("B")) {
     wristAngleOffset = -8;
-    pinkyServo.write(pressKeyAngle);
+    pinkyAngle = pressKeyAngle;
     
   } else if (key.equals("C4")) {
     wristAngleOffset = -12;
-    pinkyServo.write(pressKeyAngle);
+    pinkyAngle = pressKeyAngle;
       	
   }
-  
-  // Time for the finger and wrist to move
-  for (int i = 0; i < 30; i++) {
+}
+
+// Gives time for the finger and wrist to move
+void moveJoints() {
+  for (int i = 0; i < 10; i++) {
+    thumbServo.write(thumbAngle);
+    pointerServo.write(pointerAngle);
+    middleServo.write(middleAngle);
+    ringServo.write(ringAngle);
+    pinkyServo.write(pinkyAngle);
     wristServo.write(defaultWristAngle + wristAngleOffset);
   	delay(30);
   }
-  
-  // Time for the fingers to return to normal pos
-  thumbServo.write(0);
-  pointerServo.write(0);
-  middleServo.write(0);
-  ringServo.write(0);
-  pinkyServo.write(0);
-  delay(200);
+}
+
+// Gives time for the fingers to return to normal pos
+void resetJoints() {
+  thumbAngle = 0;
+  pointerAngle = 0;
+  middleAngle = 0;
+  ringAngle = 0;
+  pinkyAngle = 0;
+  thumbServo.write(thumbAngle);
+  pointerServo.write(pointerAngle);
+  middleServo.write(middleAngle);
+  ringServo.write(ringAngle);
+  pinkyServo.write(pinkyAngle);
+  delay(200); 
 }
