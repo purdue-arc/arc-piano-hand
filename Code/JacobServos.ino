@@ -55,13 +55,13 @@ void loop() {
 // Plays the given key and goes back to default pos
 void playKey(String key) {
   setAngles(key);
-  moveJoints();
-  resetJoints();
+  moveServos();
+  resetFingerJoints();
 }
 
 // Sets finger/wrist angle based on key pressed
 // Note: must distinguish between C3 and C4
-// Note: accidentals must be sharp
+// Note: accidentals are always sharp
 void setAngles(String key) {
   if (key.equals("C3")) {
     wristAngleOffset = 0;
@@ -80,7 +80,7 @@ void setAngles(String key) {
     pointerAngle = pressKeyAngle;
     
   } else if (key.equals("E")) {
-    wristAngleOffset = -3;
+    wristAngleOffset = 3;
     middleAngle = pressKeyAngle;
     
   } else if (key.equals("F")) {
@@ -96,7 +96,7 @@ void setAngles(String key) {
     ringAngle = pressKeyAngle;
     
   } else if (key.equals("G#")) {
-    wristAngleOffset = 3;
+    wristAngleOffset = -3;
     ringAngle = pressKeyAngle;
     
   } else if (key.equals("A")) {
@@ -114,34 +114,32 @@ void setAngles(String key) {
   } else if (key.equals("C4")) {
     wristAngleOffset = -12;
     pinkyAngle = pressKeyAngle;
-      	
   }
+  
 }
 
 // Gives time for the finger and wrist to move
-void moveJoints() {
-  for (int i = 0; i < 10; i++) {
-    thumbServo.write(thumbAngle);
-    pointerServo.write(pointerAngle);
-    middleServo.write(middleAngle);
-    ringServo.write(ringAngle);
-    pinkyServo.write(pinkyAngle);
-    wristServo.write(defaultWristAngle + wristAngleOffset);
-  	delay(30);
-  }
+void moveServos() {
+  setFingerJoints();
+  wristServo.write(defaultWristAngle + wristAngleOffset);
+  delay(300);
 }
 
 // Gives time for the fingers to return to normal pos
-void resetJoints() {
+void resetFingerJoints() {
   thumbAngle = 0;
   pointerAngle = 0;
   middleAngle = 0;
   ringAngle = 0;
   pinkyAngle = 0;
+  setFingerJoints();
+  delay(250); 
+}
+
+void setFingerJoints() {
   thumbServo.write(thumbAngle);
   pointerServo.write(pointerAngle);
   middleServo.write(middleAngle);
   ringServo.write(ringAngle);
   pinkyServo.write(pinkyAngle);
-  delay(200); 
 }
