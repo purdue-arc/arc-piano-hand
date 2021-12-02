@@ -16,7 +16,7 @@ int pinkyAngle = 0;
 int wristAngleOffset = 0;
 const int defaultWristAngle = 90;
 const int pressKeyAngle = 30;
-
+String keys[] = {"C3","C#","D","D#","E","F","F#","G","G#","A","A#","B","C4"};
 void setup() {
   pinkyServo.attach(3);
   ringServo.attach(5);
@@ -37,19 +37,18 @@ void setup() {
 }
 
 void loop() {
-  playKey("C3");
-  playKey("C#");
-  playKey("D");
-  playKey("D#");
-  playKey("E");
-  playKey("F");
-  playKey("F#");
-  playKey("G");
-  playKey("G#");
-  playKey("A");
-  playKey("A#");
-  playKey("B");
-  playKey("C4");  	
+    //Takes input from the serial and then plays the specified key
+    while(Serial.available() > 0 ){
+        String str = Serial.readString();
+        for(int i = 0;i < 13;i++){
+            if(str.indexOf(keys[i]) > -1){
+                playKey(str);
+                break;
+            }else{
+                Serial.println("Invalid Key");
+            }
+        }
+    }
 }
 
 // Plays the given key and goes back to default pos
