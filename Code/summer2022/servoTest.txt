@@ -1,0 +1,10 @@
+myservo.write(val):
+
+val == 0        : max clockwise
+0 < val < 90    : clockwise 
+val == 90       : stop
+90 < val < 180  : anti-clockwise
+val == 180      : max anti-clockwise
+
+max servo speed     : 0.11s / 60 deg
+min servo speed     : 0.08s / 60 deg
