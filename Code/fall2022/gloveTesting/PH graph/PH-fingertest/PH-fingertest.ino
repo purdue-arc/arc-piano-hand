@@ -8,12 +8,6 @@ int servo_set;
 int servo_val(float analog_val);
 void servo_pos(int angle, int prev_angle);
 
-// NOTES TO do:
-
-// Servo_Val needs to be changed, further discretised
-// add a Callibration function
-// Servo_control function to pass value from servo_val
-
 void callibration(){
   // Wait 3 seconds!
   Serial.print("Close hand!\n");
@@ -32,7 +26,7 @@ void callibration(){
     maxFlex[3] += analogRead(A3);
     maxFlex[4] += analogRead(A4);
     delay(500);
-    Serial.print("Reading max flex values: \n");
+    Serial.print("Logging mx flex values: \n");
     Serial.print(i);
     Serial.print(" times completed\n");
   }
@@ -57,7 +51,7 @@ void callibration(){
         minFlex[3] += analogRead(A3);
         minFlex[4] += analogRead(A4);
         delay(500);
-        Serial.print("Reading min flex values: \n");
+        Serial.print("Logging min flex values: \n");
         Serial.print(i);
         Serial.print(" times completed\n");
     }
