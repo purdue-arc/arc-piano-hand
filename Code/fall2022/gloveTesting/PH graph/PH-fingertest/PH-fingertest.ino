@@ -16,22 +16,58 @@ void servo_pos(int angle, int prev_angle);
 
 void callibration(){
   // Wait 3 seconds!
-  Serial.print("Press down on keyboard\n");
+  Serial.print("Close hand!\n");
   delay(3000);
+  float maxFlex[5];
+  float minFlex[5];
+  //set all maxflex values to 0
+    for(int i = 0; i < 5; i++){
+        maxFlex[i] = 0;
+    }
+  //read the analog value of each finger every second for 2.5 seconds and take the average
+  for(int i = 0; i < 5;i++){
+    maxFlex[0] += analogRead(A0);
+    maxFlex[1] += analogRead(A1);
+    maxFlex[2] += analogRead(A2);
+    maxFlex[3] += analogRead(A3);
+    maxFlex[4] += analogRead(A4);
+    delay(500);
+    Serial.print("Reading max flex values: \n");
+    Serial.print(i);
+    Serial.print(" times completed\n");
+  }
+    for(int i = 0; i < 5; i++){
+        maxFlex[i] = maxFlex[i]/5;
+    }
   //access array with finger readings
-  float maxFlex[5] = {analogRead(A0), analogRead(A1), analogRead(A2), analogRead(A3), analogRead(A4)};
-
-  Serial.print("Finger Values: ");
-  Serial.print(analogRead(A0));
-  Serial.print("\n");
+//   Serial.print("Finger Values: ");
+//   Serial.print(analogRead(A0));
+//   Serial.print("\n");
   Serial.print("Open hand\n");// Wait 3 seconds!
   delay(3000);
+  //set all minflex values to 0
+    for(int i = 0; i < 5; i++){
+        minFlex[i] = 0;
+    }
+    //read the analog value of each finger every second for 2.5 seconds and take the average
+    for(int i = 0; i < 5;i++){
+        minFlex[0] += analogRead(A0);
+        minFlex[1] += analogRead(A1);
+        minFlex[2] += analogRead(A2);
+        minFlex[3] += analogRead(A3);
+        minFlex[4] += analogRead(A4);
+        delay(500);
+        Serial.print("Reading min flex values: \n");
+        Serial.print(i);
+        Serial.print(" times completed\n");
+    }
+    for(int i = 0; i < 5; i++){
+        minFlex[i] = minFlex[i]/5;
+    }
   Serial.print("Done!\n");
-  float minFlex[5] = {analogRead(A0), analogRead(A1), analogRead(A2), analogRead(A3), analogRead(A4)};
-
-  Serial.print("Finger Values: ");
-  Serial.print(analogRead(A0));
-  Serial.print("\n");
+//   Serial.print("Finger Values: ");
+//   Serial.print(analogRead(A0));
+//   Serial.print("\n");
   //create linear function to map flex to servo angle between 0 and 90
 
   for (int i = 0; i < 5; i++)
@@ -69,6 +105,6 @@ void loop()
   Serial.print("\nConverted Value: ");
   Serial.print(x * slopes[0] - intercepts[0]);
   Serial.print("\n");
-  delay(3 00); // to include a buffer between two different readings
+  delay(300); // to include a buffer between two different readings
 
 }
