@@ -2,6 +2,11 @@ name: mus21
 channels:
   - conda-forge
 dependencies:
+  - appnope=0.1.3=pyhd8ed1ab_0
+  - asttokens=2.0.8=pyhd8ed1ab_0
+  - backcall=0.2.0=pyh9f0ad1d_0
+  - backports=1.0=py_2
+  - backports.functools_lru_cache=1.6.4=pyhd8ed1ab_0
   - brotli=1.0.9=h1c322ee_7
   - brotli-bin=1.0.9=h1c322ee_7
   - bzip2=1.0.8=h3422bc3_4
@@ -10,13 +15,22 @@ dependencies:
   - chardet=5.0.0=py310hbe9552e_0
   - contourpy=1.0.5=py310h2887b22_0
   - cycler=0.11.0=pyhd8ed1ab_0
+  - debugpy=1.6.3=py310hc6dc59f_0
+  - decorator=5.1.1=pyhd8ed1ab_0
+  - entrypoints=0.4=pyhd8ed1ab_0
+  - executing=1.0.0=pyhd8ed1ab_0
   - fonttools=4.37.2=py310h8e9501a_0
   - freetype=2.12.1=hd633e50_0
   - importlib-metadata=4.11.4=py310hbe9552e_0
   - importlib_metadata=4.11.4=hd8ed1ab_0
+  - ipykernel=6.15.3=pyh736e0ef_0
+  - ipython=8.5.0=pyhd1c38e8_1
+  - jedi=0.18.1=pyhd8ed1ab_2
   - joblib=1.2.0=pyhd8ed1ab_0
   - jpeg=9e=he4db4b2_2
   - jsonpickle=2.2.0=pyhd8ed1ab_0
+  - jupyter_client=7.3.5=pyhd8ed1ab_0
+  - jupyter_core=4.11.1=py310hbe9552e_0
   - kiwisolver=1.4.4=py310hd23d0e8_0
   - lcms2=2.12=had6a04f_0
   - lerc=4.0.0=h9a09cb3_0
@@ -33,6 +47,7 @@ dependencies:
   - liblapack=3.9.0=16_osxarm64_openblas
   - libopenblas=0.3.21=openmp_hc731615_3
   - libpng=1.6.38=h76d750c_0
+  - libsodium=1.0.18=h27ca646_1
   - libsqlite=3.39.3=h76d750c_0
   - libtiff=4.4.0=hfa0b094_4
   - libwebp-base=1.2.4=h57fd34a_0
@@ -40,31 +55,52 @@ dependencies:
   - libzlib=1.2.12=h03a7124_3
   - llvm-openmp=14.0.4=hd125106_0
   - matplotlib-base=3.6.0=py310h78c5c2f_0
+  - matplotlib-inline=0.1.6=pyhd8ed1ab_0
+  - mido=1.2.10=pyhd8ed1ab_0
   - more-itertools=8.14.0=pyhd8ed1ab_0
   - munkres=1.1.4=pyh9f0ad1d_0
   - music21=7.3.3=pyhd8ed1ab_0
   - ncurses=6.3=h07bb92c_1
+  - nest-asyncio=1.5.5=pyhd8ed1ab_0
   - numpy=1.23.3=py310h5d7c261_0
   - openjpeg=2.5.0=h5d4e404_1
   - openssl=3.0.5=h03a7124_2
   - packaging=21.3=pyhd8ed1ab_0
+  - parso=0.8.3=pyhd8ed1ab_0
+  - pexpect=4.8.0=pyh9f0ad1d_2
+  - pickleshare=0.7.5=py_1003
   - pillow=9.2.0=py310h173adc3_2
   - pip=22.2.2=pyhd8ed1ab_0
+  - prompt-toolkit=3.0.31=pyha770c72_0
+  - psutil=5.9.2=py310h8e9501a_0
   - pthread-stubs=0.4=h27ca646_1001
+  - ptyprocess=0.7.0=pyhd3deb0d_0
+  - pure_eval=0.2.2=pyhd8ed1ab_0
+  - pygments=2.13.0=pyhd8ed1ab_0
   - pyparsing=3.0.9=pyhd8ed1ab_0
   - python=3.10.6=hae75cb6_0_cpython
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.10=2_cp310
+  - pyzmq=24.0.0=py310hc407298_0
   - readline=8.1.2=h46ed386_0
   - setuptools=65.3.0=pyhd8ed1ab_1
   - six=1.16.0=pyh6c4a22f_0
+  - stack_data=0.5.0=pyhd8ed1ab_0
   - tk=8.6.12=he1e0b03_0
+  - tornado=6.2=py310h02f21da_0
+  - traitlets=5.4.0=pyhd8ed1ab_0
   - tzdata=2022c=h191b570_0
   - unicodedata2=14.0.0=py310hf8d0d8f_1
+  - wcwidth=0.2.5=pyh9f0ad1d_2
   - webcolors=1.12=pyhd8ed1ab_0
   - wheel=0.37.1=pyhd8ed1ab_0
   - xorg-libxau=1.0.9=h27ca646_0
   - xorg-libxdmcp=1.1.3=h27ca646_0
   - xz=5.2.6=h57fd34a_0
+  - zeromq=4.3.4=hbdafb3b_1
   - zipp=3.8.1=pyhd8ed1ab_0
   - zstd=1.5.2=h8128057_4
+  - pip:
+    - pyserial==3.5
+    - python-rtmidi==1.4.9
+prefix: /Users/dsujatha/miniforge3/envs/mus21

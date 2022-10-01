@@ -42,5 +42,7 @@ def distanceInWhiteKeys(referenceKeyNumber, keyNumberToCalculate):
 
 def 
 
-def state_update():
-    
+def hit_key(keyval, time_val):
+
+
+
