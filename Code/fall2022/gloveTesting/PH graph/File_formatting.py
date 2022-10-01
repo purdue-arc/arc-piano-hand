@@ -15,7 +15,7 @@ def add_data(input):
     cleaned_line = input[2:-3]
     
     if(len(cleaned_line) <= 5):
-        return ["n", 999999999]
+        return ["n", None]
     # Not sure what this does
     # while cleaned_lines[0][0:1] != "R":
     #     cleaned_lines.pop(0)
@@ -27,29 +27,40 @@ def add_data(input):
         #if cleaned_line.isdigit():
         
         new_line = cleaned_line.replace(".","")
+        new_line = new_line.replace("-","")
         if new_line.isnumeric():
-            print("test",cleaned_line)
+            #print("test",cleaned_line)
             cleaned_line = float(cleaned_line)
             return ["c", cleaned_line]
     # Raw values
     elif cleaned_line[0] == "R":
         cleaned_line = cleaned_line[10:].strip()
+
+        new_line = cleaned_line.replace(".","")
+        new_line = new_line.replace("-","")
         #if cleaned_line.isdigit():
-        if cleaned_line.isdecimal():
+        if new_line.isnumeric():
             cleaned_line = float(cleaned_line)
             return ["r", cleaned_line]
-    return ["n", 999999999]
+    return ["n", None]
         
 
 
 # Make a graph using the values
-def make_graph():  
+def make_graph(i,converted_readings,ax):  
+    
     timelist = range(0, len(converted_readings))
     timelist = [time/3 for time in timelist]
     plt.plot(timelist, converted_readings)
     #Graph of converted values vs. time
+    converted_readings = converted_readings[-20:]
+    timelist = timelist[-20:]
+    ax.clear()
+    ax.plot(converted_readings,timelist)
+    
     plt.xlabel("time")
     plt.ylabel("converted values")
     plt.title('time vs. converted values')
-    plt.legend()
+    # plt.legend()
+    #plt.legend(["Finger 1","Finger 2","Finger 3","Finger 4","Finger 5",])
     plt.show()

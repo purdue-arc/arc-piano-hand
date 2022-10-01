@@ -1,11 +1,17 @@
 # Write if statements to save certain measurements to a text file
 import serial
 import File_formatting as ff
-foundR  = False
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
+foundR  = False
+# plt.ion()
 raw_readings = []
-converted_readings = []  
-ser = serial.Serial('COM3', 9800, timeout=1)
+converted_readings = [] 
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+# line1, = ax.plot(x, y)
+ser = serial.Serial('COM8', 9800, timeout=1)
 with open('Arduino_Outputs', 'w') as f:
     while True:
         line = ser.readline()
@@ -19,5 +25,5 @@ with open('Arduino_Outputs', 'w') as f:
                 converted_readings.append(output[1])
             elif output[0] == 'r':
                 raw_readings.append(output[1])
-            #print("output[1]:", output[1])
-            # ff.make_graph()
+            print("converted readings:", converted_readings)
+            ff.make_graph(2,converted_readings,ax)
