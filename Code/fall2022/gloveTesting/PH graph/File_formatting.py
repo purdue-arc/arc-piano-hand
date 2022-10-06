@@ -1,55 +1,66 @@
 import matplotlib.pyplot as plt
 
-with open('Arduino_Outputs') as f:
-    lines = f.readlines()
+# with open('Arduino_Outputs') as f:
+#     lines = f.readlines()
 
-# Remove \n 
-a = lines[0].split("\\n")
-p = []
-# Remove 'b's
-for i in a:
-    p.append(i.replace("\'b\'",""))
-while p[0][0:1] != "R":
-    p.pop(0)
+# Cleans an unprocessed line from the output and adds it to its data
+def add_data(input):
+    # Remove '\n'
+    # lines = input.split("\\n")
+    # cleaned_lines = []
+    # Remove 'b's
+    # for line in lines:
+    # cleaned_line = input.replace("b\'","")
+    # cleaned_line = input.replace("\\n'","")
+    cleaned_line = input[2:-3]
+    
+    if(len(cleaned_line) <= 5):
+        return ["n", None]
+    # Not sure what this does
+    # while cleaned_lines[0][0:1] != "R":
+    #     cleaned_lines.pop(0)
+    # Take substrings of the values to include only the numbers
+        # Converted values
+    # print(cleaned_line)
+    if (cleaned_line[0] == "C"):
+        cleaned_line = cleaned_line[17:].strip()
+        #if cleaned_line.isdigit():
+        
+        new_line = cleaned_line.replace(".","")
+        new_line = new_line.replace("-","")
+        if new_line.isnumeric():
+            #print("test",cleaned_line)
+            cleaned_line = float(cleaned_line)
+            return ["c", cleaned_line]
+    # Raw values
+    elif cleaned_line[0] == "R":
+        cleaned_line = cleaned_line[10:].strip()
 
-raw = []
-converted = []    
-for i in range(0,len(p)):
-    #converted
-    if (i % 2 == 1):
-        p[i] = p[i][17:].strip()
-        converted.append(p[i])
-    #raw
-    else:
-        p[i] = p[i][10:].strip()
-        raw.append(p[i])
+        new_line = cleaned_line.replace(".","")
+        new_line = new_line.replace("-","")
+        #if cleaned_line.isdigit():
+        if new_line.isnumeric():
+            cleaned_line = float(cleaned_line)
+            return ["r", cleaned_line]
+    return ["n", None]
+        
 
-# Convert raw
-k = 0
-for i in raw:
-    if (not i.isdigit()):
-        raw.pop(k)
-        k += 1
 
-# Convert converted
-k = 0
-for i in converted:
-    if (not i.isdigit()):
-        converted.pop(k)
-        k += 1
-
-print(raw)
-print(converted)
-
-converted = [float(convert) for convert in converted]
-
-timelist = range(0, len(converted))
-timelist = [time/3 for time in timelist]
-plt.plot(timelist, converted)
-  
-#Graph of converted values vs. time
-plt.xlabel("time")
-plt.ylabel("converted values")
-plt.title('time vs. converted values')
-plt.legend()
-plt.show()
+# Make a graph using the values
+def make_graph(i,converted_readings,ax):  
+    
+    timelist = range(0, len(converted_readings))
+    timelist = [time/3 for time in timelist]
+    plt.plot(timelist, converted_readings)
+    #Graph of converted values vs. time
+    converted_readings = converted_readings[-20:]
+    timelist = timelist[-20:]
+    ax.clear()
+    ax.plot(converted_readings,timelist)
+    
+    plt.xlabel("time")
+    plt.ylabel("converted values")
+    plt.title('time vs. converted values')
+    # plt.legend()
+    #plt.legend(["Finger 1","Finger 2","Finger 3","Finger 4","Finger 5",])
+    plt.show()

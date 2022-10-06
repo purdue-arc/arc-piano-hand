@@ -69,7 +69,7 @@ void callibration(){
     slopes[i] = (90) / (maxFlex[i] - minFlex[i]);
     Serial.print("Slope of finger ");
     Serial.print(i +1);
-    Serial.print("is ");
+    Serial.print(" is ");
     Serial.print(slopes[i]);
     Serial.print(".\n");
     intercepts[i] = slopes[i]* maxFlex[i] - 90;
