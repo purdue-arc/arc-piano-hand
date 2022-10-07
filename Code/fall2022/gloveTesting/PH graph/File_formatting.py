@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+
 # with open('Arduino_Outputs') as f:
 #     lines = f.readlines()
 
@@ -47,20 +48,22 @@ def add_data(input):
 
 
 # Make a graph using the values
-def make_graph(i,converted_readings,ax):  
+def make_graph(converted_readings,fig,line1):
+    #timelist = range(0, len(converted_readings))
+    # timelist = [time/3 for time in timelist]
+    line1.set_ydata(converted_readings)
+    fig.canvas.flush_events()
+    fig.canvas.draw()
+    # plt.plot(timelist, converted_readings)
+    # #Graph of converted values vs. time
+    # converted_readings = converted_readings[-20:]
+    # timelist = timelist[-20:]
+    # ax.clear()
+    # ax.plot(converted_readings,timelist)
     
-    timelist = range(0, len(converted_readings))
-    timelist = [time/3 for time in timelist]
-    plt.plot(timelist, converted_readings)
-    #Graph of converted values vs. time
-    converted_readings = converted_readings[-20:]
-    timelist = timelist[-20:]
-    ax.clear()
-    ax.plot(converted_readings,timelist)
-    
-    plt.xlabel("time")
-    plt.ylabel("converted values")
-    plt.title('time vs. converted values')
-    # plt.legend()
-    #plt.legend(["Finger 1","Finger 2","Finger 3","Finger 4","Finger 5",])
-    plt.show()
+    # plt.xlabel("time")
+    # plt.ylabel("converted values")
+    # plt.title('time vs. converted values')
+    # # plt.legend()
+    # #plt.legend(["Finger 1","Finger 2","Finger 3","Finger 4","Finger 5",])
+    # plt.show()

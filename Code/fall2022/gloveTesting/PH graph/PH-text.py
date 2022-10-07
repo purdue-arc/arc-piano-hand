@@ -2,16 +2,18 @@
 import serial
 import File_formatting as ff
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-
+import numpy as np
 foundR  = False
-# plt.ion()
 raw_readings = []
-converted_readings = [] 
+#create a list of numbers from 1-20
+converted_readings = [0]*20
+timelist = range(0, 20)
+plt.ion()
+plt.xlim([-20,110])
 fig = plt.figure()
-ax = fig.add_subplot(1, 1, 1)
-# line1, = ax.plot(x, y)
-ser = serial.Serial('COM8', 9800, timeout=1)
+ax = fig.add_subplot(111)
+line1, = ax.plot(timelist, converted_readings)
+ser = serial.Serial('COM6', 9800, timeout=1)
 with open('Arduino_Outputs', 'w') as f:
     while True:
         line = ser.readline()
@@ -26,4 +28,4 @@ with open('Arduino_Outputs', 'w') as f:
             elif output[0] == 'r':
                 raw_readings.append(output[1])
             print("converted readings:", converted_readings)
-            ff.make_graph(2,converted_readings,ax)
+            ff.make_graph(converted_readings[-20:],fig,line1)
