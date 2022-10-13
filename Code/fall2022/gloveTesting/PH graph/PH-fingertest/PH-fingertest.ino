@@ -1,4 +1,4 @@
-float x, x2, x3, x4, x5;
+float x1, x2, x3, x4, x5;
 float slopes[5];
 float intercepts[5];
 int angle, angle2;
@@ -93,12 +93,31 @@ void loop()
 { 
   //ph_servo0.write(130);
 
-  x = analogRead(A0);
+  /* Raw value will most likely never be used ;(
   Serial.print("Raw Value: ");
-  Serial.print(x);
-  Serial.print("\nConverted Value: ");
-  Serial.print(x * slopes[0] - intercepts[0]);
+  Serial.print(x1);
+  */
+  //Serial.print("\nConverted Value: ");
+  //Finger 1
+  x1 = analogRead(A0);
+  Serial.print(x1 * slopes[0] - intercepts[0]);
   Serial.print("\n");
-  delay(300); // to include a buffer between two different readings
+  //Finger 2
+  x2 = analogRead(A1);
+  Serial.print(x2 * slopes[1] - intercepts[1]);
+  Serial.print("\n");
+  // //Finger 3
+  // x3 = analogRead(A2);
+  // Serial.print(x3 * slopes[2] - intercepts[2]);
+  // Serial.print("\n");
+  // //Finger 4
+  // x4 = analogRead(A3);
+  // Serial.print(x4 * slopes[3] - intercepts[3]);
+  // Serial.print("\n");
+  // //Finger 5
+  // x5 = analogRead(A4);
+  // Serial.print(x5 * slopes[4] - intercepts[4]);
+  // Serial.print("\n");
+  delay(100); // to include a buffer between two different readings
 
 }
