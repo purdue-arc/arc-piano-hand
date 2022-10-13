@@ -6,13 +6,15 @@ import numpy as np
 foundR  = False
 raw_readings = []
 #create a list of numbers from 1-20
-converted_readings = [0]*20
+converted_readings = []
+for i in range(-1,19):
+    converted_readings.append(110/20*i)
 timelist = range(0, 20)
 plt.ion()
-plt.xlim([-20,110])
 fig = plt.figure()
 ax = fig.add_subplot(111)
 line1, = ax.plot(timelist, converted_readings)
+ff.make_graph(converted_readings[-20:],fig,line1)
 ser = serial.Serial('COM6', 9800, timeout=1)
 with open('Arduino_Outputs', 'w') as f:
     while True:
