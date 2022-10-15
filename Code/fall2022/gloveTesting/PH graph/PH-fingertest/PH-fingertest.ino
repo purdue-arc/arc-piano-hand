@@ -5,78 +5,58 @@ int angle, angle2;
 int prev_angle = 1000;  // some random high value
 int prev_angle2 = 1000; //another random high value
 int servo_set;
+byte pins[] = {A0, A1, A2, A3, A4};
+
 int servo_val(float analog_val);
 void servo_pos(int angle, int prev_angle);
 
-void callibration(){
-  // Wait 3 seconds!
+void callibration() {
   Serial.print("Close hand!\n");
-  delay(3000);
   float maxFlex[5];
-  float minFlex[5];
-  //set all maxflex values to 0
-    for(int i = 0; i < 5; i++){
-        maxFlex[i] = 0;
-    }
-  //read the analog value of each finger every second for 2.5 seconds and take the average
-  for(int i = 0; i < 5;i++){
-    maxFlex[0] += analogRead(A0);
-    maxFlex[1] += analogRead(A1);
-    maxFlex[2] += analogRead(A2);
-    maxFlex[3] += analogRead(A3);
-    maxFlex[4] += analogRead(A4);
-    delay(500);
-    Serial.print("Logging mx flex values: \n");
-    Serial.print(i);
-    Serial.print(" times completed\n");
-  }
-    for(int i = 0; i < 5; i++){
-        maxFlex[i] = maxFlex[i]/5;
-    }
-  //access array with finger readings
-//   Serial.print("Finger Values: ");
-//   Serial.print(analogRead(A0));
-//   Serial.print("\n");
-  Serial.print("Open hand\n");// Wait 3 seconds!
-  delay(3000);
-  //set all minflex values to 0
-    for(int i = 0; i < 5; i++){
-        minFlex[i] = 0;
-    }
-    //read the analog value of each finger every second for 2.5 seconds and take the average
-    for(int i = 0; i < 5;i++){
-        minFlex[0] += analogRead(A0);
-        minFlex[1] += analogRead(A1);
-        minFlex[2] += analogRead(A2);
-        minFlex[3] += analogRead(A3);
-        minFlex[4] += analogRead(A4);
-        delay(500);
-        Serial.print("Logging min flex values: \n");
-        Serial.print(i);
-        Serial.print(" times completed\n");
-    }
-    for(int i = 0; i < 5; i++){
-        minFlex[i] = minFlex[i]/5;
-    }
-  Serial.print("Done!\n");
-//   Serial.print("Finger Values: ");
-//   Serial.print(analogRead(A0));
-//   Serial.print("\n");
-  //create linear function to map flex to servo angle between 0 and 90
+  getAverageValues(maxFlex);
+  // Access array with finger readings
+  // Serial.print("Finger Values: ");
+  // Serial.print(analogRead(A0));
+  // Serial.print("\n");
 
-  for (int i = 0; i < 5; i++)
-  {
+  Serial.print("Open hand\n");// Wait 3 seconds!
+  float minFlex[5];
+  getAverageValues(minFlex);
+  
+  Serial.print("Done!\n");
+  // access array with finger readings
+  // Serial.print("Finger Values: ");
+  // Serial.print(analogRead(A0));
+  // Serial.print("\n");
+
+  for (int i = 0; i < 5; i++) {
     slopes[i] = (90) / (maxFlex[i] - minFlex[i]);
-    Serial.print("Slope of finger ");
-    Serial.print(i +1);
-    Serial.print(" is ");
-    Serial.print(slopes[i]);
-    Serial.print(".\n");
     intercepts[i] = slopes[i]* maxFlex[i] - 90;
   }
 }
 
-
+// Read the analog value of each finger and take the average
+void getAverageValues(float* flexArray) {
+  // Wait 3 seconds
+  delay(3000);
+  //set all maxflex values to 0
+  for (int i = 0; i < 5; i++) { flexArray[i] = 0; }
+  
+  // Loop for every time reading
+  for (int i = 0; i < 5; i++) {
+    // Loop over each finger
+    for (int j = 0; j < 5; j++) {
+      flexArray[j] += analogRead(pins[j]);
+    }
+    delay(500);
+    Serial.print("Logging flex values: \n");
+    Serial.print(i);
+    Serial.print(" times completed\n");
+  }
+  for (int i = 0; i < 5; i++) {
+      flexArray[i] = flexArray[i] / 5;
+  }
+}
 
 void setup()
 {
@@ -98,26 +78,20 @@ void loop()
   Serial.print(x1);
   */
   //Serial.print("\nConverted Value: ");
-  //Finger 1
+  // Finger 1
   x1 = analogRead(A0);
-  Serial.print(x1 * slopes[0] - intercepts[0]);
-  Serial.print("\n");
-  //Finger 2
+  Serial.println(x1 * slopes[0] - intercepts[0]);
+  // Finger 2
   x2 = analogRead(A1);
-  Serial.print(x2 * slopes[1] - intercepts[1]);
-  Serial.print("\n");
-  // //Finger 3
+  Serial.println(x2 * slopes[1] - intercepts[1]);
+  // Finger 3
   // x3 = analogRead(A2);
-  // Serial.print(x3 * slopes[2] - intercepts[2]);
-  // Serial.print("\n");
-  // //Finger 4
+  // Serial.println(x3 * slopes[2] - intercepts[2]);
+  // Finger 4
   // x4 = analogRead(A3);
-  // Serial.print(x4 * slopes[3] - intercepts[3]);
-  // Serial.print("\n");
-  // //Finger 5
+  // Serial.println(x4 * slopes[3] - intercepts[3]);
+  // Finger 5
   // x5 = analogRead(A4);
-  // Serial.print(x5 * slopes[4] - intercepts[4]);
-  // Serial.print("\n");
+  // Serial.println(x5 * slopes[4] - intercepts[4]);
   delay(100); // to include a buffer between two different readings
-
 }

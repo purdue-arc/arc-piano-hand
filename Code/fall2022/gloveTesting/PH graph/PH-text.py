@@ -19,20 +19,21 @@ line1, = ax.plot(timelist, converted_readings, 'g-')
 line2, = ax.plot(timelist, ff.analyze_data(converted_readings), 'r-')
 ff.make_graph(converted_readings[-20:],fig,line1,line2)
 ser = serial.Serial('COM6', 9800, timeout=1)
+numFingers = 2
 with open('Arduino_Outputs', 'w') as f:
     while True:
         line = ser.readline()
         f.write(str(line))
         line = str(line)
         print(line)
-        if(foundR or line[2] == "R"):
-            foundR = True
-            output = ff.add_data(line)
-            if output[0] == "c":
-                converted_readings.append(output[1])
-            elif output[0] == 'r':
-                raw_readings.append(output[1])
-            print("converted readings:", converted_readings)
-            ff.make_graph(converted_readings[-20:],fig,line1,line2)
-            if len(converted_readings) == 40:
-                print(ff.analyze_data(converted_readings))
+        # if(foundR or line[2] == "D"):
+        #     foundR = True
+        #     output = ff.add_data(line)
+        #     if output[0] == "c":
+        #         converted_readings.append(output[1])
+        #     elif output[0] == 'r':
+        #         raw_readings.append(output[1])
+        #     print("converted readings:", converted_readings)
+        #     ff.make_graph(converted_readings[-20:],fig,line1,line2)
+        #     if len(converted_readings) == 40:
+        #         print(ff.analyze_data(converted_readings))
