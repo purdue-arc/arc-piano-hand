@@ -1,5 +1,6 @@
 from gpiozero import Servo
-import time import sleep
+import time 
+import sleep
 
 pinky_servo = Servo(1)
 ring_servo = Servo(2)

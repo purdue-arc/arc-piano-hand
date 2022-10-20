@@ -44,13 +44,26 @@ def add_data(input):
             cleaned_line = float(cleaned_line)
             return ["r", cleaned_line]
     return ["n", None]
-        
 
+def analyze_data(data):
+    keyPressed = []
+    for i in range(len(data)):
+        keyPressed.append(analyze_value(data[i]) * 100)
+    return keyPressed
+
+def analyze_value(value):
+    return value > 80
+    
+def analyze_last_20(data):
+    last_20 = data[-20:]
+    return analyze_data(last_20)
 
 # Make a graph using the values
-def make_graph(converted_readings,fig,line1):
+def make_graph(converted_readings,fig,line1,line2):
     #timelist = range(0, len(converted_readings))
     # timelist = [time/3 for time in timelist]
+    keyPressed = analyze_data(converted_readings)
+    line2.set_ydata(keyPressed)
     line1.set_ydata(converted_readings)
     fig.canvas.flush_events()
     fig.canvas.draw()
