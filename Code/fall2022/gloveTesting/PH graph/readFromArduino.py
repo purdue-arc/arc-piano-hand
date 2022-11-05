@@ -5,24 +5,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 import re
 #create a list of numbers from 1-20
-num_fingers = 2
-converted_readings = []
-fing2 = []
+num_fingers = 5 
+fingerArray = [[],[],[],[],[]]
 
 # Make starting array with values for scaling the graph
-
-for i in range(-1,19):
-    converted_readings.append(110/20*i)    
-    fing2.append(110/20*i)
+for i in range(num_fingers):
+    for j in range(-1,19):
+        fingerArray[i].append(110/20*j)
 # Create basic graph
 
 timelist = range(0, 20)
 plt.ion()
 fig = plt.figure()
 ax = fig.add_subplot(111)
-line1, = ax.plot(timelist, converted_readings, 'g-')
-line2, = ax.plot(timelist, fing2, 'r-')
-ff.make_graph(converted_readings[-20:],fing2,fig,line1,line2)
+# This needs to change when we add fingers
+counter = ['v-','w-','x-','y-','z-']
+lineArray = []
+for i in range(num_fingers):
+    lineArray[i], ax.plot(timelist, fingerArray[i], counter[i], label = "Finger %d" %(i + 1))
+ff.make_graph(fingerArray, fig, lineArray)
 
 #start reading data from arduino
 foundDone = False
@@ -32,23 +33,19 @@ with open('Arduino_Outputs', 'w') as f:
     while True:
         line = ser.readline()
         line = str(line)
-        if(line.find("D") != -1 or foundDone == True):
-            #print(len(lines))
+        if(line.find("D") != -1 or foundDone):
             f.write(line)
             p = re.compile(r'([-]{0,1}[0-9]{0,2}\.[0-9]{0,2})')
             m = p.search(line)
             if m != None:
                 total_readings += 1
                 fingerVal = m.group(0)
-                if total_readings % num_fingers == 0:
-                    print("Finger 1: ")
-                    converted_readings.append(float(fingerVal))
-                else:
-                    print("Finger 2: ")
-                    fing2.append(float(fingerVal))
+                finger_index = total_readings % num_fingers
+                fingerArray[finger_index].append(float(fingerVal))
+                print("Finger " + (finger_index + 1))
                 print(fingerVal)
             foundDone = True
-            ff.make_graph(converted_readings[-20:],fing2[-20:],fig, line1, line2)
+            ff.make_graph(fingerArray, fig, lineArray)
 
             
         

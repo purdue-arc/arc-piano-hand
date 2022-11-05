@@ -17,13 +17,16 @@ def analyze_last_20(data):
     return analyze_data(last_20)
 
 # Make a graph using the values
-def make_graph(converted_readings,fing2,fig,line1,line2):
+def make_graph(fingerArray, fig, lineArray):
     #timelist = range(0, len(converted_readings))
     # timelist = [time/3 for time in timelist]
     #keyPressed = analyze_data(converted_readings)
     #line2.set_ydata(keyPressed)
-    line2.set_ydata(fing2)
-    line1.set_ydata(converted_readings)
+    plt.legend(loc="lower left")
+    plt.xlabel("Time")
+    plt.ylabel("Finger values")
+    for i in range(fingerArray):
+        lineArray[i].set_ydata(fingerArray[i][-20:])
     fig.canvas.flush_events()
     fig.canvas.draw()
     # plt.plot(timelist, converted_readings)
