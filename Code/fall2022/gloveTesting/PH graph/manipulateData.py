@@ -25,7 +25,7 @@ def make_graph(fingerArray, fig, lineArray):
     plt.legend(loc="lower left")
     plt.xlabel("Time")
     plt.ylabel("Finger values")
-    for i in range(fingerArray):
+    for i in range(len(fingerArray)):
         lineArray[i].set_ydata(fingerArray[i][-20:])
     fig.canvas.flush_events()
     fig.canvas.draw()
