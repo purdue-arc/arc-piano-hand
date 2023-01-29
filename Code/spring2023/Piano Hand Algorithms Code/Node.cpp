@@ -1,4 +1,6 @@
-#include "Node.h"
+#include "pianoHandNamespace.h"
+using namespace pianoHandNamespace;
+
 Node::Node() {
 
 }

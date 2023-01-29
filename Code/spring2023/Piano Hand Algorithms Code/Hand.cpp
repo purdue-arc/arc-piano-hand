@@ -1,1 +1,6 @@
-#include "Hand.h"
+#include "pianoHandNamespace.h"
+using namespace pianoHandNamespace;
+
+Hand::Hand() {
+
+}
