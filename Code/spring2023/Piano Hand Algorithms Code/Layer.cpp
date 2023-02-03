@@ -2,15 +2,19 @@
 using namespace pianoHandNamespace;
 
 Layer::Layer() {
-
+	nodes = std::vector<Node>();
 }
 
 int Layer::add(Node node)
 {
-	return 0;
+	nodes.push_back(node);
 }
 
 int Layer::remove(Node node)
 {
-	return 0;
+	for(auto i = 0; i < sizeof(nodes); i++) {
+		if (&nodes[i] == &node) {
+			nodes.erase(nodes.begin()+i);
+		}
+	}
 }

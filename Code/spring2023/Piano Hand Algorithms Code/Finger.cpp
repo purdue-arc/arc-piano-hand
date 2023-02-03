@@ -2,19 +2,23 @@
 using namespace pianoHandNamespace;
 
 Finger::Finger() {
-
+	
 }
 
 Note Finger::getNoteCurrentlyBeingPlayed()
 {
-	return Note();
+	return noteCurrentlyPlaying;
 }
-
 bool Finger::isNoteBeingPlayed()
 {
-	return false;
+	return (&noteCurrentlyPlaying == NULL);
 }
 
 void Finger::setNoteCurrentlyBeingPlayed(Note note)
 {
+	noteCurrentlyPlaying = note;
+}
+
+void Finger::removeNoteBeingPlayed() {
+	noteCurrentlyPlaying = NULL;
 }

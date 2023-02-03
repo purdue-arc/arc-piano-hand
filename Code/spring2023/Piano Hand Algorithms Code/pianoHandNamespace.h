@@ -26,6 +26,7 @@ namespace pianoHandNamespace {
 		Note getNoteCurrentlyBeingPlayed();
 		bool isNoteBeingPlayed();
 		void setNoteCurrentlyBeingPlayed(Note note);
+		void removeNoteBeingPlayed();
 	private:
 		Note noteCurrentlyPlaying = NULL;
 	};
