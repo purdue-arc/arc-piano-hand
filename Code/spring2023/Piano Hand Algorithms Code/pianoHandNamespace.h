@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <string>
 
 namespace pianoHandNamespace {
 	#define static int MIN_NOTE_VALUE = 0;
@@ -26,7 +27,6 @@ namespace pianoHandNamespace {
 		Note getNoteCurrentlyBeingPlayed();
 		bool isNoteBeingPlayed();
 		void setNoteCurrentlyBeingPlayed(Note note);
-		void removeNoteBeingPlayed();
 	private:
 		Note noteCurrentlyPlaying = NULL;
 	};
@@ -80,13 +80,22 @@ namespace pianoHandNamespace {
 	{
 	public:
 		Edge(Node startNode, Node endNode);
-		Edge(double weight, Node startNode, Node endNode);
+		Edge(double weight, Node startNode, Node endNode,int startLayerIndex, int endLayerIndex);
 		double getWeight();
-		void setWeight();
+		void setWeight(double weight);
+		int getStartLayerIndex();
+		int getEndLayerIndex();
+		Node getStartNode();
+		Node getEndNode();
+		char[] toString();
+		minWeight(vector<Edge> te);
+
 	private:
 		double edgeWeight;
 		Node startNode;
 		Node endNode;
+		int startLayerIndex;
+		int endLayerIndex;
 	};
 
 	// An object class representing a trellis layer
