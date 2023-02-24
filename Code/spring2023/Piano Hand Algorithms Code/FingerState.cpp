@@ -34,3 +34,11 @@ Note FingerState::get(Finger f)
 {
 	return Note();
 }
+
+assignFingerToNote(Finger f, Note note)
+{
+	add(f);
+	setNoteCurrentlyBeingPlayed(note);
+}
+
+
