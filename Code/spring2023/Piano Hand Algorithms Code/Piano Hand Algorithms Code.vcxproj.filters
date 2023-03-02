@@ -27,13 +27,10 @@
     <ClCompile Include="Finger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FingeringState.cpp">
+    <ClCompile Include="FingerState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Edge.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Layer.cpp">
@@ -42,30 +39,12 @@
     <ClCompile Include="Trellis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Edge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Note.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Finger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FingeringState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Edge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Layer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Trellis.h">
+    <ClInclude Include="pianoHandNamespace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

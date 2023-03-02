@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Finger.cpp" />
-    <ClCompile Include="FingeringState.cpp" />
+    <ClCompile Include="FingerState.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -138,17 +138,7 @@
     <ClCompile Include="Trellis.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Edge.h" />
-    <ClInclude Include="Finger.h" />
-    <ClInclude Include="FingeringState.h" />
-    <ClInclude Include="Hand.h" />
-    <ClInclude Include="Layer.h" />
-    <ClInclude Include="Node.h" />
-    <ClInclude Include="Note.h" />
-    <ClInclude Include="Trellis.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="test_puja.txt" />
+    <ClInclude Include="pianoHandNamespace.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
