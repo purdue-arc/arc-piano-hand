@@ -17,8 +17,8 @@ Edge::Edge(double weight, Node startNode, Node endNode, int startLayerIndex, int
 	this->endLayerIndex = endLayerIndex;
 }
 
-Edge Edge::minWeight(vector<Edge> te) {
-    Edge minEdge = Edge(0, 0, Node(), Node(), DBL_MAX);
+Edge Edge::minWeight(std::vector<Edge> te) {
+    Edge minEdge = Edge::Edge(0, 0, Node::Node(), Node::Node(), DBL_MAX);
         for (Edge t : te) {
             if (t.getWeight() < minEdge.getWeight()) {
                 minEdge = t;

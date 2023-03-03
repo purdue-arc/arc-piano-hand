@@ -1,33 +1,43 @@
 #pragma once
 #include <unordered_map>
-#include <string>
+#include <iostream>
+#include <stdexcept>
+#include <vector>
 
 namespace pianoHandNamespace {
 	#define static int MIN_NOTE_VALUE = 0;
 	#define static int MAX_NOTE_VALUE = 127;
 
+	#define OK = -1;
+	#define NOTE_ERROR = -2;
+
 	// An object class containing a note value as well as some helper methods
 	class Note
 	{
 	public:
-		// Constants
-
 		// Object methods
 		Note(int midi_note_value);
 		int get_midi_note_value();
+		bool equals(Note n);
 	private:
 		int midi_note_value;
 	};
+
+	const Note NULL_NOTE = Note(-1);
 
 	// An object class representing a finger
 	class Finger
 	{
 	public:
-		Finger();
+		Finger(int id);
+		Finger(int id, Note n);
+		int getID();
 		Note getNoteCurrentlyBeingPlayed();
 		bool isNoteBeingPlayed();
 		void setNoteCurrentlyBeingPlayed(Note note);
+		void removeNoteBeingPlayed();
 	private:
+		int id;
 		Note noteCurrentlyPlaying = NULL;
 	};
 	// Do we need add'l variables for this class to make multiple types of fingers?
@@ -41,12 +51,20 @@ namespace pianoHandNamespace {
 		int add(Finger f); // add error codes
 		std::vector<Finger> getFingers();
 		std::vector<Note> getNotes();
-		Finger get(Note n);
+		std::vector<Finger> get(Note n);
 		Note get(Finger f);
+		//assigns the finger to note in a finger state
+		void assignFingerToNote(Finger f, Note n);
+		//fingers available to play 
+        std::vector<Finger> getRemainingFingers();
+		//notes remaining to be played 
+		std::vector<Note> getRemainingNotes(std::vector<Note> notesToPlay);
 		// add more methods here
+		int uniquifyFingerwise();
+		int uniquifyNotewise();
 
 	private:
-		std::unordered_map<Finger, Note> state;
+		std::vector<Finger> state;
 	};
 
 	// An object class representing a hand
@@ -80,22 +98,13 @@ namespace pianoHandNamespace {
 	{
 	public:
 		Edge(Node startNode, Node endNode);
-		Edge(double weight, Node startNode, Node endNode,int startLayerIndex, int endLayerIndex);
+		Edge(double weight, Node startNode, Node endNode);
 		double getWeight();
-		void setWeight(double weight);
-		int getStartLayerIndex();
-		int getEndLayerIndex();
-		Node getStartNode();
-		Node getEndNode();
-		char[] toString();
-		minWeight(vector<Edge> te);
-
+		void setWeight();
 	private:
 		double edgeWeight;
 		Node startNode;
 		Node endNode;
-		int startLayerIndex;
-		int endLayerIndex;
 	};
 
 	// An object class representing a trellis layer
@@ -118,5 +127,15 @@ namespace pianoHandNamespace {
 	private:
 		std::vector<Layer> layers;
 		std::vector<Edge> edges;
+	};
+
+	// A class containing cost functions for analyzing finger states
+	class costFunctions
+	{
+	public: 
+		double vertical_cost(FingerState fs);
+		double horizontal_cost(FingerState fs);
+		double finger_range_cost_hand(FingerState fs);
+		double aggregate_cost(FingerState fs);
 	};
 }
