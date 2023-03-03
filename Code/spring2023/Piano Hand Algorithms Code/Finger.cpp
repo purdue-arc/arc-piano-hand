@@ -15,7 +15,6 @@ int Finger::getID() {
 	return this->id;
 }
 
-
 Note Finger::getNoteCurrentlyBeingPlayed()
 {
 	return noteCurrentlyPlaying;

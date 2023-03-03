@@ -5,11 +5,12 @@
 #include <vector>
 
 namespace pianoHandNamespace {
-	#define static int MIN_NOTE_VALUE = 0;
-	#define static int MAX_NOTE_VALUE = 127;
+	const int MIN_NOTE_VALUE = 0;
+	const int MAX_NOTE_VALUE = 127;
 
-	#define OK = -1;
-	#define NOTE_ERROR = -2;
+	const int OK = -1;
+	const int NOTE_ERROR = -2;
+	const int SIZE_ERROR = -3;
 
 	// An object class containing a note value as well as some helper methods
 	class Note
@@ -73,6 +74,7 @@ namespace pianoHandNamespace {
 	public:
 		Hand(int size);
 		Hand(Finger fingers[]);
+		Hand(std::vector<Finger> fingers);
 	private:
 		std::vector<Finger> fingers;
 		int rotation;
@@ -99,12 +101,15 @@ namespace pianoHandNamespace {
 	public:
 		Edge(Node startNode, Node endNode);
 		Edge(double weight, Node startNode, Node endNode);
+		Edge(double weight, Node startNode, Node endNode, int startLayerIndex, int endLayerIndex);
 		double getWeight();
 		void setWeight();
 	private:
 		double edgeWeight;
 		Node startNode;
 		Node endNode;
+		int startLayerIndex;
+		int endLayerIndex;
 	};
 
 	// An object class representing a trellis layer

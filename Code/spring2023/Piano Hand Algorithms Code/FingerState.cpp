@@ -87,11 +87,33 @@ std::vector<Note> FingerState::getRemainingNotes(std::vector<Note> notesToPlay)
 }
 
 int FingerState::uniquifyFingerwise() {
-	// To implement
-	// Removes duplicates of fingers for debugging
+	std::vector<int> ids{};
+	int i = 0;
+	for (Finger f : this->getFingers()) {
+		auto loc = std::find(ids.begin(), ids.end(), f.getID());
+		if (loc != ids.end()) {
+			this->state.erase(std::remove(this->state.begin(), this->state.end(), f), this->state.end());
+			i++;
+		} else {
+			ids.push_back(f.getID());
+		}
+	}
+	return i;
 }
 
 int FingerState::uniquifyNotewise() {
-	// To implement
-	// Removes duplicates of notes for debugging
+	std::vector<Note> note_ids{};
+	int i = 0;
+	for (Finger f : this->getFingers()) {
+		if (!f.getNoteCurrentlyBeingPlayed().equals(NULL_NOTE)) {
+			auto loc = std::find(note_ids.begin(), note_ids.end(), f.getNoteCurrentlyBeingPlayed());
+			if (loc != note_ids.end()) {
+				this->state.erase(std::remove(this->state.begin(), this->state.end(), f), this->state.end());
+				i++;
+			} else {
+				note_ids.push_back(f.getNoteCurrentlyBeingPlayed());
+			}
+		}
+	}
+	return i;
 }
