@@ -3,6 +3,10 @@
 #include <iostream>
 #include <stdexcept>
 #include <vector>
+#include <format>
+#include <string>
+#include <string_view>
+#include <assert.h>
 
 namespace pianoHandNamespace {
 	const int MIN_NOTE_VALUE = 0;
@@ -11,6 +15,7 @@ namespace pianoHandNamespace {
 	const int OK = -1;
 	const int NOTE_ERROR = -2;
 	const int SIZE_ERROR = -3;
+	const int NOT_ENOUGH_LAYERS = -4;
 
 	// An object class containing a note value as well as some helper methods
 	class Note
@@ -50,9 +55,12 @@ namespace pianoHandNamespace {
 		FingerState();
 		int size();
 		int add(Finger f); // add error codes
+		static FingerState null_state();
 		std::vector<Finger> getFingers();
 		std::vector<Note> getNotes();
 		std::vector<Finger> get(Note n);
+		Finger get_finger(Finger f);
+		FingerState make_copy();
 		Note get(Finger f);
 		//assigns the finger to note in a finger state
 		void assignFingerToNote(Finger f, Note n);
@@ -85,6 +93,7 @@ namespace pianoHandNamespace {
 	class Node
 	{
 	public:
+		Node();
 		Node(FingerState fs);
 		Node(double weight, FingerState fs);
 		double getWeight();
@@ -103,7 +112,13 @@ namespace pianoHandNamespace {
 		Edge(double weight, Node startNode, Node endNode);
 		Edge(double weight, Node startNode, Node endNode, int startLayerIndex, int endLayerIndex);
 		double getWeight();
-		void setWeight();
+		void setWeight(double weight);
+		int getStartLayerIndex();
+		int getEndLayerIndex();
+		Node getStartNode();
+		Node getEndNode();
+		//string toString();
+
 	private:
 		double edgeWeight;
 		Node startNode;
@@ -119,7 +134,7 @@ namespace pianoHandNamespace {
 		Layer();
 		int add(Node node);
 		int remove(Node node);
-
+		std::vector<Node> getNodes();
 	private:
 		std::vector<Node> nodes;
 	};
@@ -129,18 +144,20 @@ namespace pianoHandNamespace {
 	{
 	public:
 		Trellis();
+		int link_edges();
 	private:
 		std::vector<Layer> layers;
 		std::vector<Edge> edges;
+
 	};
 
 	// A class containing cost functions for analyzing finger states
 	class costFunctions
 	{
 	public: 
-		double vertical_cost(FingerState fs);
-		double horizontal_cost(FingerState fs);
-		double finger_range_cost_hand(FingerState fs);
-		double aggregate_cost(FingerState fs);
+		static double vertical_cost(FingerState fs);
+		static double horizontal_cost(FingerState fs);
+		static double finger_range_cost_hand(FingerState fs);
+		static double aggregate_cost(FingerState fs);
 	};
 }

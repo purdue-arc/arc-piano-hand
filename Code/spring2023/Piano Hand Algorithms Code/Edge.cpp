@@ -17,8 +17,8 @@ Edge::Edge(double weight, Node startNode, Node endNode, int startLayerIndex, int
 	this->endLayerIndex = endLayerIndex;
 }
 
-Edge Edge::minWeight(std::vector<Edge> te) {
-    Edge minEdge = Edge::Edge(0, 0, Node::Node(), Node::Node(), DBL_MAX);
+Edge minWeight(std::vector<Edge> te) {
+    Edge minEdge = Edge::Edge(DBL_MAX, Node::Node(), Node::Node(), 0, 0);
         for (Edge t : te) {
             if (t.getWeight() < minEdge.getWeight()) {
                 minEdge = t;
@@ -56,9 +56,11 @@ Node Edge::getEndNode()
 {
 	return endNode;
 }
-
-char[] toString() {
-    return String.format("Edge<(%d,%s)->(%d,%s), weight=%f>",
-    startLayerIndex, startNode, endLayerIndex, endNode, weight);
+/*
+string Edge::toString() {
+    return std::format("Edge<(%d,%s)->(%d,%s)",
+    this->startLayerIndex, this->startNode, this->endLayerIndex, 
+	this->endNode);
 }
+*/
 

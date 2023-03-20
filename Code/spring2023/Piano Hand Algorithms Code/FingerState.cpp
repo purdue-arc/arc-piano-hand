@@ -15,6 +15,12 @@ int FingerState::add(Finger f)
 	state.push_back(f);
 }
 
+static FingerState null_state() {
+	FingerState fs = FingerState::FingerState();
+	fs.add(Finger::Finger(-1000));
+	return fs;
+}
+
 std::vector<Finger> FingerState::getFingers()
 {
 	return state;
@@ -29,6 +35,13 @@ std::vector<Note> FingerState::getNotes()
 	return notes;
 }
 
+FingerState FingerState::make_copy() {
+	FingerState fs = FingerState::FingerState();
+	for (Finger f : this->getFingers()) {
+		fs.add(f);
+	}
+	return fs;
+}
 
 std::vector<Finger> FingerState::get(Note n)
 {
@@ -46,6 +59,16 @@ Note FingerState::get(Finger f)
 	for (Finger f2 : this->getFingers()) {
 		if (f2.getID() == f.getID()) {
 			return f2.getNoteCurrentlyBeingPlayed();
+		}
+	}
+	return NULL;
+}
+
+Finger FingerState::get_finger(Finger f)
+{
+	for (Finger f2 : this->getFingers()) {
+		if ((f2.getID() == f.getID()) && (f2.getNoteCurrentlyBeingPlayed().equals(f.getNoteCurrentlyBeingPlayed()))) {
+			return f2;
 		}
 	}
 	return NULL;

@@ -1,6 +1,11 @@
 #include "pianoHandNamespace.h"
 using namespace pianoHandNamespace;
 
+Node::Node() 
+{
+	this->Node::Node(0, FingerState::FingerState());
+}
+
 Node::Node(FingerState fs)
 {
 	this->Node::Node(0, fs);

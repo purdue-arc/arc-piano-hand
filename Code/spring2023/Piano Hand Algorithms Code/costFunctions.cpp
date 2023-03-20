@@ -1,7 +1,7 @@
 #include "pianoHandNamespace.h"
 using namespace pianoHandNamespace;
 
-double vertical_cost(FingerState fs) {
+static double vertical_cost(FingerState fs) {
     double cost = 0.0;
     for (Finger f1 : fs.getFingers()) {
         for (Finger f2 : fs.getFingers()) {
@@ -13,7 +13,7 @@ double vertical_cost(FingerState fs) {
     return cost;
 }
 
-double horizontal_cost(FingerState fs) {
+static double horizontal_cost(FingerState fs) {
     double cost = 0.0;
     for (Finger f1 : fs.getFingers()) {
         for (Finger f2 : fs.getFingers()) {
@@ -31,7 +31,7 @@ double horizontal_cost(FingerState fs) {
     return cost;
 }
 
-double finger_range_cost_hand(FingerState fs) {
+static double finger_range_cost_hand(FingerState fs) {
     std::unordered_map<std::vector<int>, std::vector<int>> ranges = {
         {{0, 1}, {-5, 10}},
         {{0, 2}, {-4, 12}},
@@ -70,7 +70,7 @@ double finger_range_cost_hand(FingerState fs) {
     return cost;
 }
 
-double aggregate_cost(FingerState fs) {
+static double aggregate_cost(FingerState fs) {
     double weights[3] = { 1.0, 1.0, 1.0 };
     double cost = 0;
     cost += weights[0] * vertical_cost(fs) + weights[1] * horizontal_cost(fs) + weights[2] * finger_range_cost_hand(fs);

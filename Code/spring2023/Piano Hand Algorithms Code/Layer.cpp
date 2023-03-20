@@ -24,3 +24,7 @@ int Layer::remove(Node node)
 	}
 	throw std::invalid_argument("Node not in Layer");
 }
+
+std::vector<Node> Layer::getNodes() {
+	return nodes;
+}
