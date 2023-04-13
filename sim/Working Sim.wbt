@@ -1,0 +1,103 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2572357302583237 0.6156425302688057 -0.7448584120506995 0.705230179411724
+  position -2.7185716684708288 1.6046715599642083 1.458090053532199
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF Arena RectangleArena {
+  translation 0.121065 0.0911682 -0.6
+  rotation 0 0 -1 0.019635
+  floorSize 4 4
+}
+Robot {
+  translation 0 -0.18 0.0292977
+  rotation 0.7071067811865475 0 0.7071067811865475 0
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint Solid {
+        rotation 0 1 0 0
+        children [
+          Transform {
+            translation 0.06 0.37 -0.05
+            rotation 0 0 1 1.5707963267948966
+            scale 0.01 0.01 0.01
+            children [
+              Shape {
+                geometry Mesh {
+                  url [
+                    "../../../../Downloads/curved_singular_phalange_v1.stl"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(1)"
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0 0.025
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint Solid {
+        rotation 0 1 0 0
+        children [
+          Transform {
+            translation -0.05 0.81 -0.05
+            rotation 0 0 -0.9999999999999999 1.5707953071795862
+            scale 0.01 0.01 0.01
+            children [
+              Shape {
+                geometry Mesh {
+                  url [
+                    "../../../../Downloads/index_finger_new v3 v0.obj"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Transform {
+      translation 0 -0.85 0
+      rotation 0 1 0 0
+      scale 0.01 0.01 0.01
+      children [
+        DEF Palm Shape {
+          appearance PBRAppearance {
+            roughness 1
+          }
+          geometry Mesh {
+            url [
+              "../../../../Downloads/baseplate with holes v1.stl"
+            ]
+            name "Palm"
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE Palm
+}
