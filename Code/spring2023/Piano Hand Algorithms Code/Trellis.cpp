@@ -15,3 +15,24 @@ int Trellis::link_edges() {
         }
     }
 }
+
+Edge Trellis::min_weight_edges(int layerIndex, Node n) {
+    Edge *minEdge = &(Edge::Edge(DBL_MAX, Node::Node(), Node::Node(), -1, -1));
+    for (auto e : this->edges) {
+        if (&(e.getEndNode()) == &n) {
+            if (e.getWeight() < minEdge->getWeight()) {
+                minEdge = &e;
+            }
+        }
+    }
+    return *minEdge;
+}
+
+Edge Trellis::getEdge(int layerIndex, Node n) {
+    for (auto e : this->edges) {
+        if (&(e.getEndNode()) == &n) {
+            return e;
+        }
+    }
+    return Edge::Edge(0, Node::Node(), Node::Node(), -1, -1);
+}
