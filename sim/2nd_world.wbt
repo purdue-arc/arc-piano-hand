@@ -1,0 +1,71 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.052135594829119836 0.9511335480200707 0.30434660106951394 0.7855901332111084
+  position -1.4503916047076424 -0.6532690254586804 1.7047763564384728
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF Arena RectangleArena {
+  translation -0.0258514 0.0675901 -0.11606
+  rotation 0 0 -1 0.019635
+  floorSize 2 2
+}
+Robot {
+  translation 0 -0.2 0.0292977
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0 0.025
+      }
+      device [
+        RotationalMotor {
+        }
+      ]
+      endPoint Solid {
+        children [
+          Transform {
+            translation -0.02 0.84 0.03
+            rotation 0 0 1 -1.5707953071795862
+            scale 0.005 0.005 0.005
+            children [
+              Shape {
+                geometry Mesh {
+                  url [
+                    "../../../../Downloads/index_finger_new v3 v0.obj"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Transform {
+      scale 0.005 0.005 0.005
+      children [
+        DEF Palm Shape {
+          appearance PBRAppearance {
+            roughness 1
+          }
+          geometry Mesh {
+            url [
+              "../../../../Downloads/baseplate with holes v1.stl"
+            ]
+            name "Palm"
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE Palm
+}
