@@ -140,6 +140,9 @@
   <ItemGroup>
     <ClInclude Include="pianoHandNamespace.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Parser.c" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
