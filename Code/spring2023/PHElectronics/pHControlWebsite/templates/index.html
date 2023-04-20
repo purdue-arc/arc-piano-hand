@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Piano Hand Finger app</title>
+  </head>
+
+  <body>
+
+    <form action="/" method="post">
+      <p><input type="submit" name="submit" value="Press Finger 1"></p>
+      <p><input type="submit" name="submit" value="Press Finger 2"></p>
+      <p><input type="submit" name="submit" value="Press Finger 3"></p>
+      <div>
+        <input type="checkbox" name="reversed" id="reversed">
+        <label for="reversed">Reversed</label>
+      </div>
+      <h1>SPEED: </h1>
+      <div class="slidecontainer">
+        <input type="range" min="100" max="255" value="250" class="slider" id="myRange" name="speedSlider" oninput="this.nextElementSibling.value = this.value">
+        <output>250</output>
+      </div>
+        <h1>DELAY: </h1>
+      <div class="slidecontainer">
+        <input type="range" min="1" max="10" value="1" class="slider" id="delaySlider" name="delaySlider" oninput="this.nextElementSibling.value = this.value">
+        <output>1</output>
+      </div>
+
+    </form>
+
+  </body>
+</html>
