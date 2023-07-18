@@ -27,6 +27,7 @@ Node ** Viterbi(Trellis *T) {
                 double d = dist[curr_node] + costFunctions::aggregate_cost(curr_node->getFingerState(), next_node->getFingerState());
                 if (d < dist.at(next_node)) {
                     dist[next_node] = d;
+                    prev[next_node] = curr_node;
                 }
             }
         }
