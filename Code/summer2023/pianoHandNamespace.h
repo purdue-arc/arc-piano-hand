@@ -8,7 +8,8 @@
 #include <string_view>
 #include <assert.h>
 
-namespace pianoHandNamespace {
+namespace pianoHandNamespace
+{
 	const int MIN_NOTE_VALUE = 0;
 	const int MAX_NOTE_VALUE = 127;
 
@@ -27,6 +28,7 @@ namespace pianoHandNamespace {
 		int get_midi_note_value();
 		bool equals(Note n);
 		int get_velocity();
+
 	private:
 		int midi_note_value;
 		int velocity;
@@ -45,12 +47,13 @@ namespace pianoHandNamespace {
 		bool isNoteBeingPlayed();
 		void setNoteCurrentlyBeingPlayed(Note note);
 		void removeNoteBeingPlayed();
+
 	private:
 		int id;
 		Note noteCurrentlyPlaying = NULL;
 	};
 	// Do we need add'l variables for this class to make multiple types of fingers?
-	
+
 	// An object class representing a finger state
 	class FingerState
 	{
@@ -58,12 +61,12 @@ namespace pianoHandNamespace {
 		FingerState();
 		FingerState(int capacity);
 		void free();
-		Finger * get(int idx);
+		Finger *get(int idx);
 		int getSize();
 		int getCapacity();
 		int add(Finger *f);
 		void remove(Finger *f);
-		Finger ** getFingers();
+		Finger **getFingers();
 		Note get_note(Finger *f);
 		bool exists(Finger *f);
 
@@ -79,6 +82,7 @@ namespace pianoHandNamespace {
 	public:
 		Hand(int size);
 		void free();
+
 	private:
 		int size;
 		Finger **fingers;
@@ -96,6 +100,7 @@ namespace pianoHandNamespace {
 		double getWeight();
 		void setWeight(double weight);
 		FingerState *getFingerState();
+
 	private:
 		double weight;
 		FingerState *fs_ptr;
@@ -109,10 +114,11 @@ namespace pianoHandNamespace {
 		int add(Node *node);
 		int remove(Node *node);
 		std::vector<Node *> getNodes();
+
 	private:
 		std::vector<Node *> nodes;
 	};
-	
+
 	// An object class representing a trellis
 	class Trellis
 	{
@@ -125,13 +131,12 @@ namespace pianoHandNamespace {
 	private:
 		int n_layers;
 		Layer **layers;
-
 	};
 
 	// A class containing cost functions for analyzing finger states
 	class costFunctions
 	{
-	public: 
+	public:
 		static double stretch(Finger *f1, Finger *f2);
 		static double vertical_cost(FingerState *fs_ptr);
 		static double horizontal_cost(FingerState *fs_ptr);
