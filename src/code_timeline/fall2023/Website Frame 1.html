@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Piano Hand Finger app</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .finger {
+      font-family: Verdana, sans-serif;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #00fbff;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin: 20px 0 10px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    .button-container {
+      display: block;
+    }
+
+    .button {
+      margin-bottom: 10px;
+    }
+
+    .button input[type="submit"] {
+      width: 100%;
+      max-width: 200px;
+      font-size: 1em;
+      font-weight: bold;
+      color: #cf8e1efc;
+      background-color: #0033ff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button input[type="submit"]:hover {
+      background-color: #0033ff;
+    }
+
+    label {
+      font-size: 1em;
+      font-weight: bold;
+      color: #555;
+      margin-left: 5px;
+    }
+
+    input[type="checkbox"] {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .slidecontainer {
+      margin-top: 20px;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 10px;
+      background-color: #ddd;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      border-radius: 5px;
+    }
+
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background-color: #00ff15;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background-color: #00ff15;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    output {
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #00ff15;
+    }
+
+    .queue-button {
+      background-color: orange;
+    }
+
+    .play-button {
+      background-color: antiquewhite;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/" method="post">
+    <div class="button-container">
+      <div class="button">
+        <input type="submit" name="submit" value="Play Finger 1" class="finger">
+        <span class="finger-icon">👈(F, G, A)</span>
+      </div>
+      <div class="button">
+        <input type="submit" name="submit" value="Play Finger 2" class="finger">
+        <span class="finger-icon">👈(C, D, E)</span>
+      </div>
+      <div class="button">
+        <input type="submit" name="submit" value="Play Finger 3" class="finger">
+        <span class="finger-icon">👈(A, B, D)</span>
+      </div>
+      <div class="button">
+        <input type="submit" name="submit" value="Add Notes to Queue" class="queue-button">
+        <span class="finger-icon">🎵</span>
+      </div>
+      <div class="button">
+        <input type="submit" name="submit" value="Play Queue" class="play-button">
+        <span class="finger-icon">▶️</span>
+      </div>
+    </div>
+    <label for="queueButton">Queue:</label>
+    <input type="submit" name="submit" value="Queue" style="background-color: orange;">
+    <div>
+      <input type="checkbox" name="reversed" id="reversed">
+      <label for="reversed">Reversed</label>
+    </div>
+    <h1>SPEED:</h1>
+    <div class="slidecontainer">
+      <input type="range" min="100" max="255" value="125" class="slider" id="myRange" name="speedSlider" oninput="this.nextElementSibling.value = this.value">
+      <output>125</output>
+    </div>
+    <h1>DELAY:</h1>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="10" value="1" class="slider" id="delaySlider" name="delaySlider" oninput="this.nextElementSibling.value = this.value">
+      <output>1</output>
+    </div>
+  </form>
+</body>
+</html>
