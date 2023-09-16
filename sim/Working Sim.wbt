@@ -7,41 +7,112 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2572357302583237 0.6156425302688057 -0.7448584120506995 0.705230179411724
-  position -2.7185716684708288 1.6046715599642083 1.458090053532199
+  orientation 0.1890378136187342 -0.022799874526835896 -0.9817050833849286 2.5886613931540987
+  position 5.463287457077564 4.609195662189666 3.3914722225957297
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 DEF Arena RectangleArena {
-  translation 0.121065 0.0911682 -0.6
+  translation 0.0504381 0.131222 -0.0689288
   rotation 0 0 -1 0.019635
   floorSize 4 4
 }
 Robot {
-  translation 0 -0.18 0.0292977
-  rotation 0.7071067811865475 0 0.7071067811865475 0
+  translation 0 0.16 0.219298
+  rotation 0 1 0 0
   children [
     HingeJoint {
       jointParameters HingeJointParameters {
+        anchor 0 0 0.025
       }
       device [
         RotationalMotor {
+          name "finger_1"
         }
       ]
       endPoint Solid {
-        rotation 0 1 0 0
+        translation 0.649 0 0.10499999999999998
+        rotation 1 0 0 0
         children [
           Transform {
-            translation 0.06 0.37 -0.05
-            rotation 0 0 1 1.5707963267948966
+            translation 0.07 0.4 -0.048
+            rotation 0 0 1 1.5708
             scale 0.01 0.01 0.01
             children [
               Shape {
+                appearance PBRAppearance {
+                }
                 geometry Mesh {
                   url [
-                    "../../../../Downloads/curved_singular_phalange_v1.stl"
+                    "../Downloads/curved_singular_phalange_v1.stl"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(3)"
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "finger_2"
+        }
+      ]
+      endPoint Solid {
+        translation 0.448 0 0.10499999999999998
+        rotation 1 0 0 5.307156870259904e-06
+        children [
+          Transform {
+            translation 0.07 0.4 -0.048
+            rotation 0 0 1 1.5708
+            scale 0.01 0.01 0.01
+            children [
+              Shape {
+                appearance PBRAppearance {
+                }
+                geometry Mesh {
+                  url [
+                    "../Downloads/curved_singular_phalange_v1.stl"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+        name "solid(2)"
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0 0 0.025
+      }
+      device [
+        RotationalMotor {
+          name "finger_3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.22 0 0.10499999999999998
+        rotation 1 0 0 5.307156870259904e-06
+        children [
+          Transform {
+            translation 0.07 0.4 -0.048
+            rotation 0 0 1 1.5708
+            scale 0.01 0.01 0.01
+            children [
+              Shape {
+                appearance PBRAppearance {
+                }
+                geometry Mesh {
+                  url [
+                    "../Downloads/curved_singular_phalange_v1.stl"
                   ]
                 }
               }
@@ -53,25 +124,28 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        axis 0 1 0
         anchor 0 0 0.025
       }
       device [
         RotationalMotor {
+          name "finger_4"
         }
       ]
       endPoint Solid {
-        rotation 0 1 0 0
+        translation 0 0 0.10499999999999998
+        rotation 1 0 0 0
         children [
           Transform {
-            translation -0.05 0.81 -0.05
-            rotation 0 0 -0.9999999999999999 1.5707953071795862
+            translation 0.07 0.4 -0.048
+            rotation 0 0 1 1.5708
             scale 0.01 0.01 0.01
             children [
               Shape {
+                appearance PBRAppearance {
+                }
                 geometry Mesh {
                   url [
-                    "../../../../Downloads/index_finger_new v3 v0.obj"
+                    "../Downloads/curved_singular_phalange_v1.stl"
                   ]
                 }
               }
@@ -91,7 +165,7 @@ Robot {
           }
           geometry Mesh {
             url [
-              "../../../../Downloads/baseplate with holes v1.stl"
+              "../Downloads/Base.stl"
             ]
             name "Palm"
           }
@@ -100,4 +174,5 @@ Robot {
     }
   ]
   boundingObject USE Palm
+  controller "finger_controller"
 }
