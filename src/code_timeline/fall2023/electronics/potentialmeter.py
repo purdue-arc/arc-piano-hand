@@ -1,24 +1,30 @@
 import serial
 import time    
 import re
+
+
 def main():
-    ser = serial.Serial('COM3', 9600, timeout=1)
-    
+    port = 'COM3'
+    rate = 9600
+    timeout = 1
     speed = 255 
     delay = 1
     reversed = 0
 
+
+    ser = serial.Serial(port, rate, timeout=timeout)    
     pattern = r'\d+'
 
     while(True):
         ser.write(bytes("p", 'utf-8'))
-        line = ser.readline()
-        line = str(line)
+        line = ser.readline().decode('utf-8').strip()
 
         item = re.findall(pattern, line)
-        print(item)
-        # print(line.strip().decode('utf-8'))
         
+        if item:
+            for certain_item in item:
+                print(int(certain_item))
+
         time.sleep(1)
     
 
