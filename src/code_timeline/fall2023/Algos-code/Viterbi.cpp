@@ -75,7 +75,7 @@ int main() {
     }
 
     // Print results
-    std::cout << "Final distance: " << dist[n_layers - 1][idx] << "\n";
+    std::cout << "Final distance: " << dist[n_layers - 1][idx] << "\n"; 
     for (int i = n_layers - 1; i >= 0; i--) {
         // Use cout as a pseudo-stack
         std::cout << "(" << i << "," << idx << ") -> ";
