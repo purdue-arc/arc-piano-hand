@@ -6,11 +6,9 @@
 #define ALGOS_CODE_VITERBI_H
 
 
-
 class Viterbi {
 
 };
-
 
 
 #endif //ALGOS_CODE_VITERBI_H
