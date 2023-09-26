@@ -2,9 +2,10 @@
 #include <vector>
 #include <cmath>
 
-using namespace std;
+#include "phSpace.h"
+using namespace phSpace;
 
-vector<int> minMovementsAndCostToSatisfyNotes(vector<int>& notes) {
+std::vector<int> minMovementsAndCostToSatisfyNotes(std::vector<int>& notes) {
     int start = 0; // Piano Hand Start index
     int movements = 0; // Times hand is moved
     int cost = 0; // Number of notes moved (want to minimize)
@@ -21,19 +22,19 @@ vector<int> minMovementsAndCostToSatisfyNotes(vector<int>& notes) {
         }
     }
 
-    vector<int> result = {cost, movements};
+    std::vector<int> result = {cost, movements};
     return result;
 }
 
 int main() {
-    vector<int> notes = {1, 3, 2, -5, -4, 3, 7, 6};
-    vector<int> result = minMovementsAndCostToSatisfyNotes(notes);
+    std::vector<int> notes = {1, 3, 2, -5, -4, 3, 7, 6};
+    std::vector<int> result = minMovementsAndCostToSatisfyNotes(notes);
 
     int totalCost = result[0];
     int totalMovements = result[1];
 
-    cout << "Total Cost: " << totalCost << endl;      // Output: 13
-    cout << "Total Movements: " << totalMovements << endl;  // Output: 3
+    std::cout << "Total Cost: " << totalCost << "\n";      // Output: 13
+    std::cout << "Total Movements: " << totalMovements << "\n";  // Output: 3
 
     return 0;
 }
