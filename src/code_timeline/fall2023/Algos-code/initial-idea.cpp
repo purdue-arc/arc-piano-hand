@@ -5,7 +5,10 @@
 #include "phSpace.h"
 using namespace phSpace;
 
-std::vector<int> minMovementsAndCostToSatisfyNotes(std::vector<int>& notes) {
+std::vector<int> minMvmtsForNotes(const std::vector<int>& notes) {
+    // This is a greedy algo - is there a way we could improve on this in the case where making
+    // one large movement is better than making 2 smaller ones?
+
     int start = 0; // Piano Hand Start index
     int movements = 0; // Times hand is moved
     int cost = 0; // Number of notes moved (want to minimize)
@@ -28,7 +31,7 @@ std::vector<int> minMovementsAndCostToSatisfyNotes(std::vector<int>& notes) {
 
 int main() {
     std::vector<int> notes = {1, 3, 2, -5, -4, 3, 7, 6};
-    std::vector<int> result = minMovementsAndCostToSatisfyNotes(notes);
+    std::vector<int> result = minMvmtsForNotes(notes);
 
     int totalCost = result[0];
     int totalMovements = result[1];

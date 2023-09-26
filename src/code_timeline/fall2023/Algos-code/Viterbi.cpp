@@ -2,10 +2,12 @@
 // Created by TPNml on 9/23/2023.
 //
 
-#include "Viterbi.h"
 #include <malloc.h>
 #include <iostream>
 #include <vector>
+
+#include "phSpace.h"
+using namespace phSpace;
 
 // Sample trivial cost function (cost is the value of the end node)
 int cost(std::vector<std::vector<int>> trellis, int start_i, int start_j, int end_i, int end_j) {

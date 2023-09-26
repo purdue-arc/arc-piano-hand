@@ -3,8 +3,12 @@
 //
 
 #include <iostream>
+#include <vector>
 
 namespace phSpace {
+    #define NORMAL_HAND 0
+    #define EMPTY_HAND 1
+
     class Note {
         // Represents a musical note with MIDI number and time to play
         int midiNumber{};
@@ -15,13 +19,14 @@ namespace phSpace {
 
     class Finger {
     protected:
+        int id;
         int state; // Current state of the finger
         int midi;
         Note *currentNote; // Currently played note
-        Finger();
 
     public:
-        void playNote(Note note);
+        explicit Finger(int id);
+        void playNote(Note *note);
         void releaseNote();
         void moveTo(int midi);
     };
@@ -43,9 +48,11 @@ namespace phSpace {
     };
 
     class Hand { // if we want code to be adaptable (2 feet, 3 thumbs, etc...) we can use vectors
-        Finger* fingers[5]; // Array to hold the five fingers
+        std::vector<Finger *> fingers;
+        int midi_position;
 
     public:
+        Hand(int start_position, int hand_type);
         void moveHandTo(int midi);
         void playNoteOnHand(Note note);
         void release(); // basically a freeing of all memory
