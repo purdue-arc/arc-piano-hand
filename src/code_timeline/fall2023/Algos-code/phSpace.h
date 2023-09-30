@@ -11,8 +11,8 @@ namespace phSpace {
 
     class Note {
         // Represents a musical note with MIDI number and time to play
-        int midiNumber{};
-        int time{};
+        int midiNumber;
+        int time;
         Note(int midiNumber, int time);
         // ... Constructors and methods ...
     };
@@ -56,6 +56,17 @@ namespace phSpace {
         void moveHandTo(int midi);
         void playNoteOnHand(Note note);
         void release(); // basically a freeing of all memory
+    };
+
+    class initial_idea {
+    public:
+        static std::vector<int> minMvmtsForNotes(const std::vector<int>& notes);
+    };
+
+    class Viterbi {
+    public:
+        static std::vector<int> run_algo(int n_layers, int layer_size,
+                                         double (*lookup)(int start_i, int start_j, int end_i, int end_j));
     };
 }
 
