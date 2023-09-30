@@ -20,7 +20,7 @@ namespace phSpace {
     class Finger {
     protected:
         int id;
-        int state; // Current state of the finger
+        bool state; // Current state of the finger
         int midi;
         Note *currentNote; // Currently played note
 
