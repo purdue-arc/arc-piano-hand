@@ -7,7 +7,7 @@ using namespace phSpace;
 
 Finger::Finger(int id) {
     this->id = id;
-    this->state = -1;
+    this->state = false; // Initialized to false as no finger is playing any note when initially declared
     this->midi = -1;
     this->currentNote = nullptr;
 }
@@ -18,10 +18,13 @@ void Finger::playNote(Note *note) {
                                       " onto note while it was playing");
     }
     currentNote = note;
+    state = true; // The finger is being used to play a note
 }
 
 void Finger::releaseNote() {
+
     currentNote = nullptr;
+    state = false; // stop finger from playing note
 }
 
 void Finger::moveTo(int midi) {
