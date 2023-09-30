@@ -5,7 +5,7 @@
 #include "phSpace.h"
 using namespace phSpace;
 
-std::vector<int> minMvmtsForNotes(const std::vector<int>& notes) {
+std::vector<int> minMvmtsForNotes(const std::vector<int> notes) {
     // This is a greedy algo - is there a way we could improve on this in the case where making
     // one large movement is better than making 2 smaller ones?
 
