@@ -7,4 +7,9 @@ include_directories(.)
 
 add_executable(Algos_code
         initial-idea.cpp
-        class_hierarchy_template.cpp)
+        phSpace.h
+        Finger.cpp
+        Hand.cpp
+        test_case_generator.cpp
+        Note.cpp
+        Viterbi_extensible.cpp)
