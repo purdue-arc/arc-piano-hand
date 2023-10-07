@@ -8,6 +8,7 @@
 namespace phSpace {
     #define NORMAL_HAND 0
     #define EMPTY_HAND 1
+    #define NULL_NOTE -1
 
     class Note {
         // Represents a musical note with MIDI number and time to play
@@ -26,6 +27,8 @@ namespace phSpace {
 
     public:
         explicit Finger(int id);
+        bool isPlaying();
+        int getNote();
         void playNote(Note *note);
         void releaseNote();
         void moveTo(int midi);
@@ -48,10 +51,11 @@ namespace phSpace {
     };
 
     class Hand { // if we want code to be adaptable (2 feet, 3 thumbs, etc...) we can use vectors
-        std::vector<Finger *> fingers;
-        int midi_position;
 
     public:
+        std::vector<Finger *> fingers;
+        int num_fingers();
+        int midi_position;
         Hand(int start_position, int hand_type);
         void moveHandTo(int midi);
         void playNoteOnHand(Note note);

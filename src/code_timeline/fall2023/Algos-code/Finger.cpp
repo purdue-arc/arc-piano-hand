@@ -12,6 +12,14 @@ Finger::Finger(int id) {
     this->currentNote = nullptr;
 }
 
+int Finger::getNote() {
+    return this->midi;
+}
+
+bool Finger::isPlaying() {
+    return state;
+}
+
 void Finger::playNote(Note *note) {
     if (currentNote != nullptr) {
         throw std::runtime_error("Tried to allocate finger " + std::to_string(id) +
