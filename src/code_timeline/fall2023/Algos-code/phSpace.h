@@ -22,16 +22,15 @@ namespace phSpace {
     protected:
         int id;
         bool state; // Current state of the finger
-        int midi;
         Note *currentNote; // Currently played note
 
     public:
         explicit Finger(int id);
         bool isPlaying();
-        int getNote();
+        Note * getNote();
         void playNote(Note *note);
         void releaseNote();
-        void moveTo(int midi);
+        void moveTo(Note * note);
     };
 
     class Thumb : public Finger {
