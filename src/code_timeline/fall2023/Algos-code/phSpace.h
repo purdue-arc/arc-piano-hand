@@ -11,9 +11,10 @@ namespace phSpace {
     #define NULL_NOTE -1
 
     class Note {
+    public:
         // Represents a musical note with MIDI number and time to play
-        int midiNumber;
-        int time;
+        const int midiNumber;
+        const int time;
         Note(int midiNumber, int time);
         // ... Constructors and methods ...
     };
