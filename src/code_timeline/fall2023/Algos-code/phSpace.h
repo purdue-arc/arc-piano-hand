@@ -13,8 +13,8 @@ namespace phSpace {
     class Note {
     public:
         // Represents a musical note with MIDI number and time to play
-        const int midiNumber;
-        const int time;
+        int midiNumber;
+        int time;
         Note(int midiNumber, int time);
         // ... Constructors and methods ...
     };
