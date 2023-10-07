@@ -32,7 +32,7 @@ int layerSize(int end_i) {
     return trellis[end_i].size();
 }
 
-void ViterbiAlgo(int (*cost)(int, int, int, int), int n_layers) {
+static std::vector<int> run_algo(int (*cost)(int, int, int, int), int n_layers) {
     // Make arrays for Viterbi
     int *dist[n_layers];
     int *prev[n_layers];
@@ -80,14 +80,22 @@ void ViterbiAlgo(int (*cost)(int, int, int, int), int n_layers) {
         }
     }
 
-    // Print results
-    std::cout << "Final distance: " << dist[n_layers - 1][idx] << "\n"; 
+    std::vector<int> stack;
+
     for (int i = n_layers - 1; i >= 0; i--) {
-        // Use cout as a pseudo-stack
-        std::cout << "(" << i << "," << idx << ") <- ";
+        stack.push_back(idx);
         idx = prev[i][idx];
     }
-    std::cout << "start\n\n";
+
+    std::vector<int> output;
+    for (int i = stack.size() - 1; i >= 0; i--) {
+        output.push_back(stack[i]);
+    }
+    for (int i = 0; i < output.size(); i++) {
+        std::cout << "(" << i << "," << output[i] << ") -> ";
+    }
+    std::cout << "end" << std::endl;
+
     std::cout << "Array contents:\n\n";
     std::cout << "dist:\n";
     for (int i = 0; i < n_layers; i++) {
@@ -111,8 +119,10 @@ void ViterbiAlgo(int (*cost)(int, int, int, int), int n_layers) {
         }
         std::cout << "\n";
     }
+
+    return output;
 }
 
 int main() {
-    ViterbiAlgo(&cost, 11);
+    run_algo(&cost, 11);
 }
