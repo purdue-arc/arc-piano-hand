@@ -12,4 +12,6 @@ add_executable(Algos_code
         Hand.cpp
         test_case_generator.cpp
         Note.cpp
-        Viterbi_extensible.cpp)
+        Viterbi_extensible.cpp
+        simple_code.cpp
+)

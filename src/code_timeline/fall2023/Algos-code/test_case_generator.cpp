@@ -8,7 +8,7 @@
 
 using namespace phSpace;
 
-int main() {
+int run_tests() {
     int x[30] = { 0 };
     for (int & i : x) {
         i = std::rand() % 36 + 48;
