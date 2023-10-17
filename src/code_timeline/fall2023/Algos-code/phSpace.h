@@ -27,6 +27,7 @@ namespace phSpace {
 
     public:
         explicit Finger(int id);
+        int getID();
         bool isPlaying();
         Note * getNote();
         void playNote(Note *note);
@@ -57,8 +58,6 @@ namespace phSpace {
         int num_fingers();
         int midi_position;
         Hand(int start_position, int hand_type);
-        void moveHandTo(int midi);
-        void playNoteOnHand(Note note);
         void release(); // basically a freeing of all memory
     };
 
@@ -68,9 +67,15 @@ namespace phSpace {
     };
 
     class Viterbi {
+    protected:
+        int trellis_length;
+        std::vector<std::vector<Hand *>> possible_fingerings;
     public:
-        static std::vector<int> run_algo(int n_layers, int layer_size,
-                                         double (*lookup)(int start_i, int start_j, int end_i, int end_j));
+        Viterbi(int trellis_length);
+        void update_fingerings(std::vector<Hand *>);
+        int layerSize(int);
+        int hand_cost(int, int, int, int);
+        std::vector<Hand *> run_algo();
     };
 }
 

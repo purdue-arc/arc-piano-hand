@@ -13,6 +13,27 @@ Viterbi::Viterbi(int trellis_length) {
     this->trellis_length = trellis_length;
 }
 
+std::vector<std::vector<int>> trellis = {
+    {1, 0, 1, 1, 1, 1, 1, 1},
+    {1, 1, 0, 1, 1, 1, 1, 1},
+    {1, 1, 1, 1, 1, 0, 1, 1},
+    {1, 1, 1, 0, 1, 1, 1, 1},
+    {1, 1, 1, 1, 1, 0, 1, 1},
+    {1, 1, 1, 1, 0, 1, 1, 1},
+    {1, 1, 1, 1, 1, 1, 0, 1},
+    {1, 1, 1, 0, 1, 1, 1, 1},
+    {1, 1, 1, 1, 1, 1, 1, 0},
+    {1, 1, 1, 1, 0, 1, 1, 1},
+    {1, 1, 1, 0, 1, 1, 1, 1}
+};
+
+std::vector<std::vector<Hand *>> hand_refs;
+
+// Sample trivial cost function (cost is the value of the end node)
+int cost(int start_i, int start_j, int end_i, int end_j) {
+    return trellis[end_i][end_j];
+}
+
 int Viterbi::hand_cost(int start_i, int start_j, int end_i, int end_j) {
     Hand *h1 = this->possible_fingerings[start_i][start_j];
     Hand *h2 = this->possible_fingerings[end_i][end_j];
@@ -29,8 +50,8 @@ int Viterbi::hand_cost(int start_i, int start_j, int end_i, int end_j) {
     return cost;
 }
 
-int Viterbi::layerSize(int end_i) {
-    return this->possible_fingerings[end_i].size();
+int layerSize(int end_i) {
+    return trellis[end_i].size();
 }
 
 void Viterbi::update_fingerings(std::vector<Hand *> new_fingerings) {
@@ -41,13 +62,12 @@ void Viterbi::update_fingerings(std::vector<Hand *> new_fingerings) {
     this->possible_fingerings.push_back(new_fingerings);
 }
 
-std::vector<Hand *> Viterbi::run_algo() {
-    int n_layers = this->possible_fingerings.size();
+std::vector<Hand *> Viterbi::run_algo(int (*cost)(int, int, int, int), int n_layers) {
     // Make arrays for Viterbi
     int *dist[n_layers];
     int *prev[n_layers];
     for (int i = 0; i < n_layers; i++) {
-        int layer_size = this->layerSize(i);
+        int layer_size = layerSize(i);
         dist[i] = new int[layer_size];
         prev[i] = new int[layer_size];
         for (int j = 0; j < layer_size; j++) {
@@ -58,12 +78,12 @@ std::vector<Hand *> Viterbi::run_algo() {
 
     // Run Viterbi
     for (int i = 0; i < n_layers; i++) {
-        int layer_size = this->layerSize(i);
+        int layer_size = layerSize(i);
         for (int j = 0; j < layer_size; j++) {
             int min_dist = INT_MAX;
             int min_prev = INT_MIN;
             if (i == 0) {   // If first layer (to avoid OOB accesses)
-                min_dist = 0;
+                min_dist = trellis[i][j];
             }
             else {
                 for (int k = 0; k < layer_size; k++) {
@@ -130,5 +150,7 @@ std::vector<Hand *> Viterbi::run_algo() {
         std::cout << "\n";
     }
 
-    return output;
+    //return output;
+
+    return None;
 }
