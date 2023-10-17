@@ -1,0 +1,320 @@
+[0.000000] (-) TimerEvent: {}
+[0.000126] (cv_bridge) JobQueued: {'identifier': 'cv_bridge', 'dependencies': OrderedDict()}
+[0.000194] (gazebo_dev) JobQueued: {'identifier': 'gazebo_dev', 'dependencies': OrderedDict()}
+[0.000257] (gazebo_msgs) JobQueued: {'identifier': 'gazebo_msgs', 'dependencies': OrderedDict()}
+[0.000297] (image_geometry) JobQueued: {'identifier': 'image_geometry', 'dependencies': OrderedDict()}
+[0.000560] (gazebo_ros) JobQueued: {'identifier': 'gazebo_ros', 'dependencies': OrderedDict([('gazebo_dev', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_dev'), ('gazebo_msgs', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_msgs')])}
+[0.000601] (opencv_tests) JobQueued: {'identifier': 'opencv_tests', 'dependencies': OrderedDict([('cv_bridge', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/cv_bridge')])}
+[0.000622] (vision_opencv) JobQueued: {'identifier': 'vision_opencv', 'dependencies': OrderedDict([('cv_bridge', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/cv_bridge'), ('image_geometry', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/image_geometry')])}
+[0.000648] (gazebo_plugins) JobQueued: {'identifier': 'gazebo_plugins', 'dependencies': OrderedDict([('cv_bridge', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/cv_bridge'), ('gazebo_dev', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_dev'), ('gazebo_msgs', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_msgs'), ('gazebo_ros', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_ros')])}
+[0.000701] (gazebo_ros_pkgs) JobQueued: {'identifier': 'gazebo_ros_pkgs', 'dependencies': OrderedDict([('cv_bridge', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/cv_bridge'), ('gazebo_dev', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_dev'), ('gazebo_msgs', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_msgs'), ('gazebo_ros', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_ros'), ('gazebo_plugins', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_plugins')])}
+[0.000728] (cv_bridge) JobStarted: {'identifier': 'cv_bridge'}
+[0.016882] (gazebo_dev) JobStarted: {'identifier': 'gazebo_dev'}
+[0.026180] (gazebo_msgs) JobStarted: {'identifier': 'gazebo_msgs'}
+[0.034005] (image_geometry) JobStarted: {'identifier': 'image_geometry'}
+[0.041292] (cv_bridge) JobProgress: {'identifier': 'cv_bridge', 'progress': 'cmake'}
+[0.041837] (cv_bridge) Command: {'cmd': ['/home/revanth/mambaforge/bin/cmake', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/vision_opencv/cv_bridge', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/cv_bridge'], 'cwd': '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/cv_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('CONDA_PROMPT_MODIFIER', '(base)'), ('USER', 'revanth'), ('SSH_AGENT_PID', '2622'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_PACKAGE_PATH', '/opt/ros/noetic/share'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/opt/ros/noetic/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:'), ('SHLVL', '1'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('HOME', '/home/revanth'), ('OLDPWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src'), ('LESS', '-R'), ('CONDA_SHLVL', '1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ZSH', '/home/revanth/.oh-my-zsh'), ('LSCOLORS', 'Gxfxcxdxbxegedabagacad'), ('GTK_MODULES', 'gail:atk-bridge'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('PAGER', 'less'), ('ROS_PYTHON_VERSION', '3'), ('MANAGERPID', '2385'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('P9K_TTY', 'old'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6166'), ('COLORTERM', 'truecolor'), ('LIBVIRT_DEFAULT_URI', 'qemu:///system'), ('COPPELIASIM_ROOT', ''), ('QT_QPA_PLATFORM_PLUGIN_PATH', ''), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('_CE_M', ''), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'revanth'), ('_', '/usr/bin/colcon'), ('JOURNAL_STREAM', '8:62525'), ('_P9K_SSH_TTY', '/dev/pts/0'), ('XDG_SESSION_CLASS', 'user'), ('PKG_CONFIG_PATH', '/opt/ros/noetic/lib/pkgconfig'), ('ROS_VERSION', '2'), ('USERNAME', 'revanth'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/opt/ros/noetic/bin:/home/revanth/mambaforge/bin:/home/revanth/mambaforge/condabin:/home/revanth/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/revanth-XPS-15-7590:@/tmp/.ICE-unix/2660,unix/revanth-XPS-15-7590:/tmp/.ICE-unix/2660'), ('INVOCATION_ID', '02a8060957b04adcb7a22f1be605cb58'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('ROSLISP_PACKAGE_DIRECTORIES', ''), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/revanth/mambaforge/bin/python'), ('XML_CATALOG_FILES', 'file:///home/revanth/mambaforge/etc/xml/catalog file:///etc/xml/catalog'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('TERMINATOR_UUID', 'urn:uuid:bdc86c9c-c80d-4273-8192-8ff929832728'), ('SHELL', '/usr/bin/zsh'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('CONDA_DEFAULT_ENV', 'base'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('P9K_SSH', '0'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/cv_bridge'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/revanth/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('_P9K_TTY', '/dev/pts/0'), ('CONDA_EXE', '/home/revanth/mambaforge/bin/conda'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages:/opt/ros/noetic/lib/python3/dist-packages'), ('CONDA_PREFIX', '/home/revanth/mambaforge'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy:/opt/ros/noetic')]), 'shell': False}
+[0.047300] (gazebo_dev) JobProgress: {'identifier': 'gazebo_dev', 'progress': 'cmake'}
+[0.049175] (gazebo_dev) Command: {'cmd': ['/home/revanth/mambaforge/bin/cmake', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/gazebo_ros_pkgs/gazebo_dev', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_dev'], 'cwd': '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_dev', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('CONDA_PROMPT_MODIFIER', '(base)'), ('USER', 'revanth'), ('SSH_AGENT_PID', '2622'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_PACKAGE_PATH', '/opt/ros/noetic/share'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/opt/ros/noetic/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:'), ('SHLVL', '1'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('HOME', '/home/revanth'), ('OLDPWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src'), ('LESS', '-R'), ('CONDA_SHLVL', '1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ZSH', '/home/revanth/.oh-my-zsh'), ('LSCOLORS', 'Gxfxcxdxbxegedabagacad'), ('GTK_MODULES', 'gail:atk-bridge'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('PAGER', 'less'), ('ROS_PYTHON_VERSION', '3'), ('MANAGERPID', '2385'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('P9K_TTY', 'old'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6166'), ('COLORTERM', 'truecolor'), ('LIBVIRT_DEFAULT_URI', 'qemu:///system'), ('COPPELIASIM_ROOT', ''), ('QT_QPA_PLATFORM_PLUGIN_PATH', ''), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('_CE_M', ''), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'revanth'), ('_', '/usr/bin/colcon'), ('JOURNAL_STREAM', '8:62525'), ('_P9K_SSH_TTY', '/dev/pts/0'), ('XDG_SESSION_CLASS', 'user'), ('PKG_CONFIG_PATH', '/opt/ros/noetic/lib/pkgconfig'), ('ROS_VERSION', '2'), ('USERNAME', 'revanth'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/opt/ros/noetic/bin:/home/revanth/mambaforge/bin:/home/revanth/mambaforge/condabin:/home/revanth/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/revanth-XPS-15-7590:@/tmp/.ICE-unix/2660,unix/revanth-XPS-15-7590:/tmp/.ICE-unix/2660'), ('INVOCATION_ID', '02a8060957b04adcb7a22f1be605cb58'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('ROSLISP_PACKAGE_DIRECTORIES', ''), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/revanth/mambaforge/bin/python'), ('XML_CATALOG_FILES', 'file:///home/revanth/mambaforge/etc/xml/catalog file:///etc/xml/catalog'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('TERMINATOR_UUID', 'urn:uuid:bdc86c9c-c80d-4273-8192-8ff929832728'), ('SHELL', '/usr/bin/zsh'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('CONDA_DEFAULT_ENV', 'base'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('P9K_SSH', '0'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_dev'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/revanth/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('_P9K_TTY', '/dev/pts/0'), ('CONDA_EXE', '/home/revanth/mambaforge/bin/conda'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages:/opt/ros/noetic/lib/python3/dist-packages'), ('CONDA_PREFIX', '/home/revanth/mambaforge'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy:/opt/ros/noetic')]), 'shell': False}
+[0.052337] (gazebo_msgs) JobProgress: {'identifier': 'gazebo_msgs', 'progress': 'cmake'}
+[0.054106] (gazebo_msgs) Command: {'cmd': ['/home/revanth/mambaforge/bin/cmake', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/gazebo_ros_pkgs/gazebo_msgs', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_msgs'], 'cwd': '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('CONDA_PROMPT_MODIFIER', '(base)'), ('USER', 'revanth'), ('SSH_AGENT_PID', '2622'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_PACKAGE_PATH', '/opt/ros/noetic/share'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/opt/ros/noetic/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:'), ('SHLVL', '1'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('HOME', '/home/revanth'), ('OLDPWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src'), ('LESS', '-R'), ('CONDA_SHLVL', '1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ZSH', '/home/revanth/.oh-my-zsh'), ('LSCOLORS', 'Gxfxcxdxbxegedabagacad'), ('GTK_MODULES', 'gail:atk-bridge'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('PAGER', 'less'), ('ROS_PYTHON_VERSION', '3'), ('MANAGERPID', '2385'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('P9K_TTY', 'old'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6166'), ('COLORTERM', 'truecolor'), ('LIBVIRT_DEFAULT_URI', 'qemu:///system'), ('COPPELIASIM_ROOT', ''), ('QT_QPA_PLATFORM_PLUGIN_PATH', ''), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('_CE_M', ''), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'revanth'), ('_', '/usr/bin/colcon'), ('JOURNAL_STREAM', '8:62525'), ('_P9K_SSH_TTY', '/dev/pts/0'), ('XDG_SESSION_CLASS', 'user'), ('PKG_CONFIG_PATH', '/opt/ros/noetic/lib/pkgconfig'), ('ROS_VERSION', '2'), ('USERNAME', 'revanth'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/opt/ros/noetic/bin:/home/revanth/mambaforge/bin:/home/revanth/mambaforge/condabin:/home/revanth/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/revanth-XPS-15-7590:@/tmp/.ICE-unix/2660,unix/revanth-XPS-15-7590:/tmp/.ICE-unix/2660'), ('INVOCATION_ID', '02a8060957b04adcb7a22f1be605cb58'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('ROSLISP_PACKAGE_DIRECTORIES', ''), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/revanth/mambaforge/bin/python'), ('XML_CATALOG_FILES', 'file:///home/revanth/mambaforge/etc/xml/catalog file:///etc/xml/catalog'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('TERMINATOR_UUID', 'urn:uuid:bdc86c9c-c80d-4273-8192-8ff929832728'), ('SHELL', '/usr/bin/zsh'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('CONDA_DEFAULT_ENV', 'base'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('P9K_SSH', '0'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_msgs'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/revanth/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('_P9K_TTY', '/dev/pts/0'), ('CONDA_EXE', '/home/revanth/mambaforge/bin/conda'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages:/opt/ros/noetic/lib/python3/dist-packages'), ('CONDA_PREFIX', '/home/revanth/mambaforge'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy:/opt/ros/noetic')]), 'shell': False}
+[0.062509] (image_geometry) JobProgress: {'identifier': 'image_geometry', 'progress': 'cmake'}
+[0.063033] (image_geometry) Command: {'cmd': ['/home/revanth/mambaforge/bin/cmake', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/vision_opencv/image_geometry', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/image_geometry'], 'cwd': '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/image_geometry', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('CONDA_PROMPT_MODIFIER', '(base)'), ('USER', 'revanth'), ('SSH_AGENT_PID', '2622'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_PACKAGE_PATH', '/opt/ros/noetic/share'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/opt/ros/noetic/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:/home/revanth/mambaforge/lib/:/home/revanth/mambaforge/lib/python3.10/site-packages/nvidia/cudnn/lib:'), ('SHLVL', '1'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('HOME', '/home/revanth'), ('OLDPWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src'), ('LESS', '-R'), ('CONDA_SHLVL', '1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ZSH', '/home/revanth/.oh-my-zsh'), ('LSCOLORS', 'Gxfxcxdxbxegedabagacad'), ('GTK_MODULES', 'gail:atk-bridge'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('PAGER', 'less'), ('ROS_PYTHON_VERSION', '3'), ('MANAGERPID', '2385'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('P9K_TTY', 'old'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6166'), ('COLORTERM', 'truecolor'), ('LIBVIRT_DEFAULT_URI', 'qemu:///system'), ('COPPELIASIM_ROOT', ''), ('QT_QPA_PLATFORM_PLUGIN_PATH', ''), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('_CE_M', ''), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'revanth'), ('_', '/usr/bin/colcon'), ('JOURNAL_STREAM', '8:62525'), ('_P9K_SSH_TTY', '/dev/pts/0'), ('XDG_SESSION_CLASS', 'user'), ('PKG_CONFIG_PATH', '/opt/ros/noetic/lib/pkgconfig'), ('ROS_VERSION', '2'), ('USERNAME', 'revanth'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('_CE_CONDA', ''), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/opt/ros/noetic/bin:/home/revanth/mambaforge/bin:/home/revanth/mambaforge/condabin:/home/revanth/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/revanth-XPS-15-7590:@/tmp/.ICE-unix/2660,unix/revanth-XPS-15-7590:/tmp/.ICE-unix/2660'), ('INVOCATION_ID', '02a8060957b04adcb7a22f1be605cb58'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('ROSLISP_PACKAGE_DIRECTORIES', ''), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('CONDA_PYTHON_EXE', '/home/revanth/mambaforge/bin/python'), ('XML_CATALOG_FILES', 'file:///home/revanth/mambaforge/etc/xml/catalog file:///etc/xml/catalog'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('TERMINATOR_UUID', 'urn:uuid:bdc86c9c-c80d-4273-8192-8ff929832728'), ('SHELL', '/usr/bin/zsh'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('CONDA_DEFAULT_ENV', 'base'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('P9K_SSH', '0'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/image_geometry'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/home/revanth/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('_P9K_TTY', '/dev/pts/0'), ('CONDA_EXE', '/home/revanth/mambaforge/bin/conda'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages:/opt/ros/noetic/lib/python3/dist-packages'), ('CONDA_PREFIX', '/home/revanth/mambaforge'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy:/opt/ros/noetic')]), 'shell': False}
+[0.099211] (-) TimerEvent: {}
+[0.199577] (-) TimerEvent: {}
+[0.225325] (gazebo_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.225724] (gazebo_dev) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.225820] (image_geometry) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.225928] (cv_bridge) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.299690] (-) TimerEvent: {}
+[0.335757] (cv_bridge) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.335989] (gazebo_dev) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.338332] (gazebo_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.338498] (image_geometry) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.372113] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.372501] (gazebo_dev) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.372679] (image_geometry) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.372884] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.399793] (-) TimerEvent: {}
+[0.450218] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.450658] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.450784] (gazebo_dev) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.452540] (image_geometry) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.462696] (cv_bridge) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.463346] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.464005] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.465391] (image_geometry) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.465840] (image_geometry) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.466435] (image_geometry) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.476624] (gazebo_dev) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.476906] (gazebo_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.477256] (gazebo_dev) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.477516] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.478136] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.478255] (gazebo_dev) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.480190] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.481060] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.493015] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.494534] (gazebo_dev) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.499865] (-) TimerEvent: {}
+[0.567420] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.567647] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.577211] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.580286] (gazebo_dev) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.582287] (image_geometry) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.582666] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.582785] (cv_bridge) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.583275] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.583478] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.583930] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.586535] (cv_bridge) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[0.586696] (image_geometry) StdoutLine: {'line': b'-- Found ament_cmake_python: 0.9.12 (/opt/ros/foxy/share/ament_cmake_python/cmake)\n'}
+[0.588536] (image_geometry) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[0.591721] (gazebo_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.592098] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.592704] (gazebo_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.595398] (gazebo_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.595611] (gazebo_dev) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.595885] (gazebo_dev) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.596529] (gazebo_dev) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.598705] (gazebo_dev) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.599968] (-) TimerEvent: {}
+[0.602035] (gazebo_msgs) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):\n'}
+[0.602162] (gazebo_msgs) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[0.602238] (gazebo_msgs) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[0.602307] (gazebo_msgs) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[0.602408] (gazebo_msgs) StderrLine: {'line': b'\n'}
+[0.602508] (gazebo_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.602571] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)\n'}
+[0.602635] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)\n'}
+[0.602739] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.603035] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.603110] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.603175] (gazebo_msgs) StderrLine: {'line': b'  CMakeLists.txt:15 (find_package)\n'}
+[0.603238] (gazebo_msgs) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[0.603302] (gazebo_msgs) StderrLine: {'line': b'\x1b[0m\n'}
+[0.603381] (image_geometry) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):\n'}
+[0.603473] (image_geometry) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[0.603538] (image_geometry) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[0.603602] (image_geometry) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[0.603666] (image_geometry) StderrLine: {'line': b'\n'}
+[0.603751] (image_geometry) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.603827] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)\n'}
+[0.603891] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)\n'}
+[0.603954] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.604016] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_test/cmake/ament_cmake_test-extras.cmake:39 (find_package)\n'}
+[0.604081] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_test/cmake/ament_cmake_testConfig.cmake:41 (include)\n'}
+[0.604144] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_pytest/cmake/ament_cmake_pytest-extras.cmake:17 (find_package)\n'}
+[0.604228] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_pytest/cmake/ament_cmake_pytestConfig.cmake:41 (include)\n'}
+[0.604319] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_ros/cmake/ament_cmake_ros-extras.cmake:19 (find_package)\n'}
+[0.604399] (image_geometry) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_ros/cmake/ament_cmake_rosConfig.cmake:41 (include)\n'}
+[0.604462] (image_geometry) StderrLine: {'line': b'  CMakeLists.txt:5 (find_package)\n'}
+[0.604525] (image_geometry) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[0.604588] (image_geometry) StderrLine: {'line': b'\x1b[0m\n'}
+[0.604652] (cv_bridge) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):\n'}
+[0.604733] (cv_bridge) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[0.604798] (cv_bridge) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[0.604861] (cv_bridge) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[0.604925] (cv_bridge) StderrLine: {'line': b'\n'}
+[0.604988] (cv_bridge) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.605050] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)\n'}
+[0.605113] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)\n'}
+[0.605175] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.605238] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_test/cmake/ament_cmake_test-extras.cmake:39 (find_package)\n'}
+[0.605301] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_test/cmake/ament_cmake_testConfig.cmake:41 (include)\n'}
+[0.605369] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_pytest/cmake/ament_cmake_pytest-extras.cmake:17 (find_package)\n'}
+[0.605432] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_pytest/cmake/ament_cmake_pytestConfig.cmake:41 (include)\n'}
+[0.605495] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_ros/cmake/ament_cmake_ros-extras.cmake:19 (find_package)\n'}
+[0.605557] (cv_bridge) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_ros/cmake/ament_cmake_rosConfig.cmake:41 (include)\n'}
+[0.605619] (cv_bridge) StderrLine: {'line': b'  CMakeLists.txt:4 (find_package)\n'}
+[0.605682] (cv_bridge) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[0.605745] (cv_bridge) StderrLine: {'line': b'\x1b[0m\n'}
+[0.605808] (gazebo_dev) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):\n'}
+[0.605884] (gazebo_dev) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[0.605949] (gazebo_dev) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[0.606013] (gazebo_dev) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[0.606075] (gazebo_dev) StderrLine: {'line': b'\n'}
+[0.606137] (gazebo_dev) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.606199] (gazebo_dev) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)\n'}
+[0.606262] (gazebo_dev) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)\n'}
+[0.606325] (gazebo_dev) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.606388] (gazebo_dev) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.606451] (gazebo_dev) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.606514] (gazebo_dev) StderrLine: {'line': b'  CMakeLists.txt:4 (find_package)\n'}
+[0.606577] (gazebo_dev) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[0.606639] (gazebo_dev) StderrLine: {'line': b'\x1b[0m\n'}
+[0.624932] (image_geometry) StdoutLine: {'line': b'-- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3") \n'}
+[0.625302] (gazebo_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3") \n'}
+[0.625386] (cv_bridge) StdoutLine: {'line': b'-- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3") \n'}
+[0.625461] (cv_bridge) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3\n'}
+[0.625529] (image_geometry) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3\n'}
+[0.625595] (gazebo_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3\n'}
+[0.625659] (gazebo_dev) StdoutLine: {'line': b'-- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3") \n'}
+[0.625728] (gazebo_dev) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3\n'}
+[0.700094] (-) TimerEvent: {}
+[0.800412] (-) TimerEvent: {}
+[0.868898] (gazebo_dev) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.869197] (gazebo_msgs) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.869520] (image_geometry) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.869793] (cv_bridge) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.897253] (gazebo_msgs) StdoutLine: {'line': b'-- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)\n'}
+[0.900507] (-) TimerEvent: {}
+[0.904889] (cv_bridge) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at CMakeLists.txt:16 (find_package):\n'}
+[0.905036] (cv_bridge) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[0.905119] (cv_bridge) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[0.905197] (cv_bridge) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[0.905272] (cv_bridge) StderrLine: {'line': b'\n'}
+[0.905345] (cv_bridge) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[0.905418] (cv_bridge) StderrLine: {'line': b'\x1b[0m\n'}
+[0.910210] (cv_bridge) StdoutLine: {'line': b'-- Found PythonLibs: /home/revanth/mambaforge/lib/libpython3.10.so (found version "3.10.10") \n'}
+[0.928561] (cv_bridge) StdoutLine: {'line': b'-- Boost_VERSION_STRING: 1.71.0\n'}
+[0.934706] (gazebo_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.944233] (gazebo_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.946801] (cv_bridge) StderrLine: {'line': b'\x1b[31mCMake Error at /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake:117 (find_package):\n'}
+[0.946919] (cv_bridge) StderrLine: {'line': b'  Could not find a package configuration file provided by "boost_python310"\n'}
+[0.947025] (cv_bridge) StderrLine: {'line': b'  (requested version 1.71.0) with any of the following names:\n'}
+[0.947115] (cv_bridge) StderrLine: {'line': b'\n'}
+[0.947181] (cv_bridge) StderrLine: {'line': b'    boost_python310Config.cmake\n'}
+[0.947245] (cv_bridge) StderrLine: {'line': b'    boost_python310-config.cmake\n'}
+[0.947315] (cv_bridge) StderrLine: {'line': b'\n'}
+[0.947509] (cv_bridge) StderrLine: {'line': b'  Add the installation prefix of "boost_python310" to CMAKE_PREFIX_PATH or\n'}
+[0.947586] (cv_bridge) StderrLine: {'line': b'  set "boost_python310_DIR" to a directory containing one of the above files.\n'}
+[0.947655] (cv_bridge) StderrLine: {'line': b'  If "boost_python310" provides a separate development package or SDK, be\n'}
+[0.947721] (cv_bridge) StderrLine: {'line': b'  sure it has been installed.\n'}
+[0.947791] (cv_bridge) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.947864] (cv_bridge) StderrLine: {'line': b'  /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake:182 (boost_find_component)\n'}
+[0.947931] (cv_bridge) StderrLine: {'line': b'  /home/revanth/mambaforge/lib/python3.10/site-packages/cmake/data/share/cmake-3.27/Modules/FindBoost.cmake:594 (find_package)\n'}
+[0.947997] (cv_bridge) StderrLine: {'line': b'  CMakeLists.txt:34 (find_package)\n'}
+[0.948062] (cv_bridge) StderrLine: {'line': b'\n'}
+[0.948125] (cv_bridge) StderrLine: {'line': b'\x1b[0m\n'}
+[0.948189] (cv_bridge) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.956009] (cv_bridge) CommandEnded: {'returncode': 1}
+[0.997058] (gazebo_dev) StdoutLine: {'line': b'-- Configuring done (0.9s)\n'}
+[0.999994] (gazebo_dev) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[1.001400] (-) TimerEvent: {}
+[1.001841] (gazebo_dev) StdoutLine: {'line': b'-- Build files have been written to: /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_dev\n'}
+[1.014084] (cv_bridge) JobEnded: {'identifier': 'cv_bridge', 'rc': 1}
+[1.015200] (gazebo_dev) JobEnded: {'identifier': 'gazebo_dev', 'rc': 'SIGINT'}
+[1.055874] (gazebo_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[1.086837] (gazebo_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[1.101502] (-) TimerEvent: {}
+[1.175369] (image_geometry) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.2.0") found components: calib3d core highgui imgproc \n'}
+[1.176849] (image_geometry) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[1.177303] (gazebo_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.201601] (-) TimerEvent: {}
+[1.204298] (image_geometry) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.208908] (gazebo_msgs) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[1.210311] (image_geometry) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[1.228476] (gazebo_msgs) StdoutLine: {'line': b'-- Found trajectory_msgs: 2.0.5 (/opt/ros/foxy/share/trajectory_msgs/cmake)\n'}
+[1.292034] (image_geometry) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[1.301707] (-) TimerEvent: {}
+[1.323479] (image_geometry) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[1.349481] (gazebo_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[1.367640] (gazebo_msgs) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:40 (find_package):\n'}
+[1.367756] (gazebo_msgs) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[1.367822] (gazebo_msgs) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[1.367884] (gazebo_msgs) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[1.367983] (gazebo_msgs) StderrLine: {'line': b'\n'}
+[1.368080] (gazebo_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.368137] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:130 (rosidl_adapt_interfaces)\n'}
+[1.368194] (gazebo_msgs) StderrLine: {'line': b'  CMakeLists.txt:70 (rosidl_generate_interfaces)\n'}
+[1.368250] (gazebo_msgs) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[1.368306] (gazebo_msgs) StderrLine: {'line': b'\x1b[0m\n'}
+[1.385668] (gazebo_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found version "3.10.10") \n'}
+[1.401819] (-) TimerEvent: {}
+[1.402666] (image_geometry) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.501940] (-) TimerEvent: {}
+[1.568543] (image_geometry) StdoutLine: {'line': b"-- Found gtest sources under '/opt/ros/foxy/src/gtest_vendor': C++ tests using 'Google Test' will be built\n"}
+[1.569557] (image_geometry) StderrLine: {'line': b'\x1b[0mCMake Deprecation Warning at /opt/ros/foxy/src/gtest_vendor/CMakeLists.txt:2 (cmake_minimum_required):\n'}
+[1.569677] (image_geometry) StderrLine: {'line': b'  Compatibility with CMake < 3.5 will be removed from a future version of\n'}
+[1.569750] (image_geometry) StderrLine: {'line': b'  CMake.\n'}
+[1.569816] (image_geometry) StderrLine: {'line': b'\n'}
+[1.569878] (image_geometry) StderrLine: {'line': b'  Update the VERSION argument <min> value or use a ...<max> suffix to tell\n'}
+[1.569940] (image_geometry) StderrLine: {'line': b'  CMake that the project does not need compatibility with older versions.\n'}
+[1.570009] (image_geometry) StderrLine: {'line': b'\n'}
+[1.570071] (image_geometry) StderrLine: {'line': b'\x1b[0m\n'}
+[1.571591] (image_geometry) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.602055] (-) TimerEvent: {}
+[1.632706] (image_geometry) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[1.632956] (image_geometry) StdoutLine: {'line': b'-- Check if compiler accepts -pthread\n'}
+[1.689438] (image_geometry) StdoutLine: {'line': b'-- Check if compiler accepts -pthread - yes\n'}
+[1.690618] (image_geometry) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.702168] (-) TimerEvent: {}
+[1.768798] (image_geometry) StdoutLine: {'line': b'-- Configuring done (1.7s)\n'}
+[1.785121] (image_geometry) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[1.787305] (image_geometry) StdoutLine: {'line': b'-- Build files have been written to: /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/image_geometry\n'}
+[1.798649] (image_geometry) JobEnded: {'identifier': 'image_geometry', 'rc': 'SIGINT'}
+[1.802260] (-) TimerEvent: {}
+[1.866786] (gazebo_msgs) StdoutLine: {'line': b'-- Found ament_cmake_cppcheck: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)\n'}
+[1.869127] (gazebo_msgs) StdoutLine: {'line': b'-- Found ament_cmake_cpplint: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)\n'}
+[1.871536] (gazebo_msgs) StdoutLine: {'line': b'-- Found ament_cmake_uncrustify: 0.9.8 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)\n'}
+[1.873982] (gazebo_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[1.902368] (-) TimerEvent: {}
+[2.002607] (-) TimerEvent: {}
+[2.102888] (-) TimerEvent: {}
+[2.147856] (gazebo_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.203010] (-) TimerEvent: {}
+[2.276052] (gazebo_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.281632] (gazebo_msgs) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:20 (find_package):\n'}
+[2.281721] (gazebo_msgs) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[2.281781] (gazebo_msgs) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[2.281836] (gazebo_msgs) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[2.281896] (gazebo_msgs) StderrLine: {'line': b'\n'}
+[2.281949] (gazebo_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[2.282027] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)\n'}
+[2.282094] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)\n'}
+[2.282147] (gazebo_msgs) StderrLine: {'line': b'  CMakeLists.txt:70 (rosidl_generate_interfaces)\n'}
+[2.282198] (gazebo_msgs) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[2.282250] (gazebo_msgs) StderrLine: {'line': b'\x1b[0m\n'}
+[2.298861] (gazebo_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3.5") \n'}
+[2.300553] (gazebo_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[2.301320] (gazebo_msgs) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:45 (find_package):\n'}
+[2.301404] (gazebo_msgs) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[2.301464] (gazebo_msgs) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[2.301520] (gazebo_msgs) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[2.301580] (gazebo_msgs) StderrLine: {'line': b'\n'}
+[2.301653] (gazebo_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[2.301719] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)\n'}
+[2.301771] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)\n'}
+[2.301824] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)\n'}
+[2.301876] (gazebo_msgs) StderrLine: {'line': b'  CMakeLists.txt:70 (rosidl_generate_interfaces)\n'}
+[2.301927] (gazebo_msgs) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[2.301978] (gazebo_msgs) StderrLine: {'line': b'\x1b[0m\n'}
+[2.303045] (-) TimerEvent: {}
+[2.318961] (gazebo_msgs) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:133 (find_package):\n'}
+[2.319143] (gazebo_msgs) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[2.319202] (gazebo_msgs) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[2.319256] (gazebo_msgs) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[2.319308] (gazebo_msgs) StderrLine: {'line': b'\n'}
+[2.319359] (gazebo_msgs) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[2.319409] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)\n'}
+[2.319461] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)\n'}
+[2.319511] (gazebo_msgs) StderrLine: {'line': b'  /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)\n'}
+[2.319562] (gazebo_msgs) StderrLine: {'line': b'  CMakeLists.txt:70 (rosidl_generate_interfaces)\n'}
+[2.319612] (gazebo_msgs) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[2.319662] (gazebo_msgs) StderrLine: {'line': b'\x1b[0m\n'}
+[2.322117] (gazebo_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /home/revanth/mambaforge/lib/libpython3.10.so (found suitable version "3.10.10", minimum required is "3.5") \n'}
+[2.322398] (gazebo_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3\n'}
+[2.322522] (gazebo_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /home/revanth/mambaforge/include/python3.10\n'}
+[2.322600] (gazebo_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /home/revanth/mambaforge/lib/libpython3.10.so\n'}
+[2.341461] (gazebo_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[2.403137] (-) TimerEvent: {}
+[2.503414] (-) TimerEvent: {}
+[2.603683] (-) TimerEvent: {}
+[2.704011] (-) TimerEvent: {}
+[2.804415] (-) TimerEvent: {}
+[2.837892] (gazebo_msgs) StdoutLine: {'line': b'-- Using numpy include directory: /home/revanth/mambaforge/lib/python3.10/site-packages/numpy/core/include\n'}
+[2.856466] (gazebo_msgs) StdoutLine: {'line': b'-- Found ament_cmake_flake8: 0.9.8 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)\n'}
+[2.859194] (gazebo_msgs) StdoutLine: {'line': b'-- Found ament_cmake_pep257: 0.9.8 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)\n'}
+[2.890529] (gazebo_msgs) StdoutLine: {'line': b'-- Configuring done (2.8s)\n'}
+[2.904509] (-) TimerEvent: {}
+[3.004787] (-) TimerEvent: {}
+[3.037830] (gazebo_msgs) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[3.040929] (gazebo_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_msgs\n'}
+[3.052351] (gazebo_msgs) JobEnded: {'identifier': 'gazebo_msgs', 'rc': 'SIGINT'}
+[3.063048] (gazebo_ros) JobSkipped: {'identifier': 'gazebo_ros'}
+[3.063333] (opencv_tests) JobSkipped: {'identifier': 'opencv_tests'}
+[3.063447] (vision_opencv) JobSkipped: {'identifier': 'vision_opencv'}
+[3.063563] (gazebo_plugins) JobSkipped: {'identifier': 'gazebo_plugins'}
+[3.063735] (gazebo_ros_pkgs) JobSkipped: {'identifier': 'gazebo_ros_pkgs'}
+[3.063826] (-) EventReactorShutdown: {}

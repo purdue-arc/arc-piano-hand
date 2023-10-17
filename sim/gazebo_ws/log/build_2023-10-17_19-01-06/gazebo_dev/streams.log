@@ -1,0 +1,34 @@
+[0.035s] Invoking command in '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_dev': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} CONDA_PROMPT_MODIFIER=(base) /home/revanth/mambaforge/bin/cmake /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/gazebo_ros_pkgs/gazebo_dev -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_dev
+[0.209s] -- The C compiler identification is GNU 9.4.0
+[0.319s] -- The CXX compiler identification is GNU 9.4.0
+[0.356s] -- Detecting C compiler ABI info
+[0.434s] -- Detecting C compiler ABI info - done
+[0.460s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.460s] -- Detecting C compile features
+[0.461s] -- Detecting C compile features - done
+[0.478s] -- Detecting CXX compiler ABI info
+[0.563s] -- Detecting CXX compiler ABI info - done
+[0.579s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.579s] -- Detecting CXX compile features
+[0.580s] -- Detecting CXX compile features - done
+[0.582s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.589s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.589s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.589s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.589s]   the cmake_policy command to set the policy and suppress this warning.
+[0.589s] 
+[0.589s] Call Stack (most recent call first):
+[0.589s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.589s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.589s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.590s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.590s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.590s]   CMakeLists.txt:4 (find_package)
+[0.590s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.590s] [0m
+[0.609s] -- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3") 
+[0.609s] -- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3
+[0.852s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.980s] -- Configuring done (0.9s)
+[0.983s] -- Generating done (0.0s)
+[0.985s] -- Build files have been written to: /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_dev

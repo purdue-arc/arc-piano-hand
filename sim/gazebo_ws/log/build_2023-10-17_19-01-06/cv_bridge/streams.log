@@ -1,0 +1,63 @@
+[0.044s] Invoking command in '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/cv_bridge': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} CONDA_PROMPT_MODIFIER=(base) /home/revanth/mambaforge/bin/cmake /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/vision_opencv/cv_bridge -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/cv_bridge
+[0.225s] -- The C compiler identification is GNU 9.4.0
+[0.335s] -- The CXX compiler identification is GNU 9.4.0
+[0.372s] -- Detecting C compiler ABI info
+[0.450s] -- Detecting C compiler ABI info - done
+[0.462s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.463s] -- Detecting C compile features
+[0.463s] -- Detecting C compile features - done
+[0.480s] -- Detecting CXX compiler ABI info
+[0.567s] -- Detecting CXX compiler ABI info - done
+[0.582s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.583s] -- Detecting CXX compile features
+[0.583s] -- Detecting CXX compile features - done
+[0.586s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[0.604s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.604s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.604s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.604s]   the cmake_policy command to set the policy and suppress this warning.
+[0.604s] 
+[0.604s] Call Stack (most recent call first):
+[0.604s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.604s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.604s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.605s]   /opt/ros/foxy/share/ament_cmake_test/cmake/ament_cmake_test-extras.cmake:39 (find_package)
+[0.605s]   /opt/ros/foxy/share/ament_cmake_test/cmake/ament_cmake_testConfig.cmake:41 (include)
+[0.605s]   /opt/ros/foxy/share/ament_cmake_pytest/cmake/ament_cmake_pytest-extras.cmake:17 (find_package)
+[0.605s]   /opt/ros/foxy/share/ament_cmake_pytest/cmake/ament_cmake_pytestConfig.cmake:41 (include)
+[0.605s]   /opt/ros/foxy/share/ament_cmake_ros/cmake/ament_cmake_ros-extras.cmake:19 (find_package)
+[0.605s]   /opt/ros/foxy/share/ament_cmake_ros/cmake/ament_cmake_rosConfig.cmake:41 (include)
+[0.605s]   CMakeLists.txt:4 (find_package)
+[0.605s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.605s] [0m
+[0.625s] -- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3") 
+[0.625s] -- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3
+[0.869s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.904s] [33mCMake Warning (dev) at CMakeLists.txt:16 (find_package):
+[0.904s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.904s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.905s]   the cmake_policy command to set the policy and suppress this warning.
+[0.905s] 
+[0.905s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.905s] [0m
+[0.910s] -- Found PythonLibs: /home/revanth/mambaforge/lib/libpython3.10.so (found version "3.10.10") 
+[0.928s] -- Boost_VERSION_STRING: 1.71.0
+[0.946s] [31mCMake Error at /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake:117 (find_package):
+[0.946s]   Could not find a package configuration file provided by "boost_python310"
+[0.946s]   (requested version 1.71.0) with any of the following names:
+[0.946s] 
+[0.946s]     boost_python310Config.cmake
+[0.947s]     boost_python310-config.cmake
+[0.947s] 
+[0.947s]   Add the installation prefix of "boost_python310" to CMAKE_PREFIX_PATH or
+[0.947s]   set "boost_python310_DIR" to a directory containing one of the above files.
+[0.947s]   If "boost_python310" provides a separate development package or SDK, be
+[0.947s]   sure it has been installed.
+[0.947s] Call Stack (most recent call first):
+[0.947s]   /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake:182 (boost_find_component)
+[0.947s]   /home/revanth/mambaforge/lib/python3.10/site-packages/cmake/data/share/cmake-3.27/Modules/FindBoost.cmake:594 (find_package)
+[0.947s]   CMakeLists.txt:34 (find_package)
+[0.947s] 
+[0.947s] [0m
+[0.947s] -- Configuring incomplete, errors occurred!
+[0.956s] Invoked command in '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/cv_bridge' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} CONDA_PROMPT_MODIFIER=(base) /home/revanth/mambaforge/bin/cmake /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/vision_opencv/cv_bridge -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/cv_bridge

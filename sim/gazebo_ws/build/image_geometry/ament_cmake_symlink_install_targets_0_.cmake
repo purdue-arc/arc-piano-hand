@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/image_geometry/libimage_geometry.so" "TARGETS" "image_geometry" "RUNTIME_DESTINATION" "bin" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib")

@@ -1,0 +1,105 @@
+[0.032s] Invoking command in '/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} CONDA_PROMPT_MODIFIER=(base) /home/revanth/mambaforge/bin/cmake /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/src/gazebo_ros_pkgs/gazebo_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/revanth/revo/arc-piano-hand/sim/gazebo_ws/install/gazebo_msgs
+[0.199s] -- The C compiler identification is GNU 9.4.0
+[0.312s] -- The CXX compiler identification is GNU 9.4.0
+[0.347s] -- Detecting C compiler ABI info
+[0.425s] -- Detecting C compiler ABI info - done
+[0.451s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.451s] -- Detecting C compile features
+[0.452s] -- Detecting C compile features - done
+[0.467s] -- Detecting CXX compiler ABI info
+[0.551s] -- Detecting CXX compiler ABI info - done
+[0.566s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.566s] -- Detecting CXX compile features
+[0.567s] -- Detecting CXX compile features - done
+[0.569s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.576s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.576s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.576s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.576s]   the cmake_policy command to set the policy and suppress this warning.
+[0.576s] 
+[0.576s] Call Stack (most recent call first):
+[0.576s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.576s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.577s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.577s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.577s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.577s]   CMakeLists.txt:15 (find_package)
+[0.577s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.577s] [0m
+[0.599s] -- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3") 
+[0.599s] -- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3
+[0.843s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.871s] -- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+[0.909s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.918s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.030s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.061s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.151s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.183s] -- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+[1.202s] -- Found trajectory_msgs: 2.0.5 (/opt/ros/foxy/share/trajectory_msgs/cmake)
+[1.323s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[1.342s] [33mCMake Warning (dev) at /opt/ros/foxy/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:40 (find_package):
+[1.342s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[1.342s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[1.342s]   the cmake_policy command to set the policy and suppress this warning.
+[1.342s] 
+[1.342s] Call Stack (most recent call first):
+[1.342s]   /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:130 (rosidl_adapt_interfaces)
+[1.342s]   CMakeLists.txt:70 (rosidl_generate_interfaces)
+[1.342s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.342s] [0m
+[1.360s] -- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found version "3.10.10") 
+[1.841s] -- Found ament_cmake_cppcheck: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cppcheck/cmake)
+[1.843s] -- Found ament_cmake_cpplint: 0.9.8 (/opt/ros/foxy/share/ament_cmake_cpplint/cmake)
+[1.845s] -- Found ament_cmake_uncrustify: 0.9.8 (/opt/ros/foxy/share/ament_cmake_uncrustify/cmake)
+[1.848s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[2.122s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.250s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.255s] [33mCMake Warning (dev) at /opt/ros/foxy/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:20 (find_package):
+[2.256s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[2.256s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[2.256s]   the cmake_policy command to set the policy and suppress this warning.
+[2.256s] 
+[2.256s] Call Stack (most recent call first):
+[2.256s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[2.256s]   /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[2.256s]   CMakeLists.txt:70 (rosidl_generate_interfaces)
+[2.256s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.256s] [0m
+[2.273s] -- Found PythonInterp: /home/revanth/mambaforge/bin/python3 (found suitable version "3.10.10", minimum required is "3.5") 
+[2.274s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[2.275s] [33mCMake Warning (dev) at /opt/ros/foxy/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:45 (find_package):
+[2.275s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[2.275s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[2.275s]   the cmake_policy command to set the policy and suppress this warning.
+[2.275s] 
+[2.275s] Call Stack (most recent call first):
+[2.276s]   /opt/ros/foxy/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[2.276s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[2.276s]   /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[2.276s]   CMakeLists.txt:70 (rosidl_generate_interfaces)
+[2.276s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.276s] [0m
+[2.293s] [33mCMake Warning (dev) at /opt/ros/foxy/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:133 (find_package):
+[2.293s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[2.293s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[2.293s]   the cmake_policy command to set the policy and suppress this warning.
+[2.293s] 
+[2.293s] Call Stack (most recent call first):
+[2.293s]   /opt/ros/foxy/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[2.293s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[2.293s]   /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[2.293s]   CMakeLists.txt:70 (rosidl_generate_interfaces)
+[2.293s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.293s] [0m
+[2.296s] -- Found PythonLibs: /home/revanth/mambaforge/lib/libpython3.10.so (found suitable version "3.10.10", minimum required is "3.5") 
+[2.296s] -- Using PYTHON_EXECUTABLE: /home/revanth/mambaforge/bin/python3
+[2.296s] -- Using PYTHON_INCLUDE_DIRS: /home/revanth/mambaforge/include/python3.10
+[2.296s] -- Using PYTHON_LIBRARIES: /home/revanth/mambaforge/lib/libpython3.10.so
+[2.315s] -- Found PythonExtra: .so  
+[2.812s] -- Using numpy include directory: /home/revanth/mambaforge/lib/python3.10/site-packages/numpy/core/include
+[2.830s] -- Found ament_cmake_flake8: 0.9.8 (/opt/ros/foxy/share/ament_cmake_flake8/cmake)
+[2.833s] -- Found ament_cmake_pep257: 0.9.8 (/opt/ros/foxy/share/ament_cmake_pep257/cmake)
+[2.864s] -- Configuring done (2.8s)
+[3.012s] -- Generating done (0.1s)
+[3.015s] -- Build files have been written to: /home/revanth/revo/arc-piano-hand/sim/gazebo_ws/build/gazebo_msgs
