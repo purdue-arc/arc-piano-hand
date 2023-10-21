@@ -8,12 +8,15 @@ using namespace phSpace;
 Finger::Finger(int id) {
     this->id = id;
     this->state = false; // Initialized to false as no finger is playing any note when initially declared
-    this->midi = -1;
     this->currentNote = nullptr;
 }
 
-int Finger::getNote() {
-    return this->midi;
+int Finger::getID() {
+    return id;
+}
+
+Note * Finger::getNote() {
+    return this->currentNote;
 }
 
 bool Finger::isPlaying() {
@@ -30,12 +33,11 @@ void Finger::playNote(Note *note) {
 }
 
 void Finger::releaseNote() {
-
     currentNote = nullptr;
     state = false; // stop finger from playing note
 }
 
-void Finger::moveTo(int midi) {
+void Finger::moveTo(Note * note) {
     // to define...
 }
 

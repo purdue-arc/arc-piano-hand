@@ -19,14 +19,6 @@ int Hand::num_fingers() {
     return this->fingers.size();
 }
 
-void Hand::moveHandTo(int midi) {
-
-}
-
-void Hand::playNoteOnHand(Note note) {
-
-}
-
 void Hand::release() {
     for (Finger *f : fingers) {
         f->releaseNote();
@@ -34,19 +26,20 @@ void Hand::release() {
 }
 
 int hand_cost(Hand h1, Hand h2) {
+    // Assume fingers are sorted from least to greatest id in array
     if (h1.num_fingers() != h2.num_fingers()) {
         return INT_MAX;
     }
     int cost = 0;
     for (auto i = 0; i < h1.num_fingers(); i++) {
-        int a = h1.fingers[i]->getNote();
-        if (a == NULL_NOTE) {
+        if (!h1.fingers[i]->isPlaying()) {
             continue;
         }
-        int b = h2.fingers[i]->getNote();
-        if (b == NULL_NOTE) {
+        int a = h1.fingers[i]->getNote()->midiNumber;
+        if (!h2.fingers[i]->isPlaying()) {
             continue;
         }
+        int b = h1.fingers[i]->getNote()->midiNumber;
         cost += (b - a)*(b - a);
     }
     return cost;
