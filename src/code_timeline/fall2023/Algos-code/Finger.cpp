@@ -41,4 +41,8 @@ void Finger::moveTo(Note * note) {
     // to define...
 }
 
+std::string Finger::toString() {
+    return std::format("Finger(id=%d, state=%b, currentNote=%s)", this->id, this->state, this->currentNote->toString());
+}
+
 

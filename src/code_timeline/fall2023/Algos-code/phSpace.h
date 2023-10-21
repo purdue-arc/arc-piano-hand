@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
+#include <format>
 
 namespace phSpace {
     #define NORMAL_HAND 0
@@ -16,6 +18,7 @@ namespace phSpace {
         int midiNumber;
         int time;
         Note(int midiNumber, int time);
+        string toString();
         // ... Constructors and methods ...
     };
 
@@ -33,6 +36,7 @@ namespace phSpace {
         void playNote(Note *note);
         void releaseNote();
         void moveTo(Note * note);
+        std::string toString();
     };
 
     class Thumb : public Finger {
@@ -58,7 +62,9 @@ namespace phSpace {
         int num_fingers();
         int midi_position;
         Hand(int start_position, int hand_type);
+        std::string toString();
         void release(); // basically a freeing of all memory
+        static std::string getOutputFromViterbi(std::vector<Hand *> h)
     };
 
     class initial_idea {

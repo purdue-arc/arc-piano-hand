@@ -14,11 +14,17 @@ int main() {
 
     // Finger State Allocation
     std::vector<Hand> hands = allocate_finger_state(*new std::vector<Hand>, *new Hand(0, NORMAL_HAND), notes);
-    v.update_fingerings(hands);
+
+    std::vector<Hand *> hand_ptrs;
+    for (Hand h : hands) {
+        hand_ptrs.push_back(&h);
+    }
+
+    v.update_fingerings(hand_ptrs);
 
     // Call Viterbi object to process values
     std::vector<Hand *> hand_output = v.run_algo();
 
     // Output the result
-    output_function();
+    std::cout << Hand::getOutputFromViterbi(hand_output);
 }

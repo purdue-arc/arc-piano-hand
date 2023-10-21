@@ -44,3 +44,22 @@ int hand_cost(Hand h1, Hand h2) {
     }
     return cost;
 }
+
+std::string Hand::toString() {
+    std::string output = std::format("Hand(midi_position=%d, num_fingers=%d, fingers=<", this->midi_position, this->num_fingers());
+    for (Finger *finger : this->fingers) {
+        output.append(finger->toString());
+        output.append(", ");
+    }
+    output.append(">)");
+    return output;
+}
+
+std::string Hand::getOutputFromViterbi(std::vector<Hand *> h) {
+    std::string output;
+    for (Hand *hand : h) {
+        output.append(hand->toString());
+        output.append("\n");
+    }
+    return output;
+}
