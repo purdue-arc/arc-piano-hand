@@ -28,6 +28,7 @@ namespace phSpace {
     protected:
         int id;
         int position_on_hand;
+        int finger_range;
         bool state; // Current state of the finger
         Note *currentNote; // Currently played note
 
