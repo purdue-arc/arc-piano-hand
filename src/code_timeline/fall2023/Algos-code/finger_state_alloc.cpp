@@ -3,9 +3,10 @@
 //
 
 #include "phSpace.h"
+
 using namespace phSpace;
 
-void alloc_step(std::vector<Hand *> *list, Hand* existing, std::vector<Note *> toPlay, int start_finger) {
+void alloc_step(std::vector<Hand *> *list, Hand *existing, std::vector<Note *> toPlay, int start_finger) {
     if (toPlay.empty()) {
         list->push_back(existing->copy());
         return;
@@ -30,21 +31,4 @@ std::vector<Hand *> finger_state_alloc::allocate_finger_state(int hand_type, std
     std::vector<Hand *> list{};
     alloc_step(&list, new Hand(60, hand_type), toPlay, 0);
     return list;
-}
-
-
-int main_test () {
-    std::vector<Note *> toPlay = {new Note (1, 0), new Note (3, 0)};
-
-    std::vector<Hand *> hands = finger_state_alloc::allocate_finger_state(NORMAL_HAND, toPlay);
-
-    for (Hand* h : hands) {
-        std::cout << "Hand: ";
-        for (Finger *f : h->fingers) {
-            std::cout << f->getNote() << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    return 0;
 }

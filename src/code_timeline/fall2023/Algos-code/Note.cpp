@@ -3,6 +3,7 @@
 //
 
 #include "phSpace.h"
+
 using namespace phSpace;
 
 Note::Note(int midiNumber, int time) {

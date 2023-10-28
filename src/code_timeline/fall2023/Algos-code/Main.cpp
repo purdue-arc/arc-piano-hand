@@ -3,6 +3,7 @@
 //
 
 #include "phSpace.h"
+
 using namespace phSpace;
 
 int main() {
@@ -11,7 +12,7 @@ int main() {
 
     std::vector<std::vector<Note *>> noteSets = input_output::readNotes();
 
-    for (std::vector<Note *> notes : noteSets) {
+    for (std::vector<Note *> notes: noteSets) {
         // Finger State Allocation
         std::vector<Hand *> hands = finger_state_alloc::allocate_finger_state(BAD_HAND, notes);
 
@@ -22,7 +23,7 @@ int main() {
 
         // Output the result
         std::cout << "---------------------\nAfter the note(s) ";
-        for (Note* n : notes) {
+        for (Note *n: notes) {
             std::cout << n->toString() << ", ";
         }
         std::cout << "the optimal sequence of fingerings is this order: " << std::endl;

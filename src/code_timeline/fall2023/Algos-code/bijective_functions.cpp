@@ -2,8 +2,11 @@
 // Created by inner-LMNt (Kevin Huang) on 10/21/2023.
 //
 
+#include "phSpace.h"
 #include <iostream>
 #include <vector>
+
+using namespace phSpace;
 
 // Generates all bijective functions mapping fingers to notes and prints to console
 // Works best when fingers <= notes
@@ -25,6 +28,8 @@ void bijective_functions(std::vector<int>& func, std::vector<bool>& used, const 
         }
     }
 }
+
+
 
 // main function to test method
 /* int main() {

@@ -9,17 +9,19 @@
 #include <algorithm>
 
 namespace phSpace {
-    #define NORMAL_HAND 0
-    #define BAD_HAND -1
-    #define EMPTY_HAND 1
-    #define NULL_NOTE -1
+#define NORMAL_HAND 0
+#define BAD_HAND -1
+#define EMPTY_HAND 1
+#define NULL_NOTE -1
 
     class Note {
     public:
         // Represents a musical note with MIDI number and time to play
         int midiNumber;
         int time;
+
         Note(int midiNumber, int time);
+
         std::string toString();
         // ... Constructors and methods ...
     };
@@ -28,20 +30,31 @@ namespace phSpace {
     protected:
         int id;
         int position_on_hand;
+        int finger_range;
         bool state; // Current state of the finger
         Note *currentNote; // Currently played note
 
     public:
         explicit Finger(int id);
-        Finger(int id, int position_on_hand);
+
+        Finger(int id, int position_on_hand, int finger_range);
+
         int getID();
+
         int getPositionOnHand();
+
         bool isPlaying();
-        Note * getNote();
+
+        Note *getNote();
+
         void playNote(Note *note);
+
         void releaseNote();
-        void moveTo(Note * note);
+
+        void moveTo(Note *note);
+
         std::string toString();
+
         void setState(bool state);
     };
 
@@ -65,13 +78,20 @@ namespace phSpace {
 
     public:
         std::vector<Finger *> fingers;
+
         int num_fingers();
+
         int midi_position;
+
         Hand(int start_position, int hand_type);
+
         std::string toString();
+
         void release(); // basically a freeing of all memory
         static std::string getOutputFromViterbi(std::vector<Hand *> h);
-        Hand* copy();
+
+        Hand *copy();
+
     private:
         int hand_type;
     };
@@ -88,22 +108,30 @@ namespace phSpace {
     };
 
 
-
     class initial_idea {
     public:
-        static std::vector<int> minMvmtsForNotes(const std::vector<int>& notes);
+        static std::vector<int> minMvmtsForNotes(const std::vector<int> &notes);
     };
 
     class Viterbi {
     protected:
         int trellis_length;
         std::vector<std::vector<Hand *>> possible_fingerings;
+        int move_weight = 20;
+        int swap_fingers_weight = 10;
     public:
         Viterbi(int trellis_length);
+
+        void set_weights(int weights[]);
+
         void update_fingerings(std::vector<Hand *>);
+
         int layerSize(int);
+
         int hand_cost(int, int, int, int);
+
         std::vector<Hand *> run_algo(bool silent);
+
         std::vector<Hand *> run_algo();
     };
 }

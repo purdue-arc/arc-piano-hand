@@ -7,36 +7,37 @@
 #include <vector>
 
 #include "phSpace.h"
+
 using namespace phSpace;
 
 Viterbi::Viterbi(int trellis_length) {
     this->trellis_length = trellis_length;
 }
 
+void Viterbi::set_weights(int weights[]) {
+    move_weight = weights[0];
+    swap_fingers_weight = weights[1];
+}
+
 int Viterbi::hand_cost(int start_i, int start_j, int end_i, int end_j) {
     Hand *h1 = this->possible_fingerings[start_i][start_j];
     Hand *h2 = this->possible_fingerings[end_i][end_j];
-    int cost = 0;
-    for (Finger *f1 : h1->fingers) {
-        for (Finger *f2 : h2->fingers) {
+    int cost = move_weight * (h1->midi_position - h2->midi_position) * (h1->midi_position - h2->midi_position);
+    for (Finger *f1: h1->fingers) {
+        for (Finger *f2: h2->fingers) {
             if (f1->getID() == f2->getID()) {
-                if (f1->isPlaying() && f2->isPlaying() && f1->getNote()->midiNumber != f2->getNote()->midiNumber) {
-                    cost += (f2->getNote()->midiNumber - f1->getNote()->midiNumber) * (f2->getNote()->midiNumber - f1->getNote()->midiNumber);
-                }
-                if (f1->getID() == f2->getID()) {
-                    if (f2->isPlaying()) {
-                        if (f1->isPlaying()) {
-                            if (f1->getNote()->midiNumber == f2->getNote()->midiNumber) {
-                                cost += 50 * 50;
-                            } else {
-                                cost += (f2->getNote()->midiNumber - f1->getNote()->midiNumber) * (f2->getNote()->midiNumber - f1->getNote()->midiNumber);
-                            }
+                if (f2->isPlaying()) {
+                    if (f1->isPlaying()) {
+                        if (f1->getNote()->midiNumber == f2->getNote()->midiNumber) {
+                            cost += 1000;
+                        } else {
+                            cost += swap_fingers_weight * (f2->getNote()->midiNumber - f1->getNote()->midiNumber) *
+                                    (f2->getNote()->midiNumber - f1->getNote()->midiNumber);
                         }
-                        /*
-                        else {
-                            cost += (f2->getNote()->midiNumber - f2->getPositionOnHand()) * (f2->getNote()->midiNumber - f2->getPositionOnHand());
-                        }
-                         */
+                    }
+                    else {
+                        cost += (f2->getNote()->midiNumber - f2->getPositionOnHand() - h2->midi_position) *
+                                (f2->getNote()->midiNumber - f2->getPositionOnHand() - h2->midi_position);
                     }
                 }
             }
@@ -80,8 +81,7 @@ std::vector<Hand *> Viterbi::run_algo(bool silent) {
             int min_prev = INT_MIN;
             if (i == 0) {   // If first layer (to avoid OOB accesses)
                 min_dist = 0;
-            }
-            else {
+            } else {
                 for (int k = 0; k < layer_size; k++) {
                     // Check our distance recurrence and update min distances if better option
                     int curr_dist = hand_cost(i - 1, k, i, j) + dist[i - 1][k];
@@ -99,7 +99,7 @@ std::vector<Hand *> Viterbi::run_algo(bool silent) {
     // Find the minimum-distance item in the final layer
     int min = INT_MAX;
     int idx = 0;
-    for (int i = 0; i < layerSize(n_layers-1); i++) {
+    for (int i = 0; i < layerSize(n_layers - 1); i++) {
         if (dist[n_layers - 1][i] < min) {
             min = dist[n_layers - 1][i];
             idx = i;
@@ -141,8 +141,7 @@ std::vector<Hand *> Viterbi::run_algo(bool silent) {
             for (int j = 0; j < layer_size; j++) {
                 if (prev[i][j] == INT_MIN) {
                     std::cout << "n" << " ";
-                }
-                else {
+                } else {
                     std::cout << prev[i][j] << " ";
                 }
             }
