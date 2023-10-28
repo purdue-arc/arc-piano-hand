@@ -7,12 +7,29 @@ using namespace phSpace;
 
 Hand::Hand(int start_position, int hand_type) {
     this->midi_position = start_position;
+    this->hand_type = hand_type;
     if (hand_type == NORMAL_HAND) {
         for (int i = 0; i < 4; i++) {
-            auto *f = new Finger(i);
+            auto *f = new Finger(i, (3*i) - 5);
             this->fingers.push_back(f);
         }
     }
+    if (hand_type == BAD_HAND) {
+        for (int i = 0; i < 3; i++) {
+            auto *f = new Finger(i, (3*i) - 3);
+            this->fingers.push_back(f);
+        }
+    }
+}
+
+Hand* Hand::copy() {
+    Hand* h = new Hand(this->midi_position, this->hand_type);
+    for (int i = 0; i < this->fingers.size(); i++) {
+        if (this->fingers[i]->isPlaying()) {
+            h->fingers[i]->playNote(this->fingers[i]->getNote());
+        }
+    }
+    return h;
 }
 
 int Hand::num_fingers() {
@@ -46,7 +63,7 @@ int hand_cost(Hand h1, Hand h2) {
 }
 
 std::string Hand::toString() {
-    std::string output = std::format("Hand(midi_position=%d, num_fingers=%d, fingers=<", this->midi_position, this->num_fingers());
+    std::string output = std::format("Hand(midi_position={}, <", this->midi_position);
     for (Finger *finger : this->fingers) {
         output.append(finger->toString());
         output.append(", ");

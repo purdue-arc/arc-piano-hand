@@ -6,9 +6,11 @@
 #include <vector>
 #include <string>
 #include <format>
+#include <algorithm>
 
 namespace phSpace {
     #define NORMAL_HAND 0
+    #define BAD_HAND -1
     #define EMPTY_HAND 1
     #define NULL_NOTE -1
 
@@ -18,25 +20,29 @@ namespace phSpace {
         int midiNumber;
         int time;
         Note(int midiNumber, int time);
-        string toString();
+        std::string toString();
         // ... Constructors and methods ...
     };
 
     class Finger {
     protected:
         int id;
+        int position_on_hand;
         bool state; // Current state of the finger
         Note *currentNote; // Currently played note
 
     public:
         explicit Finger(int id);
+        Finger(int id, int position_on_hand);
         int getID();
+        int getPositionOnHand();
         bool isPlaying();
         Note * getNote();
         void playNote(Note *note);
         void releaseNote();
         void moveTo(Note * note);
         std::string toString();
+        void setState(bool state);
     };
 
     class Thumb : public Finger {
@@ -64,8 +70,24 @@ namespace phSpace {
         Hand(int start_position, int hand_type);
         std::string toString();
         void release(); // basically a freeing of all memory
-        static std::string getOutputFromViterbi(std::vector<Hand *> h)
+        static std::string getOutputFromViterbi(std::vector<Hand *> h);
+        Hand* copy();
+    private:
+        int hand_type;
     };
+
+    class finger_state_alloc {
+    public:
+        static std::vector<Hand *> allocate_finger_state(int hand_type, std::vector<Note *> toPlay);
+
+    };
+
+    class input_output {
+    public:
+        static std::vector<std::vector<Note *>> readNotes();
+    };
+
+
 
     class initial_idea {
     public:
@@ -81,6 +103,7 @@ namespace phSpace {
         void update_fingerings(std::vector<Hand *>);
         int layerSize(int);
         int hand_cost(int, int, int, int);
+        std::vector<Hand *> run_algo(bool silent);
         std::vector<Hand *> run_algo();
     };
 }

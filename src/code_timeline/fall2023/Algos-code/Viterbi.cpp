@@ -23,6 +23,22 @@ int Viterbi::hand_cost(int start_i, int start_j, int end_i, int end_j) {
                 if (f1->isPlaying() && f2->isPlaying() && f1->getNote()->midiNumber != f2->getNote()->midiNumber) {
                     cost += (f2->getNote()->midiNumber - f1->getNote()->midiNumber) * (f2->getNote()->midiNumber - f1->getNote()->midiNumber);
                 }
+                if (f1->getID() == f2->getID()) {
+                    if (f2->isPlaying()) {
+                        if (f1->isPlaying()) {
+                            if (f1->getNote()->midiNumber == f2->getNote()->midiNumber) {
+                                cost += 50 * 50;
+                            } else {
+                                cost += (f2->getNote()->midiNumber - f1->getNote()->midiNumber) * (f2->getNote()->midiNumber - f1->getNote()->midiNumber);
+                            }
+                        }
+                        /*
+                        else {
+                            cost += (f2->getNote()->midiNumber - f2->getPositionOnHand()) * (f2->getNote()->midiNumber - f2->getPositionOnHand());
+                        }
+                         */
+                    }
+                }
             }
         }
     }
@@ -41,7 +57,7 @@ void Viterbi::update_fingerings(std::vector<Hand *> new_fingerings) {
     this->possible_fingerings.push_back(new_fingerings);
 }
 
-std::vector<Hand *> Viterbi::run_algo() {
+std::vector<Hand *> Viterbi::run_algo(bool silent) {
     int n_layers = this->possible_fingerings.size();
     // Make arrays for Viterbi
     int *dist[n_layers];
@@ -97,38 +113,46 @@ std::vector<Hand *> Viterbi::run_algo() {
         idx = prev[i][idx];
     }
 
+
     std::vector<Hand *> output;
     for (int i = stack.size() - 1; i >= 0; i--) {
         output.push_back(stack[i]);
     }
-    //for (int i = 0; i < output.size(); i++) {
-    //    std::cout << "(" << i << "," << output[i]->toString() << ") -> ";
-    //}
-    //std::cout << "end" << std::endl;
 
-    std::cout << "Array contents:\n\n";
-    std::cout << "dist:\n";
-    for (int i = 0; i < n_layers; i++) {
-        int layer_size = layerSize(i);
-        for (int j = 0; j < layer_size; j++) {
-            std::cout << dist[i][j] << " ";
+    if (!silent) {
+        //for (int i = 0; i < output.size(); i++) {
+        //    std::cout << "(" << i << "," << output[i]->toString() << ") -> ";
+        //}
+        //std::cout << "end" << std::endl;
+
+        std::cout << "Array contents:\n\n";
+        std::cout << "dist:\n";
+        for (int i = 0; i < n_layers; i++) {
+            int layer_size = layerSize(i);
+            for (int j = 0; j < layer_size; j++) {
+                std::cout << dist[i][j] << " ";
+            }
+            std::cout << "\n";
         }
         std::cout << "\n";
-    }
-    std::cout << "\n";
-    std::cout << "prev:\n";
-    for (int i = 0; i < n_layers; i++) {
-        int layer_size = layerSize(i);
-        for (int j = 0; j < layer_size; j++) {
-            if (prev[i][j] == INT_MIN) {
-                std::cout << "n" << " ";
+        std::cout << "prev:\n";
+        for (int i = 0; i < n_layers; i++) {
+            int layer_size = layerSize(i);
+            for (int j = 0; j < layer_size; j++) {
+                if (prev[i][j] == INT_MIN) {
+                    std::cout << "n" << " ";
+                }
+                else {
+                    std::cout << prev[i][j] << " ";
+                }
             }
-            else {
-                std::cout << prev[i][j] << " ";
-            }
+            std::cout << "\n";
         }
-        std::cout << "\n";
     }
 
     return output;
+}
+
+std::vector<Hand *> Viterbi::run_algo() {
+    return Viterbi::run_algo(true);
 }

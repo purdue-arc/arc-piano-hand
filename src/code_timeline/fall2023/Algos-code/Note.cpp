@@ -11,5 +11,5 @@ Note::Note(int midiNumber, int time) {
 }
 
 std::string Note::toString() {
-    return std::format("Note(midiNumber=%d, time=%d", midiNumber, time);
+    return std::format("Note({} @ {})", midiNumber, time);
 }

@@ -7,8 +7,20 @@ using namespace phSpace;
 
 Finger::Finger(int id) {
     this->id = id;
+    this->position_on_hand = (3*id) - 5;
     this->state = false; // Initialized to false as no finger is playing any note when initially declared
     this->currentNote = nullptr;
+}
+
+Finger::Finger(int id, int position_on_hand) {
+    this->id = id;
+    this->position_on_hand = position_on_hand;
+    this->state = false; // Initialized to false as no finger is playing any note when initially declared
+    this->currentNote = nullptr;
+}
+
+int Finger::getPositionOnHand() {
+    return this->position_on_hand;
 }
 
 int Finger::getID() {
@@ -42,7 +54,14 @@ void Finger::moveTo(Note * note) {
 }
 
 std::string Finger::toString() {
-    return std::format("Finger(id=%d, state=%b, currentNote=%s)", this->id, this->state, this->currentNote->toString());
+    if (currentNote == nullptr) {
+        return std::format("Finger(id={}, not playing )", this->id);
+    }
+    return std::format("Finger(id={}, {})", this->id, this->currentNote->toString());
+}
+
+void Finger::setState(bool state) {
+    this->state = state;
 }
 
 
