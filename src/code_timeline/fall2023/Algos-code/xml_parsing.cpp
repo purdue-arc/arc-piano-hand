@@ -106,7 +106,7 @@ int xml_parsing::getMidiNumber(std::string noteName, std::string octave, std::st
 }
 
 int main() {
-    rapidxml::file<> xmlFile("C:\\Users\\khaus\\CLionProjects\\arc-piano-hand\\src\\code_timeline\\fall2023\\Algos-code\\hotcrossmasked.musicxml");
+    rapidxml::file<> xmlFile("C:\\Users\\TPNml\\Downloads\\hotcrossmasked.musicxml");
     rapidxml::xml_document<> doc;
     doc.parse<0>(xmlFile.data());
 
