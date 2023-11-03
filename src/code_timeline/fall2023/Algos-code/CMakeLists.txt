@@ -15,8 +15,9 @@ add_executable(Algos_code # Name of the executable
         Note.cpp
         Viterbi.cpp
         simple_code.cpp
-        Main.cpp
+        #Main.cpp
         bijective_functions.cpp
         input_output.cpp
         finger_state_alloc.cpp          # All sources for the executable
+        xml_parsing.cpp
 )

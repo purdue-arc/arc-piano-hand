@@ -21,6 +21,7 @@ namespace phSpace {
         int time;
 
         Note(int midiNumber, int time);
+        Note(std::string note_name, std::string octave, std::string accidental, std::string duration, int prev_duration);
 
         std::string toString();
         // ... Constructors and methods ...
@@ -133,6 +134,10 @@ namespace phSpace {
         std::vector<Hand *> run_algo(bool silent);
 
         std::vector<Hand *> run_algo();
+    };
+    class xml_parsing {
+    public:
+        static int getMidiNumber(std::string noteName_string, std::string octave, std::string accidental);
     };
 }
 

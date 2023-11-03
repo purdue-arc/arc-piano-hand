@@ -3,12 +3,16 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "phSpace.h"
+
+using namespace phSpace;
 
 void print_notes(rapidxml::xml_node<> *node) {
     for (node = node->first_node(); node != NULL; node = node->next_sibling()) {
         if (node->type() == rapidxml::node_element) //check node type
         {
-           std::cout << node->name() << ": " << node->value() << std::endl;
+            std::string x = node->value();
+           std::cout << node->name() << ": " << x << std::endl;
            print_notes(node);
         }
     }
@@ -29,32 +33,70 @@ void handlenode(rapidxml::xml_node<> *node, std::string x) {
     }
 }
 
-class Note {
-    public:
-        char step;
-        int octave;
-        int duration; //quarter note = 16, half note = 32, sixteenth = 1
-
-        char getStep(int noteOrder) { //noteOrder = 1 means that it's the first note, 2 the second note, etc.
-            for (int i )
+// Allows you to send nodes for
+rapidxml::xml_node<> *search_for_node(rapidxml::xml_node<> *node, std::string x) {
+    for (node = node->first_node(); node != NULL; node = node->next_sibling()) {
+        if (node->type() == rapidxml::node_element) //check node type
+        {
+            if (x == node->name()) {
+               return node;
+            }
+            handlenode(node, x);
         }
-};
+    }
+    return nullptr;
+}
 
-int getMidiNumber(std::string noteName, int octave, std::string accidental) {
+Note * parse_note(rapidxml::xml_node<> *node) { // Node is the root of the tree where the note is
+    // Parse the tree and find the tag with the step
+    // Alter
+    // Octave
+    // And duration
+    // Store each of these in a variable
+    // You can use the search_for_node function above which searches for a given tag in the tree
+    std::string note_name = search_for_node(node, "name")->value();
+    std::string octave = search_for_node(node, "octave")->value();
+    std::string alter = search_for_node(node, "alter")->value();
+    std::string duration = search_for_node(node, "duration")->value();
+
+    // Then call the Note constructor with these values and return the resulting Note
+    Note *parsedNote = new Note(note_name, octave, alter, duration, 0);
+    return parsedNote;
+}
+
+std::vector<Note *> find_notes(rapidxml::xml_node<> *node) {
+    std::vector<Note *> notes{};
+    for (node = node->first_node(); node != NULL; node = node->next_sibling()) {
+        if (node->type() == rapidxml::node_element) //check node type
+        {
+            if ("note" == node->name()) {
+               notes.push_back(parse_note(node)); //add to the end
+            }
+            find_notes(node);
+        }
+    }
+    return notes;
+}
+
+
+int xml_parsing::getMidiNumber(std::string noteName, std::string octave, std::string alter) {
     int midiNumber = 0;
-    if (noteName[0] == 'C') {
+    int octave_num = std::stoi(octave);
+    char noteNameChar = noteName[0];
+    int alter_num = std::stoi(alter);
+    if (noteNameChar == 'C') {
         midiNumber = 0;
-    } else if (noteName[0] == 'D') {
+    } else if (noteNameChar == 'D') {
         midiNumber = 2;
-    } else if (noteName[0] == 'E') {
+    } else if (noteNameChar == 'E') {
         midiNumber = 4;
-    } else if (noteName[0] == 'F') {
+    } else if (noteNameChar == 'F') {
         midiNumber = 5;
-    } else if (noteName[0] == 'G') {
+    } else if (noteNameChar == 'G') {
         midiNumber = 7;
     } else if (noteNameChar == 'A') {
         midiNumber = 9;
-    } else if (noteName[0] == 'B') {
+    } else if (noteNameChar == 'B') {
         midiNumber = 11;
     }
     midiNumber += alter_num;

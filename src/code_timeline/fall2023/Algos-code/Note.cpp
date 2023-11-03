@@ -11,6 +11,11 @@ Note::Note(int midiNumber, int time) {
     this->time = time;
 }
 
+Note::Note(std::string note_name, std::string octave, std::string accidental, std::string duration, int prev_duration) {
+    this->midiNumber = xml_parsing::getMidiNumber(note_name, octave, accidental);
+    this->time = std::stoi(duration) - prev_duration;
+}
+
 std::string Note::toString() {
     return std::format("Note({} @ {})", midiNumber, time);
 }
