@@ -52,18 +52,14 @@ int getMidiNumber(std::string noteName, int octave, std::string accidental) {
         midiNumber = 5;
     } else if (noteName[0] == 'G') {
         midiNumber = 7;
-    } else if (noteName[0] == 'A') { // if noteName is A
+    } else if (noteNameChar == 'A') {
         midiNumber = 9;
     } else if (noteName[0] == 'B') {
         midiNumber = 11;
     }
-    if (accidental == "sharp") {
-        midiNumber++;
-    } else if (accidental == "flat") {
-        midiNumber--;
-    }
+    midiNumber += alter_num;
 
-    midiNumber += ((octave + 2) * 12);
+    midiNumber += ((octave_num + 2) * 12);
     return midiNumber;
 }
 
