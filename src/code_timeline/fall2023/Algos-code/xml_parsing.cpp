@@ -64,12 +64,22 @@ int getMidiNumber(std::string noteName, int octave, std::string accidental) {
 }
 
 int main() {
-    rapidxml::file<> xmlFile("C:\\Users\\TPNml\\Documents\\GitHub\\arc-piano-hand\\src\\code_timeline\\fall2023\\Algos-code\\rapidxml_testing\\hotcrossmasked.musicxml");
+    rapidxml::file<> xmlFile("C:\\Users\\khaus\\CLionProjects\\arc-piano-hand\\src\\code_timeline\\fall2023\\Algos-code\\hotcrossmasked.musicxml");
     rapidxml::xml_document<> doc;
     doc.parse<0>(xmlFile.data());
 
     rapidxml::xml_node<> *title = doc.first_node();
-    handlenode(title, "note");
+    // handlenode(title, "note");
 
 
+    for(auto note : find_notes(title)) {
+        std::cout << note->toString() << std::endl;
+    }
+
+    /*
+    std::vector<Note *> vec = find_notes(title);
+    for (int i = 0; i < vec.size(); i++) {
+        Note *note = vec[i];
+    }
+     */
 }
