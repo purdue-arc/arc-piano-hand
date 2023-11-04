@@ -30,6 +30,10 @@ int Finger::getID() {
     return id;
 }
 
+int Finger::getFingerRange() {
+    return finger_range;
+}
+
 Note *Finger::getNote() {
     return this->currentNote;
 }
@@ -66,5 +70,4 @@ std::string Finger::toString() {
 void Finger::setState(bool state) {
     this->state = state;
 }
-
 
