@@ -14,7 +14,7 @@ add_executable(Algos_code # Name of the executable
         test_case_generator.cpp
         Note.cpp
         Viterbi.cpp
-        simple_code.cpp
+        #simple_code.cpp
         #Main.cpp
         bijective_functions.cpp
         input_output.cpp
