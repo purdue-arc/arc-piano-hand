@@ -42,6 +42,8 @@ namespace phSpace {
 
         int getID();
 
+        int getFingerRange();
+
         int getPositionOnHand();
 
         bool isPlaying();
@@ -83,6 +85,8 @@ namespace phSpace {
         int num_fingers();
 
         int midi_position;
+
+        int getMidiPosition();
 
         Hand(int start_position, int hand_type);
 
@@ -140,5 +144,3 @@ namespace phSpace {
         static int getMidiNumber(std::string noteName_string, std::string octave, std::string accidental);
     };
 }
-
-
