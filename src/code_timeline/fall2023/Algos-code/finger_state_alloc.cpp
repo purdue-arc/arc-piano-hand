@@ -29,6 +29,7 @@ void alloc_step(std::vector<Hand *> *list, Hand *existing, std::vector<Note *> t
 
 std::vector<Hand *> finger_state_alloc::allocate_finger_state(int hand_type, std::vector<Note *> toPlay) {
     std::vector<Hand *> list{};
-    alloc_step(&list, new Hand(60, hand_type), toPlay, 0);
+    Note * note_one = toPlay[0];
+    alloc_step(&list, new Hand(note_one->midiNumber, hand_type), toPlay, 0);
     return list;
 }

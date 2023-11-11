@@ -3,16 +3,15 @@
 //
 
 #include "phSpace.h"
-
 using namespace phSpace;
 
 int main() {
+
     Viterbi v = Viterbi(8);
-    // Input/output
 
     std::vector<std::vector<Note *>> noteSets = input_output::readNotes();
 
-    for (std::vector<Note *> notes: noteSets) {
+    for (const std::vector<Note *>& notes: noteSets) {
         // Finger State Allocation
         std::vector<Hand *> hands = finger_state_alloc::allocate_finger_state(BAD_HAND, notes);
 
@@ -30,4 +29,5 @@ int main() {
         std::cout << Hand::getOutputFromViterbi(hand_output);
         std::cout << std::endl << std::endl;
     }
+
 }

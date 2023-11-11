@@ -3,19 +3,25 @@
 //
 
 #include "phSpace.h"
-
 using namespace phSpace;
 
 std::vector<std::vector<Note *>> input_output::readNotes() {
-    // dummy notes
+    rapidxml::file<> xmlFile("C:\\Users\\TPNml\\Downloads\\Hot.musicxml");
+    rapidxml::xml_document<> doc;
+    doc.parse<0>(xmlFile.data());
+
+    rapidxml::xml_node<> *title = doc.first_node();
+
+    std::vector<Note *> notes_io = xml_parsing::find_notes(title);
+
     std::vector<std::vector<Note *>> toReturn{};
-    for (int i = 0; i < 4; i++) {
+
+    // dummy notes
+
+    for (Note * note : notes_io) {
         std::vector<Note *> notes{};
-        notes.push_back(new Note(57 + i, i));
+        notes.push_back(note);
         toReturn.push_back(notes);
-        std::vector<Note *> notes2{};
-        notes2.push_back(new Note(57 + 7 - i, i));
-        toReturn.push_back(notes2);
     }
     return toReturn;
 }

@@ -2,7 +2,7 @@
 // Created by TPNml on 9/23/2023.
 //
 
-#include <malloc.h>
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 

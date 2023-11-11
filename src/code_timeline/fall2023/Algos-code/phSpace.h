@@ -1,11 +1,12 @@
 //
 // Created by nambias on 9/22/2023.
 //
-
+#include "rapidxml_utils.hpp"
 #include <iostream>
 #include <vector>
 #include <string>
 #include <format>
+#include <sstream>
 #include <algorithm>
 
 namespace phSpace {
@@ -138,6 +139,11 @@ namespace phSpace {
     class xml_parsing {
     public:
         static int getMidiNumber(std::string noteName_string, std::string octave, std::string accidental);
+        static void print_notes(rapidxml::xml_node<> *node);
+        static void handlenode(rapidxml::xml_node<> *node, std::string x);
+        static rapidxml::xml_node<> *search_for_node(rapidxml::xml_node<> *node, const std::string& x);
+        static Note * parse_note(rapidxml::xml_node<> *node, int prev_time);
+        static std::vector<Note *> find_notes(rapidxml::xml_node<> *node);
     };
 }
 

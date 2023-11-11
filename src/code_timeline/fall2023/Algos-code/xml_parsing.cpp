@@ -1,13 +1,8 @@
-#include "rapidxml_utils.hpp"
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
 #include "phSpace.h"
 
 using namespace phSpace;
 
-void print_notes(rapidxml::xml_node<> *node) {
+void xml_parsing::print_notes(rapidxml::xml_node<> *node) {
     for (node = node->first_node(); node != nullptr; node = node->next_sibling()) {
         if (node->type() == rapidxml::node_element) //check node type
         {std::string x = node->value();
@@ -18,7 +13,7 @@ void print_notes(rapidxml::xml_node<> *node) {
 }
 
 // Allows you to send nodes for
-void handlenode(rapidxml::xml_node<> *node, std::string x) {
+void xml_parsing::handlenode(rapidxml::xml_node<> *node, std::string x) {
     for (node = node->first_node(); node != nullptr; node = node->next_sibling()) {
         if (node->type() == rapidxml::node_element) //check node type
         {
@@ -33,7 +28,7 @@ void handlenode(rapidxml::xml_node<> *node, std::string x) {
 }
 
 // Allows you to send nodes for
-rapidxml::xml_node<> *search_for_node(rapidxml::xml_node<> *node, std::string x) {
+rapidxml::xml_node<> * xml_parsing::search_for_node(rapidxml::xml_node<> *node, const std::string& x) {
     if (node == nullptr) return nullptr;
     for (node = node->first_node(); node != nullptr; node = node->next_sibling()) {
         if (node->type() == rapidxml::node_element) //check node type
@@ -53,37 +48,50 @@ rapidxml::xml_node<> *search_for_node(rapidxml::xml_node<> *node, std::string x)
     return nullptr;
 }
 
-Note * parse_note(rapidxml::xml_node<> *node) { // Node is the root of the tree where the note is
+Note * xml_parsing::parse_note(rapidxml::xml_node<> *node, int prev_time) { // Node is the root of the tree where the note is
     // Parse the tree and find the tag with the step
     // Alter
     // Octave
     // And duration
     // Store each of these in a variable
     // You can use the search_for_node function above which searches for a given tag in the tree
-    std::string note_name = search_for_node(node, "step")->value();
-    std::string octave = search_for_node(node, "octave")->value();
-    std::string alter = search_for_node(node, "alter")->value();
-    std::string duration = search_for_node(node, "duration")->value();
 
-    //std::cout << note_name /*<< " " << octave << " " << alter << duration*/ << std::endl;
-    // Then call the Note constructor with these values and return the resulting Note*/
-    //Note *parsedNote = new Note(note_name, octave, alter, duration, 0);
-    Note *parsedNote = new Note(0,0);
+    Note *parsedNote = nullptr;
+    std::string rest = "rest";
+    if (!(node->first_node()->name() != nullptr && rest == node->first_node()->name())) {
+        rapidxml::xml_node<> *note_name_ptr = search_for_node(node, "step");
+        std::string note_name = note_name_ptr ? note_name_ptr->value() : "";
+        rapidxml::xml_node<> *octave_ptr = search_for_node(node, "octave");
+        std::string octave = octave_ptr ? octave_ptr->value() : "";
+        rapidxml::xml_node<> *alter_ptr = search_for_node(node, "alter");
+        std::string alter = alter_ptr ? alter_ptr->value() : "0";
+        rapidxml::xml_node<> *duration_ptr = search_for_node(node, "duration");
+        std::string duration = duration_ptr ? duration_ptr->value() : "";
+
+        // std::cout << note_name << " " << octave << " " << alter << " " << duration << std::endl;
+        // Then call the Note constructor with these values and return the resulting Note*/
+        parsedNote = new Note(note_name, octave, alter, duration, prev_time);
+    }
     return parsedNote;
 }
 
-std::vector<Note *> find_notes(rapidxml::xml_node<> *node) {
+std::vector<Note *> xml_parsing::find_notes(rapidxml::xml_node<> *node) {
     if (node == nullptr) return std::vector<Note *>{};
     std::vector<Note *> notes{};
     std::string x("note");
-    for (node = node->first_node(); node != NULL; node = node->next_sibling()) {
+    int prevTime = 0;
+    for (node = node->first_node(); node != nullptr; node = node->next_sibling()) {
         if (node->type() == rapidxml::node_element) //check node type
         {
 
             if (x == node->name()) {
                 //print_notes(node);
                 //handlenode(node, "step");
-                notes.push_back(parse_note(node)); //add to the end
+                Note *note = parse_note(node, prevTime);
+                if (note != nullptr) {
+                    prevTime = note->time;
+                    notes.push_back(note); //add to the end
+                }
             } else {
                 std::vector<Note *> output = find_notes(node);
                 notes.insert(notes.end(), output.begin(), output.end());
@@ -116,11 +124,11 @@ int xml_parsing::getMidiNumber(std::string noteName, std::string octave, std::st
     }
     midiNumber += alter_num;
 
-    midiNumber += ((octave_num + 2) * 12);
+    midiNumber += ((octave_num + 1) * 12);
     return midiNumber;
 }
 
-int main() {
+int main_bad() {
     rapidxml::file<> xmlFile("C:\\Users\\TPNml\\Downloads\\Hot.musicxml");
     rapidxml::xml_document<> doc;
     doc.parse<0>(xmlFile.data());
@@ -130,7 +138,7 @@ int main() {
 
     //std::cout << search_for_node(title, "octave") << std::endl;
 
-    std::vector<Note *> notes = find_notes(title);
+    std::vector<Note *> notes = xml_parsing::find_notes(title);
 
     for(auto note : notes) {
         std::cout << note->toString() << std::endl;
@@ -142,4 +150,5 @@ int main() {
         Note *note = vec[i];
     }
      */
+    return 0;
 }
