@@ -30,6 +30,10 @@ int Finger::getID() {
     return id;
 }
 
+int Finger::getFingerRange() {
+    return finger_range;
+}
+
 Note *Finger::getNote() {
     return this->currentNote;
 }
@@ -53,7 +57,12 @@ void Finger::releaseNote() {
 }
 
 void Finger::moveTo(Note *note) {
-    // to define...
+    if (currentNote == nullptr) {
+        throw std::runtime_error("Tried to move finger " + std::to_string(id) +
+                                 " to note, but the finger is not currently playing any note.");
+    }
+    releaseNote();  // Release the current note
+    playNote(note);  // Play the new note
 }
 
 std::string Finger::toString() {
@@ -66,5 +75,4 @@ std::string Finger::toString() {
 void Finger::setState(bool state) {
     this->state = state;
 }
-
 

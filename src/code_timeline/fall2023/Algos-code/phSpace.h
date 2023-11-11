@@ -43,6 +43,8 @@ namespace phSpace {
 
         int getID();
 
+        int getFingerRange();
+
         int getPositionOnHand();
 
         bool isPlaying();
@@ -84,6 +86,8 @@ namespace phSpace {
         int num_fingers();
 
         int midi_position;
+
+        int getMidiPosition();
 
         Hand(int start_position, int hand_type);
 
@@ -146,5 +150,3 @@ namespace phSpace {
         static std::vector<Note *> find_notes(rapidxml::xml_node<> *node);
     };
 }
-
-
