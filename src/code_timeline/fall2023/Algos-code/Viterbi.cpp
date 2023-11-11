@@ -60,10 +60,11 @@ void Viterbi::update_fingerings(std::vector<Hand *> new_fingerings) {
 
 std::vector<Hand *> Viterbi::run_algo(bool silent) {
     int n_layers = this->possible_fingerings.size();
-    // Make arrays for Viterbi
-    int *dist[n_layers];
-    int *prev[n_layers];
-    for (int i = 0; i < n_layers; i++) {
+
+    // Make arrays for Viterbi using pointers
+    int *dist[2];  // Only two layers are needed at a time
+    int *prev[2];
+    for (int i = 0; i < 2; i++) {
         int layer_size = this->layerSize(i);
         dist[i] = new int[layer_size];
         prev[i] = new int[layer_size];
@@ -79,12 +80,12 @@ std::vector<Hand *> Viterbi::run_algo(bool silent) {
         for (int j = 0; j < layer_size; j++) {
             int min_dist = INT_MAX;
             int min_prev = INT_MIN;
-            if (i == 0) {   // If first layer (to avoid OOB accesses)
+            if (i == 0) {   // If first layer (to avoid accessing outside of bounds)
                 min_dist = 0;
             } else {
                 for (int k = 0; k < layer_size; k++) {
                     // Check our distance recurrence and update min distances if better option
-                    int curr_dist = hand_cost(i - 1, k, i, j) + dist[i - 1][k];
+                    int curr_dist = hand_cost(i - 1, k, i, j) + dist[1][k];
                     if (curr_dist < min_dist) {
                         min_dist = curr_dist;
                         min_prev = k;
@@ -92,18 +93,25 @@ std::vector<Hand *> Viterbi::run_algo(bool silent) {
                 }
             }
             // Add values to array
-            dist[i][j] = min_dist;
-            prev[i][j] = min_prev;
+            dist[i % 2][j] = min_dist;
+            prev[i % 2][j] = min_prev;
         }
     }
+
     // Find the minimum-distance item in the final layer
     int min = INT_MAX;
     int idx = 0;
     for (int i = 0; i < layerSize(n_layers - 1); i++) {
-        if (dist[n_layers - 1][i] < min) {
-            min = dist[n_layers - 1][i];
+        if (dist[(n_layers - 1) % 2][i] < min) {
+            min = dist[(n_layers - 1) % 2][i];
             idx = i;
         }
+    }
+
+    // Clean up dynamically allocated memory
+    for (int i = 0; i < 2; i++) {
+        delete[] dist[i];
+        delete[] prev[i];
     }
 
     std::vector<Hand *> stack;
@@ -112,7 +120,6 @@ std::vector<Hand *> Viterbi::run_algo(bool silent) {
         stack.push_back(possible_fingerings[i][idx]);
         idx = prev[i][idx];
     }
-
 
     std::vector<Hand *> output;
     for (int i = stack.size() - 1; i >= 0; i--) {
