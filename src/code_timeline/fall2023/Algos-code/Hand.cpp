@@ -23,6 +23,7 @@ Hand::Hand(int start_position, int hand_type) {
     }
 }
 
+// Make a copy of a Hand object
 Hand *Hand::copy() {
     Hand *h = new Hand(this->midi_position, this->hand_type);
     for (int i = 0; i < this->fingers.size(); i++) {
@@ -37,12 +38,14 @@ int Hand::num_fingers() {
     return this->fingers.size();
 }
 
+// Release all fingers on the Hand
 void Hand::release() {
     for (Finger *f: fingers) {
         f->releaseNote();
     }
 }
 
+// Return the Viterbi cost between two hand configurations (unused)
 int hand_cost(Hand h1, Hand h2) {
     // Assume fingers are sorted from least to greatest id in array
     if (h1.num_fingers() != h2.num_fingers()) {
@@ -73,6 +76,7 @@ std::string Hand::toString() {
     return output;
 }
 
+// Basically toString but slightly different
 std::string Hand::getOutputFromViterbi(std::vector<Hand *> h) {
     std::string output;
     for (Hand *hand: h) {

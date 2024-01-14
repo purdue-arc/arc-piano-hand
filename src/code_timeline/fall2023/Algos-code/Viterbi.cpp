@@ -10,6 +10,13 @@
 
 using namespace phSpace;
 
+// This class contains the code for a Viterbi object, which stores a trellis and the code necessary to run the Viterbi algorithm.
+// A Viterbi object has several properties:
+// - It contains a method called hand_cost which calculates the cost between any two hand configurations
+//   stored in the trellis.
+// - It contains a trellis which has a maximum size trellis_length storing all the possible hand configurations
+//   for each set of notes currently playing
+
 Viterbi::Viterbi(int trellis_length) {
     this->trellis_length = trellis_length;
 }
@@ -19,6 +26,7 @@ void Viterbi::set_weights(int weights[]) {
     swap_fingers_weight = weights[1];
 }
 
+// Calculate Viterbi hand-to-hand cost as used in the Viterbi algo
 int Viterbi::hand_cost(int start_i, int start_j, int end_i, int end_j) {
     Hand *h1 = this->possible_fingerings[start_i][start_j];
     Hand *h2 = this->possible_fingerings[end_i][end_j];
@@ -46,10 +54,12 @@ int Viterbi::hand_cost(int start_i, int start_j, int end_i, int end_j) {
     return cost;
 }
 
+// Return size of Viterbi layer
 int Viterbi::layerSize(int end_i) {
     return this->possible_fingerings[end_i].size();
 }
 
+// Add new layer to trellis for Viterbi layer, ensuring maximum trellis size is not exceeded
 void Viterbi::update_fingerings(std::vector<Hand *> new_fingerings) {
     if (this->possible_fingerings.size() == this->trellis_length) {
         this->possible_fingerings.erase(this->possible_fingerings.begin());
@@ -58,6 +68,7 @@ void Viterbi::update_fingerings(std::vector<Hand *> new_fingerings) {
     this->possible_fingerings.push_back(new_fingerings);
 }
 
+// Run the Viterbi algorithm based on the current stored trellis
 std::vector<Hand *> Viterbi::run_algo(bool silent) {
     int n_layers = this->possible_fingerings.size();
 
@@ -159,6 +170,7 @@ std::vector<Hand *> Viterbi::run_algo(bool silent) {
     return output;
 }
 
+// Alternate overriden silent declaration of run_algo()
 std::vector<Hand *> Viterbi::run_algo() {
     return Viterbi::run_algo(true);
 }

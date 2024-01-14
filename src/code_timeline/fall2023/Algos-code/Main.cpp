@@ -5,6 +5,8 @@
 #include "phSpace.h"
 using namespace phSpace;
 
+
+// Main function for running our algorithms
 int main() {
 
     Viterbi v = Viterbi(8);

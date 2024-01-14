@@ -5,6 +5,16 @@
 #include "phSpace.h"
 using namespace phSpace;
 
+// Takes in file path in first line of function and returns vector<vector<Note *>> of the Notes, organized as follows:
+// Note group 1 {
+//      Note 1;
+//      Note 2;
+//      ...
+// };
+// Note group 2 {
+//      ...
+// };
+// ...
 std::vector<std::vector<Note *>> input_output::readNotes() {
     rapidxml::file<> xmlFile("C:\\Users\\TPNml\\Downloads\\Hot.musicxml");
     rapidxml::xml_document<> doc;

@@ -5,6 +5,8 @@
 #include "phSpace.h"
 using namespace phSpace;
 
+// Ignore this file
+
 int cool_thing() {
     int **x = (int **) malloc(20 * sizeof(int *));
     for (int i = 0; i < 20; i++) {
