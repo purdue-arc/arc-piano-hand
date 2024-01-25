@@ -1,0 +1,26 @@
+# ninja log v5
+4	2658	7278494964868679	CMakeFiles/untitled1.dir/initial-idea.cpp.obj	fccd9653dcbd2a50
+3	208	7278498712184724	build.ninja	4700a868f4a2d23c
+23	2377	7278494962048644	CMakeFiles/untitled1.dir/bijective_functions.cpp.obj	5a10e2816d17fcc8
+3	1143	7278497469346267	CMakeFiles/untitled1.dir/input_output.cpp.obj	6e0c2aecb91e1dd9
+3	1067	7278496774533175	CMakeFiles/untitled1.dir/Main.cpp.obj	7ca11a2146579f86
+27	2621	7278494964492321	CMakeFiles/untitled1.dir/finger_state_alloc.cpp.obj	ae5c37b43861bae0
+20	2754	7278494965833111	CMakeFiles/untitled1.dir/test_case_generator.cpp.obj	a966f5ffba985bdb
+11	2579	7278494964075385	CMakeFiles/untitled1.dir/Viterbi.cpp.obj	de59669a924c907c
+37	2753	7278494965803127	CMakeFiles/untitled1.dir/xml_parsing.cpp.obj	6a1787cdba855e44
+0	2910	7278494967368464	CMakeFiles/untitled1.dir/Finger.cpp.obj	ca54a0d7844314c6
+1143	1722	7278497475080487	untitled1.exe	2e66e1ab5dbed4b0
+7	2926	7278494967525613	CMakeFiles/untitled1.dir/Note.cpp.obj	4de9afc54f24e2ba
+14	2958	7278494967838562	CMakeFiles/untitled1.dir/Hand.cpp.obj	86c68fe74640e880
+34	1254	7278498777292200	CMakeFiles/untitled1.dir/bijective_functions.cpp.obj	9c1d6bda26a1b548
+10	1384	7278498778607658	CMakeFiles/untitled1.dir/initial-idea.cpp.obj	e0d9301eb34c5307
+4	1419	7278498778954297	CMakeFiles/untitled1.dir/Main.cpp.obj	18bd695d589bdb30
+20	1435	7278498779110088	CMakeFiles/untitled1.dir/test_case_generator.cpp.obj	ba8844ca83768b18
+50	1447	7278498779232640	CMakeFiles/untitled1.dir/finger_state_alloc.cpp.obj	f2aff24934353e9
+30	1479	7278498779551886	CMakeFiles/untitled1.dir/Viterbi.cpp.obj	803968cda856fc60
+55	1689	7278498781631433	CMakeFiles/untitled1.dir/xml_parsing.cpp.obj	ec9fe52986cee655
+44	1690	7278498781651438	CMakeFiles/untitled1.dir/input_output.cpp.obj	93147e0fd9675a2b
+39	1746	7278498782209220	CMakeFiles/untitled1.dir/Note.cpp.obj	bdfed7f8dd1bf69b
+15	1765	7278498782385075	CMakeFiles/untitled1.dir/Hand.cpp.obj	797c7bb70736a9f7
+25	1828	7278498783028211	CMakeFiles/untitled1.dir/Finger.cpp.obj	583b340bae2114b
+1829	2340	7278498788081650	untitled1.exe	2e66e1ab5dbed4b0

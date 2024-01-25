@@ -16,7 +16,7 @@ using namespace phSpace;
 // };
 // ...
 std::vector<std::vector<Note *>> input_output::readNotes() {
-    rapidxml::file<> xmlFile("C:\\Users\\TPNml\\Downloads\\Hot.musicxml");
+    rapidxml::file<> xmlFile("C:\\Users\\TPNml\\CLionProjects\\Algos-code\\hotcrossmasked.musicxml");
     rapidxml::xml_document<> doc;
     doc.parse<0>(xmlFile.data());
 

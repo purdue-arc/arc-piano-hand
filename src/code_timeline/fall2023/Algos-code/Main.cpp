@@ -9,9 +9,11 @@ using namespace phSpace;
 // Main function for running our algorithms
 int main() {
 
+
     Viterbi v = Viterbi(8);
 
     std::vector<std::vector<Note *>> noteSets = input_output::readNotes();
+
 
     for (const std::vector<Note *>& notes: noteSets) {
         // Finger State Allocation
@@ -27,9 +29,12 @@ int main() {
         for (Note *n: notes) {
             std::cout << n->toString() << ", ";
         }
+        /*
         std::cout << "the optimal sequence of fingerings is this order: " << std::endl;
         std::cout << Hand::getOutputFromViterbi(hand_output);
         std::cout << std::endl << std::endl;
+         */
+
     }
 
 }

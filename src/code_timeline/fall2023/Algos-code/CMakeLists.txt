@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.26)
-
-project(Algos_code)
+project(untitled1)
 
 set(CMAKE_CXX_STANDARD 20)
 
 include_directories(.)
 
 add_executable(
+        untitled1
+        Main.cpp
         phSpace.h
         initial-idea.cpp
         Finger.cpp
@@ -18,5 +19,4 @@ add_executable(
         input_output.cpp
         finger_state_alloc.cpp
         xml_parsing.cpp
-        Main.cpp
 )

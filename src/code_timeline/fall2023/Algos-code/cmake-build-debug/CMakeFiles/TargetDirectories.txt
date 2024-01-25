@@ -1,0 +1,3 @@
+C:/Users/TPNml/CLionProjects/Algos-code/cmake-build-debug/CMakeFiles/untitled1.dir
+C:/Users/TPNml/CLionProjects/Algos-code/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/TPNml/CLionProjects/Algos-code/cmake-build-debug/CMakeFiles/rebuild_cache.dir
