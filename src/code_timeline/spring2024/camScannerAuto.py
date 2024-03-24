@@ -1,11 +1,12 @@
 import cv2
+import subprocess
 # from python_imagesearch import four_point_transform
 from skimage.filters import threshold_local #check this 
 import numpy as np
-import argparse
+
 import imutils
-import pyrealsense2 as rs
-import time
+
+
 from PIL import Image
 
 def order_points(pts):
@@ -80,11 +81,11 @@ print("test")
 video = cv2.VideoCapture(0, cv2.CAP_DSHOW) # change for camera 
 
 codec = 0x47504A4D  # MJPG
-video.set(cv2.CAP_PROP_FPS, 30.0)
-video.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter.fourcc('m','j','p','g'))
-video.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter.fourcc('M','J','P','G'))
-video.set(cv2.CAP_PROP_FRAME_WIDTH, 1920*2)
-video.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080*2)
+#video.set(cv2.CAP_PROP_FPS, 30.0)
+#video.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter.fourcc('m','j','p','g'))
+#video.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter.fourcc('M','J','P','G'))
+#video.set(cv2.CAP_PROP_FRAME_WIDTH, 1920*2)
+#video.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080*2)
 
 if not video.isOpened():
 	print("Failed to open camera")
@@ -183,12 +184,31 @@ while True:
 		cv2.imshow("Original", orig)
 		cv2.imshow("Scanned", output)
 		if cv2.waitKey(0) & 0xFF == ord('g'):		# adjust waitkey() to adjust frame rate
-			warped = cv2.resize(warped, (1750, 1350))
-			cv2.imwrite("c:\\Users\\Iris\\OneDrive - purdue.edu\\Documents\\School\\Piano Hand\\twinkle.png", warped, [cv2.IMWRITE_PNG_COMPRESSION, 0])
-			im = Image.open("c:\\Users\\Iris\\OneDrive - purdue.edu\\Documents\\School\\Piano Hand\\twinklE.png")
-			im.save("c:\\Users\\Iris\\OneDrive - purdue.edu\\Documents\\School\\Piano Hand\\twinkleDPI.png", dpi=(300, 300))
+			'''warped = cv2.resize(warped, (1750, 1350))
+			allWhite = [True]*len(warped)
+			for i in len(warped):
+				for j in len(len(warped)):
+					if warped[i][j] <= 150:	
+						allWhite[i] = False
+						break
+			print(allWhite)
+			line = 0
+			breaks = np.array()
+			while (line < len(allWhite)):
+				if allWhite[line]:
+					index1 = line
+					while(allWhite[line]):
+						line += 1
+					index2 = line - 1
+					np.append(breaks, (index1+index2)/2)'''
+			cv2.imwrite("OutputFiles\\scan.png", warped, [cv2.IMWRITE_PNG_COMPRESSION, 0])
+			#im = Image.open("OutputFiles\\scan.png")
+			#im.save("OutputFiles\\scan.png", dpi=(300, 300))
 		break
 	elif cv2.waitKey(33) &0xFF == ord('b'):
 		break
+
 video.release()
 cv2.destroyAllWindows()
+# end of camera, convert img to mxl
+subprocess.call("converter.py",shell=True)
