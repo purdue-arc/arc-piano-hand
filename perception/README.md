@@ -1,4 +1,4 @@
 ## Installation
-* Install Dependencies (Dependencies here)
-* Change filepaths (Lines here)
+* Install Dependencies (cv2, subprocess,skimage,numpy,imutils)
+* Update filepaths (lines 204-206 in camScannerAuto.py)
 * Run camScannerAuto.py
