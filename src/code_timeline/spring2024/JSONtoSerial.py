@@ -6,24 +6,26 @@ import time
 
 #step: note name, alter: bass or treble clef, octave: octave (1-8), duration: length
 
-port = "COM8" 
+port = "COM7" 
 #Change this
 
-rate = 9600
 step_finger = {"C": 4, "G": 3, "A": 2, "B": 1}
 
+ser = serial.Serial("COM7")
+ser.baudrate = 9600
+ser.bytesize = 8        # check which port was really used
+time.sleep(2)
+
 def send_serial(json_list):
-    ser = serial.Serial(port, rate)
     
     for json_item in json_list:
-        json_values = list(json_item.values());
+        json_values = list(json_item.values())
         json_values[0] = step_finger[json_values[0]]
         
         message = ", ".join(f"{json_values[i]}" for i in range(4))
 
         ser.write(message.encode())
-        print(message + '\n' + str(ser.readline()))
-        time.sleep(3)
+        print(str(ser.readline()))
         
 
         #finger number (important), alter (unimportant), octave (unimportant), length (important)
