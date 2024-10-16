@@ -24,7 +24,10 @@ def parse_musicxml(file):
         if isinstance(music_element, note.Note):
             info = {
                 'type': 'note',
-                'pitch': (music_element.pitch.step, music_element.pitch.octave, music_element.pitch.alter),
+                'pitch': (music_element.pitch.step,
+                          music_element.pitch.octave,
+                          music_element.pitch.alter,
+                          music_element.pitch.midi),
                 'duration': music_element.quarterLength,
             }
             note_info.append(info)
@@ -33,7 +36,11 @@ def parse_musicxml(file):
         elif isinstance(music_element, chord.Chord):
             info = {
                 'type': 'chord',
-                'pitches': [(n.pitch.step, n.pitch.octave, n.pitch.alter, n.pitch.midi) for n in music_element.notes],
+                'pitches': [(n.pitch.step,
+                             n.pitch.octave,
+                             n.pitch.alter,
+                             n.pitch.midi)
+                            for n in music_element.notes],
                 'duration': music_element.quarterLength,
             }
             note_info.append(info)
@@ -51,18 +58,22 @@ def convert_to_time_steps(note_info):
 
     for n in note_info:
         time_step = []
-        for m in n['pitches']:
-            time_step.append((m[3], n['duration']))
-        time_steps.append(time_step)
+        if n['type'] == 'chord':
+            for m in n['pitches']:
+                time_step.append((m[3], n['duration']))
+            time_steps.append(time_step)
+        else:
+            time_step.append((n['pitch'][3], n['duration']))
+            time_steps.append(time_step)
 
     return time_steps
 
 
 def main():
     note_info = parse_musicxml(
-        '/Users/tristan.brideweser/Desktop/Purdue/Extracirricular/ARC/ARC '
-        '2024/src/code_timeline/fall2024/music_files/chords_sharps_testing-Piano.musicxml')
+        '/Users/tristan.brideweser/Desktop/Purdue/Extracirricular/ARC/src/code_timeline/fall2024/music_files/note_length_testing.musicxml')
     time_steps = convert_to_time_steps(note_info)
+    print(note_info)
     print(time_steps)
 
 
