@@ -1,0 +1,172 @@
+[
+    {
+        "type": "note",
+        "pitch": [
+            "B",
+            4,
+            0.0,
+            71
+        ],
+        "duration": 1.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "A",
+            4,
+            0.0,
+            69
+        ],
+        "duration": 1.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "G",
+            4,
+            0.0,
+            67
+        ],
+        "duration": 2.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "B",
+            4,
+            0.0,
+            71
+        ],
+        "duration": 1.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "A",
+            4,
+            0.0,
+            69
+        ],
+        "duration": 1.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "G",
+            4,
+            0.0,
+            67
+        ],
+        "duration": 2.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "G",
+            4,
+            0.0,
+            67
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "G",
+            4,
+            0.0,
+            67
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "G",
+            4,
+            0.0,
+            67
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "G",
+            4,
+            0.0,
+            67
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "A",
+            4,
+            0.0,
+            69
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "A",
+            4,
+            0.0,
+            69
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "A",
+            4,
+            0.0,
+            69
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "A",
+            4,
+            0.0,
+            69
+        ],
+        "duration": 0.5
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "B",
+            4,
+            0.0,
+            71
+        ],
+        "duration": 1.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "A",
+            4,
+            0.0,
+            69
+        ],
+        "duration": 1.0
+    },
+    {
+        "type": "note",
+        "pitch": [
+            "G",
+            4,
+            0.0,
+            67
+        ],
+        "duration": 2.0
+    }
+]
